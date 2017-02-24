@@ -55,14 +55,14 @@ passport.use(new GoogleStrategy({
 }));
 
 passport.use(new FacebookStrategy({
-        clientID: 'c222791594791421',
-        clientSecret: config.facebook.clientSecret,
-        callbackURL: config.facebook.callBackURL
+        clientID: '1444023985609454',
+        clientSecret: '269912475fd3d1a7c1c541c976530421',
+        callbackURL: '/suggest/fb_callback'
     },
     function(accessToken, refreshToken, profile, done) {
         console.log(accessToken, refreshToken, profile);
         process.nextTick(function() {
-            // return done(null, profile);
+            return done(null, profile);
         });
     }
 ));

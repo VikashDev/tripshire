@@ -178,17 +178,11 @@ router.route('/wiki')
 router.route('/test')
     .get(function(req, res, next) {
         console.log('Hello passport');
-        passport.authenticate('google', {
-            scope: [
-                'https://www.googleapis.com/auth/plus.login',
-                'https://www.googleapis.com/auth/plus.profile.emails.read'
-            ]
-
-        });
+        passport.authenticate('facebook', {scope: 'email'});
 
     });
 
-router.route('/google_callback')
+router.route('/fb_callback')
     .get(function(req, res, next) {
         console.log('Hello passport');
         passport.authenticate('google', {
