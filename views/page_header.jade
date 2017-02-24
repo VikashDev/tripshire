@@ -1,0 +1,66 @@
+- var h_o = header_options || {}
+
+.page_header_wrapper(ng-controller='pageHeaderCtrl')
+	.page_header.whitebg(style='border-bottom: 1px solid #eaeaea')
+		.flex_box_center
+			.logo_wrapper(style='width: 60px; height: 60px; padding: 10px; margin: 0 10px')
+				a.logo_b.inline_top.mw(href='/')
+					img.mw.inline_top(src='/dist/finalImages/logo-final.png')
+			if(true || h_o.hide_search_bar)
+				.flex_1
+			else
+				.search_bar_wrapper.flex_1.flex_stretch_self(style='border-left: 1px solid #eaeaea')
+					.search_components.flex_box_center.full_h.radius3.ml10(style='overflow: hidden')
+						.img.m10.hideat550(style='width: 20px; height: 20px; opacity: .2;')
+							img.mw.inline_top(src='/dist/finalImages/search_icon_b.png')
+						.search_input.flex_1
+							input(placeholder='Search')
+			.right_links(style='color: #999;')
+				.right_link.inline_middle(title='Coming soon') Hotels
+				.right_link.inline_middle(title='Coming soon') Flights
+				.right_link.inline_middle.hideat550
+								
+
+
+
+
+
+
+
+style
+	:uglify-css
+		.page_header_wrapper
+		{
+			_font-size: 13px;
+		}
+
+		.page_header_wrapper .search_bar_wrapper input
+		{
+			padding: 10px;
+			font-size: 16px;
+			color: #333;
+		}
+
+		.page_header_wrapper .search_bar_wrapper .search_btn
+		{
+			align-self: stretch;
+		}
+
+		.page_header_wrapper .search_bar_wrapper .search_btn .btn:hover
+		{
+			background: #32bbef
+		}
+
+		.page_header_wrapper .right_link
+		{
+			margin-right: 30px;
+		}
+
+		@media screen and (max-width: 550px)
+		{			
+			.page_header_wrapper .logo_wrapper .logo_b
+			{
+				width: 100px
+			}
+		}
+

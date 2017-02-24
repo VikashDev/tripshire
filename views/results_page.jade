@@ -1,0 +1,141 @@
+extends ./layout
+
+block content
+	.results_page_wrapper
+		.results_page
+			.header_wrapper
+				include ./page_header.jade
+			.results_content_wrapper
+				.results_content
+					.results_filter_wrapper
+						.results_filter(style='background: #fafafa;')
+							.filters_wrapper.unauth_section
+								.flex_box.displayblockat550
+									.flex_box.displayblockat550.flex_1.mr20
+										.filter_wrapper.location_filter.flex_1
+											.filter
+												.label.mb10
+													.ico.inline_middle.mr10(style='width: 15px; height: 15px; opacity: .6')
+														img.mw.inline_top(src='images/icons/location.png')
+													.inline_middle Filter by Location
+												.input
+													.input_wrapper(style='border-bottom: 1px solid #eaeaea')
+														input.full_w.p10(style='background: none; font-size: 16px;' placeholder='E.g Kuta beach' ng-model='search_form.location')
+										.filter_wrapper.location_filter.flex_1
+											.filter
+												.label.mb10
+													.ico.inline_middle.mr10(style='width: 15px; height: 15px; opacity: .6')
+														img.mw.inline_top(src='images/icons/average_visit_duration.png')
+													.inline_middle Filter by Activity Duration
+												.input
+													.input_wrapper
+														rzslider(rz-slider-model="activity_duration_slider.minValue" rz-slider-high="activity_duration_slider.maxValue" rz-slider-options="activity_duration_slider.options")
+					
+									.search_btn_wrapper.mb10(style='align-self: flex-end')
+										a.search_btn.cursor_pointer.inline_top(href='/results{{generateSearchQuery()}}') search
+					.results_list_wrapper
+						.results_list.unauth_section(style='padding: 20px;')
+							//- .breadcrumbs_wrapper
+								.breadcrumbs.mb10(style='color: #999')
+									.breadcrumb_wrapper.inline_middle
+										a.breadcrumb.inline_top(href='/' style='color: #999')
+											.t Home
+									.breadcrumb_wrapper.inline_middle
+										.breadcrumb
+											.t &nbsp;&nbsp;/&nbsp;&nbsp;Sighseeing - Wildlife
+									//- .breadcrumb_wrapper
+										.breadcrumb
+											.t Home
+							.results_title_wrapper.mb20
+								.results_title(style='font-size: 25px;') #{result_count} Results 
+									span(ng-show='searchToObject().category') for {{searchToObject().category}}
+							.results
+								.flex_box.flex_wrap.displayblockat550
+									each item in results
+										.result_wrapper.flex_1.radius3(style='min-width: 40%;')
+											a.result(href='#{item.href}' style='color: #333')
+												.image_wrapper(style='height: 300px')
+													.bg.full_h.radius3(style='background: url("#{item.cover_image}") 50% no-repeat; background-size: cover')
+												.dets_wrapper.p10
+													.title.bold
+														.inline_top(style='margin: 3px 0; margin-right: 10px') #{item.title}
+														.inline_top
+															star-rating(stars='#{item.rating}')
+													.desc(style='color: #999') #{item.description}
+							.prev_next_wrapper
+								.p20.flex_box
+									a.prev_wrapper.inline_top(style='color: #333' href='/results{{generateSearchQuery()}}&page={{(searchToObject().page || 1)-1}}' ng-show='searchToObject().page && searchToObject().page != 1')
+										.ico.inline_middle(style='width: 20px; height: 20px;')
+											img.mw.inline_top.rotate_clock_90(src='/dist/finalImages/down_arrow.png')
+										.t.inline_middle.ml20 PREV
+									.flex_1
+									a.next_wrapper.inline_top(style='color: #333' href='/results{{generateSearchQuery()}}&page={{(searchToObject().page || 1)+1}}')
+										.t.inline_middle.mr20 NEXT
+										.ico.inline_middle(style='width: 20px; height: 20px;')
+											img.mw.inline_top.rotate_anti_clock_90(src='/dist/finalImages/down_arrow.png')
+
+
+		.footer_sec
+			include ./footer.jade
+
+	style
+		:uglify-css
+			.results_page_wrapper .filters_wrapper
+			{
+				padding: 20px;
+			}
+
+			.results_page_wrapper .filter_wrapper
+			{
+				margin-right: 20px;
+			}
+
+			.results_page_wrapper .results
+			{
+				margin: 0 -10px;
+			}
+
+			.results_page_wrapper .result_wrapper
+			{
+				margin: 10px;
+			}
+
+			.results_page_wrapper .search_btn
+			{
+				background: #32bbef;
+				color: #fff;
+				font-size: 18px;
+				text-transform: uppercase;
+				_font-weight: bold;
+				padding: 5px 15px;
+				border-radius: 3px;
+			}
+
+			@media screen and (max-width: 550px)
+			{
+				.results_page_wrapper .filters_wrapper
+				{
+					padding: 10px;
+				}
+
+				.results_page_wrapper .filter_wrapper
+				{
+					margin-right: 0;
+					margin-bottom: 20px;
+				}
+
+				.results_page_wrapper .filter_wrapper:not(:last-child)
+				{
+					margin-bottom: 20px;
+				}
+
+				.results_page_wrapper .result_wrapper
+				{
+					margin: 0;
+				}
+
+				.results_page_wrapper .result_wrapper:not(:last-child)
+				{
+					margin-bottom: 20px;
+				}
+			}

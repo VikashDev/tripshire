@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+	xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+	<url>
+		<loc>http://www.tripshire.com/</loc>
+		<lastmod>2016-12-12</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+		<image:image>
+			<image:loc>http://www.tripshire.com/images/sightseeing/historical_sites.jpg</image:loc>
+			<image:caption>Historic Sites</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>http://www.tripshire.com/images/sightseeing/religious_sites.jpg</image:loc>
+			<image:caption>Religious Sites</image:caption>
+		</image:image>
+				<image:image>
+			<image:loc>http://www.tripshire.com/images/sightseeing/religious_sites.jpg</image:loc>
+			<image:caption>Religious Sites</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>http://www.tripshire.com/images/sightseeing/museums.jpg</image:loc>
+			<image:caption>Art Galleries &amp; Museums</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/v1484334025/landmarks_generic_lc8mjo.png</image:loc>
+			<image:caption>Landmarks</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/v1484039308/tanah_lot_temple_k0a48h.png</image:loc>
+			<image:caption>Tanah Lot Temple</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/v1484039306/uluwatu_temple_ecvtpy.png</image:loc>
+			<image:caption>Uluwatu Temple</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/v1484039285/prambanan_temples_z1c7hz.png</image:loc>
+			<image:caption>Ulun Danu Bratan Temple</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>http://www.tripshire.com/images/nature/beaches.jpg</image:loc>
+			<image:caption>Beach</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>http://www.tripshire.com/images/nature/mountains.jpg</image:loc>
+			<image:caption>Mountains &amp; Volcanoes</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>http://www.tripshire.com/images/nature/lakes.jpg</image:loc>
+			<image:caption>Lakes</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>http://www.tripshire.com/images/nature/caves.jpg</image:loc>
+			<image:caption>Caves</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/v1484327625/mount-bromo_z6knmi.png</image:loc>
+			<image:caption>Mount Bromo</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/v1484492257/kuta_beach_q21ras.png</image:loc>
+			<image:caption>Kuta Beach, Bali</image:caption>
+		</image:image>
+		<image:image>
+			<image:loc>https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/v1484327625/mount-batur_j7rch1.png</image:loc>
+			<image:caption>Mount Batur</image:caption>
+		</image:image>
+	</url>
+</urlset>

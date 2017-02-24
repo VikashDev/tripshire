@@ -1,0 +1,79 @@
+.fiters_wrapper
+	.whitebg.radius3
+		.filter_wrapper
+			.p10
+				.title.bold.mb5 Categories
+				.filter_search_wrapper
+					.filter_search.flex_box_center(style='border: 1px solid #f0f0f0; border-radius: 15px')
+						.img.mr5.ml10(style='width: 10px; height: 10px; opacity: .5')
+							img.mw.inline_top(src='images/search_icon_b.png')
+						.input_wrapper
+							input.p5(placeholder='Search for a category')
+				.filter_content_wrapper(style='overflow: auto; max-height: 200px')
+					.filter_content.p10
+						.conditional_filter(ng-if='filters_data.categories.getObject("category", "Adventure Sports")')
+							.filter_item_wrapper(ng-repeat='category in filters_data.categories.getObject("category", "Adventure Sports").activities')
+								.filter_item
+									.inline_middle.mr10(style='margin-top: 2px')
+										global-check-box(label='category.name')
+									//- .inline_middle
+										.t {{category.name}}
+		.filter_wrapper
+			.p10
+				.title.bold.mb5 Locations
+				.filter_search_wrapper
+					.filter_search.flex_box_center(style='border: 1px solid #f0f0f0; border-radius: 15px')
+						.img.mr5.ml10(style='width: 10px; height: 10px; opacity: .5')
+							img.mw.inline_top(src='images/search_icon_b.png')
+						.input_wrapper
+							input.p5(placeholder='Search for a location')
+				.filter_content_wrapper
+					.filter_content.p10			
+						.filter_item_wrapper(ng-repeat='location in filters_data.locations')
+							.filter_item
+								.inline_middle.mr10
+									global-check-box(value='' change-value='modifyFilter' label='location.name')
+								//- .inline_middle
+									.t {{location.name}}
+		.filter_wrapper
+			.p10
+				.title.bold.mb5 Hour window
+				.filter_content_wrapper
+					.filter_content.p10
+						.filter_item_wrapper
+							.filter_item
+								.inline_middle.mr10
+									global-check-box(label='"Morning (Before 12pm)"')
+								//- .inline_middle
+									.t Morning (Before 12pm)
+						.filter_item_wrapper
+							.filter_item
+								.inline_middle.mr10
+									global-check-box(label='"Afternoon (12pm - 6pm)"')
+								//- .inline_middle
+									.t Afternoon (12-6pm)
+						.filter_item_wrapper
+							.filter_item
+								.inline_middle.mr10
+									global-check-box(label='"Evening (After 6pm)"')
+								//- .inline_middle
+									.t Evening (After 6pm)
+
+
+style
+	:uglify-css
+		.fiters_wrapper .filter_wrapper:not(:first-child)
+		{
+			border-top: 1px solid #f0f0f0
+		}
+		
+		.fiters_wrapper .filter_content_wrapper
+		{
+			overflow: auto;
+			max-height: 200px;
+		}
+		
+		.fiters_wrapper .filter_item_wrapper
+		{
+			margin-bottom: 5px;
+		}

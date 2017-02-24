@@ -1,0 +1,7 @@
+//- components
+
+script(type='text/ng-template' id='reusable_components/star_ratings.html')
+	.global_star_rating_wrapper(style='margin: -1px;')
+		.inline_middle(ng-repeat='star in getNumber(stars) track by $index' style='margin: 1px; border-radius: 50%;')
+			.star(style='width: 15px; height: 15px;')
+				img.mw.inline_top(src='/dist/finalImages/star.png')

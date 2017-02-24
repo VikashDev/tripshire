@@ -1,0 +1,53 @@
+footer.footer_section_wrapper
+	.footer_section(style='border-top: 1px solid #eaeaea; color: #999; font-size: 13px;')
+		.unauth_section.p20
+			.flex_box_center.displayblockat550
+				.left_sec
+					.ico.inline_middle.mr20(style='margin-left: -10px; width: 25px; height: 30px')
+						img.mw.inline_top(src='/dist/finalImages/logo-bw.png')
+					.inline_middle.mr20 &copy; Tripshire #{new Date().getFullYear()} | All Rights Reserved
+
+				.flex_1
+				.right_sec
+					//- .inline_middle.mr20 About us
+					.inline_middle.mr20 Terms & Conditions
+					.inline_middle.mr20 Sitemap
+					.inline_middle.mr20 About us
+					.inline_middle.mr20 Contact us
+					.inline_middle.soc_wrapper
+						a.ico.inline_middle.mr20(href='https://www.facebook.com/tripshire' target='_blank')
+							img.mw.inline_top(src='/dist/finalImages/icons/facebook.png')
+						a.ico.inline_middle.mr20(href='https://www.instagram.com/tripshire' target='_blank')
+							img.mw.inline_top(src='/dist/finalImages/icons/instagram.png')
+						a.ico.inline_middle.mr20(href='https://twitter.com/Tripshire' target='_blank')
+							img.mw.inline_top(src='/dist/finalImages/icons/twitter.png')
+						a.ico.inline_middle.mr20(href='https://plus.google.com/117750107407262775993' target='_blank')
+							img.mw.inline_top(src='/dist/finalImages/icons/google.png')
+
+style
+	:uglify-css
+		.footer_section .soc_wrapper
+		{
+			margin-top: -2px;
+		}
+		
+		.footer_section .soc_wrapper .ico
+		{
+			opacity: .4;
+			width: 20px;
+			height: 20px;
+			padding: 2px;
+		}
+
+		@media screen and (max-width: 550px)
+		{
+			.footer_section
+			{
+				text-align: center
+			}
+
+			.footer_section .left_sec
+			{
+				margin-bottom: 20px;
+			}
+		}

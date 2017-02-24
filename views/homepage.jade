@@ -1,0 +1,157 @@
+extends ./layout
+
+block content
+	.homepage_wrapper
+		.hero_carousel_wrapper
+			.hero_carousel(style='position: relative')
+				.absolute_cover(style='height: 70px; z-index: 3; ')
+					.full_w.full_h.flex_box_center
+						.ico.ml10(style='width: 50px;')
+							img.mw.inline_top(src='/dist/finalImages/logo-final.png')
+						.flex_1
+						.links(style='color: #fff')
+							.inline_middle(style='margin-right: 40px') Hotels
+							.inline_middle(style='margin-right: 40px') Flights
+				.owl-carousel#header_heros._owl-theme
+					.carousel_image(style='background: url("/dist/finalImages/carousel/1.jpg") 50% no-repeat; background-size: cover') 
+					.carousel_image(style='background: url("/dist/finalImages/carousel/2.jpg") 50% no-repeat; background-size: cover') 
+					.carousel_image(style='background: url("/dist/finalImages/carousel/3.jpg") 50% no-repeat; background-size: cover') 
+					.carousel_image(style='background: url("/dist/finalImages/carousel/4.jpg") 50% no-repeat; background-size: cover') 
+					.carousel_image(style='background: url("/dist/finalImages/carousel/5.jpg") 50% no-repeat; background-size: cover') 
+
+				.absolute_cover.full_w.full_h(style='z-index: 2; ')
+					.flex_box_center_center.full_h.full_w.center_align
+						.hero_content
+							.hero_title(style='color: #fff;')
+								.line_1.inline_middle Discover Indonesia with&nbsp;
+								.logo.inline_middle(style='width: 200px; margin-top : 30px')
+									img.mw.inline_top(src='/dist/finalImages/brand-name.png')
+
+			.break(style='margin-top: 40px')
+			.search_bar_wrapper(style='margin-bottom: -40px')
+				.search_bar.flex_box_center.unauth_section.subtle_border.box_shadow.radius5(style='overflow: hidden;')
+					.ico.hideat550.ml20(style='width: 20px; height: 20px; opacity: .2')
+						img.mw.inline_top(src='images/search_icon_b.png')
+					.input_wrapper.inline_middle.flex_1.transition_medium
+						input.full_w.search_input(ng-model='search_input' placeholder='Search for an activity, tour operator and more in Indonesia' ng-focus='search_input_active=true' ng-blur='search_input_active=false')
+					.search_btn.inline_middle.radius3
+						.flex_box_center.full_h.cursor_pointer
+							a.t(style='padding: 12px 20px; font-weight: 200' href='/results?key={{search_input}}') Search
+
+
+		.sections_wrapper
+			.p10
+				each homepage_section in homepage_sections
+					.break(style='margin-top: 80px')
+					.section_wrapper
+						.unauth_section
+							.big_title #{homepage_section.title}
+							.break(style='margin-top: 20px')
+								.owl-carousel.section_cats._owl-theme
+									each category in homepage_section.categories
+										a.section_cat(href='/results?category=#{category.category}' style='color: #333')
+											.flex_box.flex_column.full_h
+												.flex_1(style='background: url("#{category.image}") 50% no-repeat; background-size: cover')
+												.dets.mt10
+													.t.bold #{category.title}
+													if(category.description)
+														.t #{category.description}
+					if(homepage_section.sub_cat)
+						each sub_cat in homepage_section.sub_cat
+							.break(style='margin-top: 80px')
+							.section_wrapper
+								.unauth_section
+									.big_title #{sub_cat.title}
+									.break(style='margin-top: 20px')
+										.owl-carousel.section_sub_cats._owl-theme
+											each sub_cat_content in sub_cat.content
+												a.section_cat(href='#{sub_cat_content.url}' style='height: 250px; color: #333')
+													.flex_box.flex_column.full_h
+														.flex_1(style='background: url("#{sub_cat_content.image}") 50% no-repeat; background-size: cover')
+														.dets.mt10
+															.t.bold
+																.inline_top(style='margin: 2px 0; margin-right: 10px;') #{sub_cat_content.title}
+																.inline_top
+																	star-rating(stars='#{sub_cat_content.rating}')
+															.t(style='color: #999') #{sub_cat_content.description}
+																
+				.break(style='margin-top: 50px')
+		
+		.footer_sec
+			include ./footer.jade
+
+	style
+		:uglify-css
+			.homepage_wrapper .carousel_image
+			{
+				height: 75vh; 
+				width: 100%;
+			}
+
+			.homepage_wrapper .section_cat
+			{
+				height: 387px;
+				_width: 258px;
+				display: block;
+			}
+
+			.homepage_wrapper .hero_title
+			{
+				font-size: 60px;
+			}
+
+			.homepage_wrapper .search_input
+			{
+				font-size: 24px;
+				color: #666;
+				padding: 15px 25px;
+			}
+
+			.homepage_wrapper .search_btn
+			{
+				background: #32bbef;
+				color: #fff;
+				opacity: .8;
+				margin-right: 7px;
+				font-size: 21px;
+			}
+
+			.homepage_wrapper .search_btn:hover
+			{
+				opacity: 1;
+			}
+
+			.homepage_wrapper .search_bar
+			{
+				padding: 10px
+			}
+
+			@media screen and (max-width: 550px)
+			{
+				.homepage_wrapper .hero_title
+				{
+					font-size: 30px;
+				}
+				
+				.homepage_wrapper .search_bar_wrapper
+				{
+					padding: 0 10px;
+				}
+				
+				.homepage_wrapper .search_bar
+				{
+					padding: 0
+				}
+
+				.homepage_wrapper .search_input
+				{
+					font-size: 16px;
+					padding: 10px 15px;
+				}
+
+				.homepage_wrapper .search_btn
+				{
+					margin-right: 0;
+					font-size: 16px;
+				}
+			}

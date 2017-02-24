@@ -1,0 +1,197 @@
+<div class="col-md-10 col-sm-10 col-xs-12 offset-md-1">
+  <div ng-show="main.error" class="alert alert-danger">{{main.errorMessage}}</div>
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">add activities</h3>
+    <div class="btn-group pull-right">
+  <a href="#">
+      <button class="btn btn-danger">
+        <i class="fa fa-times"></i>
+        Cancel
+      </button>
+  </a>
+      <button type="submit" form="form" ng-click="main.addActivity(main.new_activity)" class="btn btn-success">
+        <i class="fa fa-check"></i>
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal" method='post' id="form" name="form">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">
+          <input type="text" id="name" name="name" class="form-control" ng-model="main.new_activity.name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">image url</label>
+        <div class="col-xs-9">
+          <input type="text" class="form-control" ng-model="main.activity.image_url">
+        </div>
+      </div>
+    <div class="form-group">
+        <label class="col-xs-3 control-label">category</label>
+        <div class="col-xs-9">
+      <select ng-model="main.new_activity.category">
+        <option ng-repeat="x in main.categories" value="{{x.name}}">{{x.name}}</option>
+      </select>
+      </div>
+    </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Discription</label>
+        <div class="col-xs-9">
+          <input type="text" id="discription" name="discription" class="form-control" ng-model="main.new_activity.discription" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">duration</label>
+        <div class="col-xs-9">
+          <input type="number" class="form-control" ng-model="main.new_activity.duration" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">rating</label>
+        <div class="col-xs-9">
+          <input type="number" min="0.0" max="5.0" class="form-control" ng-model="main.new_activity.rating" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">highlights</label>
+      <div class=col-md-9>
+        <div class="col-xs-9">
+          <input type="text" id="name" name="name" class="form-control" ng-model="main.value" >
+        </div>
+        <div class="col-md-6">
+        <button ng-click="main.addhighlights(main.value)" class="btn btn-success">add</button>
+      </div>
+      </div>
+      <div ng-repeat="highlight in new_activity.highlights">
+      <label class="col-xs-3 control-label"></label>
+      <div class="col-xs-9" >
+        <input type="text" class="form-control" ng-model="main.highlight" disabled>
+      </div>
+    </div>
+    </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">tags</label>
+        <div class=col-md-9>
+          <div class="col-xs-9">
+            <input type="text" id="name" name="name" class="form-control" ng-model="main.tagvalue" >
+          </div>
+          <div class="col-md-6">
+          <button ng-click="main.addtags(main.tagvalue)" class="btn btn-success">add</button>
+        </div>
+        </div>
+        <div ng-repeat="tag in main.new_activity.tags">
+        <label class="col-xs-3 control-label"></label>
+        <div class="col-xs-9" >
+          <input type="text" class="form-control" ng-model="tag" disabled>
+        </div>
+      </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">operator:</label><br/><br />
+        <label class="col-xs-3 control-label">name</label>
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="main.opvalue.name" >
+          </div>
+          <label class="col-xs-3 control-label">website</label>
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="main.opvalue.website" >
+          </div>
+          <label class="col-xs-3 control-label">contact_no</label>
+          <div class="col-xs-9">
+            <input type="number" class="form-control" ng-model="main.opvalue.contact_no" >
+          </div>
+          <label class="col-xs-3 control-label">address</label>
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="main.opvalue.address" >
+          </div>
+          <label class="col-xs-3 control-label">rating</label>
+          <div class="col-xs-9">
+            <input type="number" min="0.0" max="5.0" class="form-control" ng-model="main.opvalue.rating" >
+          </div>
+          <label class="col-xs-3 control-label"></label>
+          <div class="col-md-6">
+            <button ng-click="main.addoperator(main.opvalue)" class="btn btn-success">add</button>
+          </div><br />
+          <div ng-repeat="operator in main.new_activity.operator">
+            <label class="col-xs-3 control-label"></label>
+            <div class="col-xs-9" >
+              <input type="text" class="form-control" ng-model="operator.name" disabled>
+            </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">address</label>
+        <div class="col-xs-9">
+          <input type="text" id="address" name="name" class="form-control" ng-model="main.new_activity.address" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">geo</label>
+        <div class="col-xs-3">
+          <input type="input" class="form-control" id='lat' placeholder="lat" >
+        </div>
+        <div class="col-xs-3">
+          <input type="input" class="form-control" id='long' placeholder="long" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">other attributes</label>
+        <div class=col-md-9>
+          <div class="col-xs-6">
+            <input type="text" class="form-control" ng-model="main.attrs.key" >
+          </div>
+          <div class="col-xs-6">
+            <input type="text" class="form-control" ng-model="main.attrs.val" >
+          </div>
+          <div class="col-md-6">
+          <button ng-click="main.addattrs(main.attrs)" class="btn btn-success">add</button>
+        </div>
+        </div>
+        <label class="col-xs-3 control-label"></label>
+        <div class="col-xs-9" ng-repeat="attr in main.new_activity.attrs">
+          <div class="col-md-6">
+          <input type="text" class=" form-control" ng-model="attr.key" disabled>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class=" form-control" ng-model="attr.val" disabled>
+        </div>
+        </div>
+      </div>
+      {{main.new_activity}}
+    </form>
+  </div>
+</div>
+<script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+
+        var input = document.getElementById('address');
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          console.log(place)
+          document.getElementById('lat').value=place.geometry.location.lat();
+          document.getElementById('long').value=place.geometry.location.lng();
+          if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+        });
+
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_oVMb3OY2R15XXNqx4NJOX67blAztMP0&libraries=places&callback=initMap"
+        async defer></script>
+
+</div>

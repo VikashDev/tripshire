@@ -1,0 +1,237 @@
+<div class="col-md-10 col-sm-10 col-xs-12 offset-md-1">
+  <div ng-show="edit.error" class="alert alert-danger">{{edit.errorMessage}}</div>
+        {{edit.address}}
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">edit {{edit.activity.name}} activity</h3>
+    <div class="btn-group pull-right">
+  <a ng-href="/">
+      <button class="btn btn-danger">
+        <i class="fa fa-times"></i>
+        Cancel
+      </button>
+  </a>
+  <button ng-click="edit.deleteActivity()" class="btn btn-danger">
+    <i class="fa fa-times"></i>
+    delete
+  </button>
+
+      <button type="submit" form="form" ng-click="edit.editActivity(activity)" class="btn btn-success">
+        <i class="fa fa-check"></i>
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal" method='post' id="form" name="form">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">
+          <input type="text" id="name" name="name" class="form-control" ng-model="edit.activity.name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">image url</label>
+        <div class="col-xs-9">
+          <input type="text" class="form-control" ng-model="edit.activity.image_url">
+        </div>
+      </div>
+    <div class="form-group">
+        <label class="col-xs-3 control-label">category</label>
+        <div class="col-xs-9">
+      <select ng-model="edit.activity.category" disabled>
+        <option ng-repeat="x in edit.categories" value="{{x.name}}">{{x.name}}</option>
+      </select>
+      </div>
+    </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Discription</label>
+        <div class="col-xs-9">
+          <input type="text" id="discription" name="discription" class="form-control" ng-model="edit.activity.discription" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">duration</label>
+        <div class="col-xs-9">
+          <input type="number" id="duration" name="duration" class="form-control" ng-model="edit.activity.duration" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">rating</label>
+        <div class="col-xs-9">
+          <input type="number" min="0.0" max="5.0" class="form-control" ng-model="edit.activity.rating" value="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">highlights</label>
+      <div class=col-md-9>
+        <div class="col-xs-9">
+          <input type="text" id="name" name="name" class="form-control" ng-model="edit.value" >
+        </div>
+        <div class="col-md-6">
+        <button ng-click="edit.addhighlights(edit.value)" class="btn btn-success">add</button>
+      </div>
+      </div>
+      <div ng-repeat="highlight in edit.activity.highlights" >
+      <label class="col-xs-3 control-label"><a ng-click="edit.removeHighlights(edit.highlight)">remove</a></label>
+      <div class="col-md-9">
+        <input type="text" class="form-control" ng-model="edit.highlight" disabled>
+      </div>
+    </div>
+    </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">tags</label>
+        <div class=col-md-9>
+          <div class="col-xs-9">
+            <input type="text" id="name" name="name" class="form-control" ng-model="edit.tagvalue" >
+          </div>
+          <div class="col-md-6">
+          <button ng-click="edit.addtags(edit.tagvalue)" class="btn btn-success">add</button>
+        </div>
+        </div>
+        <div ng-repeat="tag in edit.activity.tags">
+        <label class="col-xs-3 control-label"><a ng-click="edit.removeTag(tag)">remove</a></label>
+        <div class="col-xs-9" >
+          <input type="text" class="form-control" ng-model="tag" disabled>
+        </div>
+      </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">operator:</label><br/><br />
+        <label class="col-xs-3 control-label">name</label>
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="edit.opvalue.name" >
+          </div>
+          <label class="col-xs-3 control-label">website</label>
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="edit.opvalue.website" >
+          </div>
+          <label class="col-xs-3 control-label">contact_no</label>
+          <div class="col-xs-9">
+            <input type="number" class="form-control" ng-model="edit.opvalue.contact_no" >
+          </div>
+          <label class="col-xs-3 control-label">address</label>
+          <div class="col-xs-9">
+            <input type="text" class="form-control" ng-model="edit.opvalue.address" >
+          </div>
+          <label class="col-xs-3 control-label">rating</label>
+          <div class="col-xs-9">
+            <input type="number" min="0.0" max="5.0"  class="form-control" ng-model="edit.opvalue.rating" >
+          </div>
+          <label class="col-xs-3 control-label"></label>
+          <div class="col-md-6">
+            <button ng-click="edit.addoperator(edit.opvalue)" class="btn btn-success">add</button>
+          </div>
+        </div>
+            <label class="col-xs-3 control-label">current added operator:</label><br/><br />
+          <div class="form-group" ng-repeat="operator in edit.activity.operator">
+
+            <label class="col-xs-3 control-label">name</label>
+                <div class="col-xs-9">
+                  <input type="text" class="form-control" ng-model="operator.name" >
+                </div>
+                <label class="col-xs-3 control-label">website</label>
+                <div class="col-xs-9">
+                  <input type="text" class="form-control" ng-model="operator.website" >
+                </div>
+                <label class="col-xs-3 control-label">contact_no</label>
+                <div class="col-xs-9">
+                  <input type="number" class="form-control" ng-model="operator.contact_no" >
+                </div>
+                <label class="col-xs-3 control-label">address</label>
+                <div class="col-xs-9">
+                  <input type="text" class="form-control" ng-model="operator.address" >
+                </div>
+                <label class="col-xs-3 control-label">rating</label>
+                <div class="col-xs-9">
+                  <input type="text" class="form-control" ng-model="operator.rating" >
+                </div>
+                <label class="col-xs-3 control-label"></label>
+            </div>
+
+      <div class="form-group">
+        <label class="col-xs-3 control-label">address</label>
+        <div class="col-xs-9">
+          <input type="text" id="name" name="name" g-places-autocomplete class="form-control" ng-model="edit.address" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">geo</label>
+        <div class="col-xs-3">
+          <input type="number" step="any" class="form-control" placeholder="lat" ng-model="edit.activity.geo[0]" >
+        </div>
+        <div class="col-xs-3">
+          <input type="number" step="any" class="form-control" placeholder="long" ng-model="edit.activity.geo[1]" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">other attributes</label>
+        <div class=col-md-9>
+          <div class="col-xs-6">
+            <input type="text" class="form-control" ng-model="edit.attrs.key" >
+          </div>
+          <div class="col-xs-6">
+            <input type="text" class="form-control" ng-model="edit.attrs.val" >
+          </div>
+          <div class="col-md-6">
+            <button ng-click="edit.addattrs(edit.attrs)" class="btn btn-success">add</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">currently added attributes</label>
+        <div class="col-xs-9" ng-repeat="attr in edit.activity.attrs">
+          <div class="col-md-6">
+          <input type="text" class=" form-control" ng-model="attr.key" >
+        </div>
+        <div class="col-md-6">
+          <input type="text" class=" form-control" ng-model="attr.val" >
+        </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Wiki</label><br /><br />
+        <div>
+        <div ng-repeat="wiki in activity.wiki">
+          <label class="col-xs-3 control-label">name</label>
+        <div class="col-md-9">
+          <input type="text" class=" form-control" ng-model="edit.wiki.title" >
+        </div>
+        <label class="col-xs-3 control-label">url</label>
+        <div class="col-xs-9">
+          <input type="text" class=" form-control" ng-model="edit.wiki.url" >
+        </div>
+        <label class="col-xs-3 control-label">discription</label>
+        <div class="col-xs-9">
+          <textarea type="text" class=" form-control" ng-model="edit.wiki.extract" >
+        </div>
+        </div>
+      </div>
+    </div>
+
+    </form>
+    <!-- <script>
+      angular.module('Admin').directive('fileModel', ['$parse', function ($parse) {
+      return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+          var model = $parse(attrs.fileModel);
+          var modelSetter = model.assign;
+
+          element.bind('change', function(){
+              scope.$apply(function(){
+                  modelSetter(scope, element[0].files[0]);
+              });
+          });
+      }
+      };
+      }]);
+    </script> -->
+  </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_oVMb3OY2R15XXNqx4NJOX67blAztMP0&libraries=places&callback=initMap"
+    async defer></script>
+<script src="/node_modules/angular-google-places-autocomplete/src/autocomplete.js"></script>
+<link rel="stylesheet" href="/node_modules/angular-google-places-autocomplete/src/autocomplete.css">
+
+</div>

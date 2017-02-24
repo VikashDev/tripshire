@@ -1,0 +1,300 @@
+extends ./layout
+
+block content
+	.homepage_wrapper
+		.absolute_cover.search_background(class='{{search_input_active?"active":""}}')
+		.hero_wrapper.position_relative
+			.absolute_cover.hero_image
+			.absolute_cover.fog_wrapper
+				.fog.fog_1
+				.fog.fog_2
+				.fog.fog_3
+				.fog.fog_4
+			.header_wrapper.position_relative(style='z-index: 2; background: rgba(255, 255, 255, .1)')
+				.header.unauth_section.flex_box_center.full_w(style='height: 50px; font-size: 16px; padding: 0 20px')
+					.flex_1(style='text-align: right;')
+						.t.inline_top.everyOtherLink.inline_middle.mr20(style='color: #fff') Flights
+						.t.inline_top.everyOtherLink.inline_middle.mr20(style='color: #fff') Hotels
+						.t.inline_top.everyOtherLink.inline_middle(style='color: #fff') Destinations
+			.hero_content_wrapper.center_align.unauth_section
+				.logo_wrapper
+					img.inline_top.mw(src='images/new_logo.png')
+				.description_wrapper(style='margin-top: 50px;')
+					.t.white_color(style='font-size: 20px; font-weight: lighter') Your travel research and planning partner. We are soon launching in Indonesia.
+				.search_bar_wrapper(style='margin: 20px -20px 0 -20px;')
+					.search_bar.flex_box(style='z-index: 3; position: relative; max-width: 600px; margin: 0 auto; padding: 30px' class='{{search_input_active?"active":""}}')
+						.input_wrapper.inline_middle.flex_1.transition_medium(style='border-radius: 30px 0 0 30px; overflow: hidden')
+							input.full_w.search_input(placeholder='Search for something in Indonesia' ng-focus='search_input_active=true' ng-blur='search_input_active=false')
+						.search_btn.inline_middle
+							.flex_box_center.full_h.cursor_pointer
+								.t
+									img.inline_top(style='width: 20px;' src='/images/search_icon.png')
+		.thumbnails_wrapper
+			.thumbnails_content_wrapper.unauth_section
+				//- .t #{JSON.stringify(config.homepage_categories)}
+				.flex_box.flex_wrap.p5
+					each item, key in config.homepage_categories
+						a.flex_1.m5.cursor_pointer.category_button(href='/results' style='flex-basis: 330px;')
+							.position_relative.radius5.flex_box_center(style='background: #000; overflow: hidden; height: 180px')
+								.absolute_cover.transition_medium(style='background: url("#{item.image}") 50% no-repeat; background-size: cover;')
+								.t.center_align.position_relative.text_shadow.transition_medium.flex_1(style='color: #fff; font-size: 25px') #{item.name}
+									.line_wrapper.transition_medium
+										.line.p_line.transition_medium
+										.line.b_line.transition_medium
+		.footer_wrapper
+			.footer_content(style='background: #333; color: #fff; padding: 20px')
+				.footer.unauth_section
+					.t(style='opacity: .3') &copy; Tripshire 2017
+	style
+		:uglify-css
+			
+			.homepage_wrapper .hero_wrapper
+			{
+				background: #000
+			}
+			
+			.homepage_wrapper .hero_wrapper .hero_image
+			{
+				background: url('/images/homepage_hero.jpg') 50% 20% no-repeat;
+				background-size: cover;
+			}
+			
+			.homepage_wrapper .hero_wrapper .fog_wrapper
+			{
+
+			}
+			
+			.homepage_wrapper .hero_wrapper .fog_wrapper .fog
+			{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background: url('/images/fog.png') 50%;
+				background-size: contain;
+				width: 100%;
+			}
+			
+			.homepage_wrapper .hero_wrapper .fog_wrapper .fog.fog_1
+			{
+				-webkit-animation: fog_slide 20s linear infinite;
+				animation: fog_slide 20s linear infinite;
+				height: 200px;
+			}
+			
+			.homepage_wrapper .hero_wrapper .fog_wrapper .fog.fog_2
+			{
+				-webkit-animation: fog_slide 30s linear infinite;
+				animation: fog_slide 30s linear infinite;
+				height: 300px;
+			}
+			
+			.homepage_wrapper .hero_wrapper .fog_wrapper .fog.fog_3
+			{
+				-webkit-animation: fog_slide 40s linear infinite;
+				animation: fog_slide 40s linear infinite;
+				height: 400px;
+			}
+			
+			.homepage_wrapper .hero_wrapper .fog_wrapper .fog.fog_4
+			{
+				-webkit-animation: fog_slide 50s linear infinite;
+				animation: fog_slide 50s linear infinite;
+				height: 500px;
+			}
+		
+			.homepage_wrapper .hero_wrapper .hero_content_wrapper
+			{
+				position: relative;
+				padding: 100px 20px;
+			}
+
+			@-webkit-keyframes fog_slide
+			{
+				0%
+				{
+					background-position: 0 0;
+					opacity: 0;
+				}
+
+				10%
+				{
+					opacity: 1;
+				}
+
+				90%
+				{
+					opacity: 1;
+				}
+
+				100%
+				{
+					background-position: 100% 0;
+					opacity: 0;
+				}
+			}
+
+			@keyframes fog_slide
+			{
+				0%
+				{
+					background-position: 0 0;
+					opacity: 0;
+				}
+
+				10%
+				{
+					opacity: 1;
+				}
+
+				90%
+				{
+					opacity: 1;
+				}
+
+				100%
+				{
+					background-position: 100% 0;
+					opacity: 0;
+				}
+			}
+
+			.homepage_wrapper .hero_wrapper .hero_content_wrapper .search_btn
+			{
+				background: #ca1859;
+				color: #fff;
+				border-radius: 0 30px 30px 0;
+			}
+
+			.homepage_wrapper .hero_wrapper .hero_content_wrapper .search_btn:hover
+			{
+				background: #c52a63
+			}
+
+			.homepage_wrapper .hero_wrapper .hero_content_wrapper .search_btn .t
+			{
+				padding: 0 40px
+			}
+
+			.homepage_wrapper .hero_wrapper .hero_content_wrapper .search_input
+			{
+				font-size: 24px;
+				color: #666;
+				padding: 15px 25px;
+			}
+
+			.homepage_wrapper .search_background
+			{
+				position: fixed;
+				left: 0;
+				top: 0;
+				background: #000;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				z-index: 2;
+				-webit-transition: all .2s linear;
+				transition: all .2s linear;
+			}
+
+			.homepage_wrapper .search_background.active
+			{
+				opacity: .7;
+			}
+
+			.homepage_wrapper .search_background:not(.active)
+			{
+				-webit-transition: postition .2s 0 linear;
+				transition: postition .2s 0 linear;
+				pointer-events: none;
+			}
+
+			.homepage_wrapper .category_button
+			{
+				position: relative;
+			}
+
+			.homepage_wrapper .category_button .t
+			{
+				top: 0;
+				position: relative;
+			}
+
+			.homepage_wrapper .category_button:hover .t
+			{
+				top: -10px;
+			}
+
+			.homepage_wrapper .category_button .absolute_cover
+			{
+				opacity: .8
+			}
+
+			.homepage_wrapper .category_button:hover .absolute_cover
+			{
+				opacity: .5
+			}
+
+			.homepage_wrapper .category_button .line_wrapper
+			{
+				position: absolute; 
+				left: 50%;
+				top: 100%;
+				width: 100px;
+				height: 3px;
+				margin-top: 0px;
+				margin-left: -50px;
+			}
+
+			.homepage_wrapper .category_button:hover .line_wrapper
+			{
+				margin-top: 10px
+			}
+
+			.homepage_wrapper .category_button .line_wrapper .line
+			{
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 0;
+				position: absolute;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+
+			.homepage_wrapper .category_button:hover .line_wrapper .line
+			{
+				width: 100%
+			}
+
+			.homepage_wrapper .category_button .line_wrapper .line.p_line
+			{
+				background: #ca1859;
+			}
+
+			.homepage_wrapper .category_button .line_wrapper .line.b_line
+			{
+				background: #00aeef;
+				-webkit-transition-delay: .2s;
+				transition-delay: .2s;
+			}
+
+
+			@media screen and (max-width: 550px)
+			{
+
+				.homepage_wrapper .hero_wrapper .hero_content_wrapper
+				{
+					padding: 60px 20px
+				}
+				
+				.homepage_wrapper .hero_wrapper .hero_content_wrapper .search_input
+				{
+					padding: 10px 15px;
+					font-size: 16px;
+				}
+
+				.homepage_wrapper .hero_wrapper .hero_content_wrapper .search_btn .t
+				{
+					padding: 0 20px
+				}
+			}

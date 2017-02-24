@@ -1,0 +1,80 @@
+<div>
+<nav class="navbar navbar-dark bg-primary navbar-fixed-top" style="">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color:white" href="#">Tripshire</a>
+    </div>
+      <ul  class="nav navbar-nav navbar-right">
+        <li><a ng-href="#/logout" class="white"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<div>
+  <div class="row list-group">
+    <div class="list-group col-md-4">
+      <a style="text-align: center" ng-href="#/csv" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading"><b>CSV upload</b></h5>
+      </a>
+    </div>
+    <div class="list-group col-md-4">
+      <a style="text-align: center" ng-href="#/activities/add" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading"><b>add activity</b></h5>
+      </a>
+    </div>
+    <div class="list-group col-md-4">
+      <a style="text-align: center" ng-href="#/categories/add" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading"><b>add category</b></h5>
+      </a>
+    </div>
+    <!-- <div class="list-group col-md-3">
+      <a style="text-align: center" ng-href="#/categories/edit" class="list-group-item list-group-item-action">
+        <h5 class="list-group-item-heading"><b>edit category</b></h5>
+      </a>
+    </div> -->
+  </div>
+  <div ng-repeat='data in main.categories track by $index' class="list-group">
+  <a style="text-align: center" ng-click="main.getActivities(data.name)" class="list-group-item list-group-item-action">
+    <h5 class="list-group-item-heading"><b>{{data.name}}</b></h5>
+    <p class="list-group-item-text">{{data.discription}}</p>
+  </a>
+</div>
+</div>
+<div class="col-md-12">
+  <div class="col-md-12 text-center" ng-if="main.processing==true">
+  <img src="../gif/loading.gif" alt="loading" align='middle' style="align:middle;width:128px;height:128px;">
+  </div>
+  <br /><br />
+  <label class="col-md-3 control-label">search:</label>
+  <div class="col-md-9">
+  <input type="text" id="name" name="name" class="form-control" ng-model="main.searchText" >
+  </div>
+</div>
+<br/><br/>
+  <table class="table table-fixed">
+    <thead>
+      <tr >
+        <th class="col-xs-3">Activity</th>
+        <th class="col-xs-3">discription</th>
+        <th class="col-xs-3">highlights</th>
+        <th class="col-xs-3">tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='data in main.activities | filter:main.searchText'>
+        <th class="col-xs-3"><a ng-href="#/activities/{{data._id}}">{{data.name}}</th>
+        <th class="col-xs-3">{{data.discription}}</th>
+        <th class="col-xs-3">{{data.highlights}}</th>
+        <th class="col-xs-3">{{data.tags}}</th>
+      </tr>
+
+
+
+
+    </tbody>
+  </table>
+</div>
+
+</div>

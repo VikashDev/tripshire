@@ -1,0 +1,57 @@
+<div class="col-md-10 col-sm-10 col-xs-12 offset-md-1">
+  <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Settings</h3>
+    <div class="btn-group pull-right">
+  <a href="#">
+      <button class="btn btn-danger">
+        <i class="fa fa-times"></i>
+        Cancel
+      </button>
+  </a>
+      <button type="submit" form="form" ng-click="uploadFile()" class="btn btn-success">
+        <i class="fa fa-check"></i>
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal" method='post' id="form" name="form">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">{{category}}</label>
+        <div class="col-xs-9">
+      <select ng-model="category">
+        <option ng-repeat="x in categories" value="{{x.name}}">{{x.name}}</option>
+      </select>
+      </div>
+    </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">CSV file</label>
+        <div class="col-xs-9">
+          <input type="file" id="file" name="file" class="" file-model = "myFile" value="">
+        </div>
+      </div>
+    </form>
+    <!-- <script>
+      angular.module('Admin').directive('fileModel', ['$parse', function ($parse) {
+      return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+          var model = $parse(attrs.fileModel);
+          var modelSetter = model.assign;
+
+          element.bind('change', function(){
+              scope.$apply(function(){
+                  modelSetter(scope, element[0].files[0]);
+              });
+          });
+      }
+      };
+      }]);
+    </script> -->
+  </div>
+</div>
+<script src="/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+<script src="/node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+</div>

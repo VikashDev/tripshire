@@ -1,0 +1,68 @@
+<div class="col-md-10 col-sm-10 col-xs-12 offset-md-1">
+  <div ng-show="main.error" class="alert alert-danger">{{main.errorMessage}}</div>
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">Settings</h3>
+    <div class="btn-group pull-right">
+  <a href="#">
+      <button class="btn btn-danger">
+        <i class="fa fa-times"></i>
+        Cancel
+      </button>
+  </a>
+      <button type="submit" form="form" ng-click="main.addCategory(main.new_category)" class="btn btn-success">
+        <i class="fa fa-check"></i>
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal" method='post' id="form" name="form">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Name</label>
+        <div class="col-xs-9">
+          <input type="text" id="name" name="name" class="form-control" ng-model="main.new_category.name" required>
+        </div>
+      </div>
+        <!-- <div class="form-group">
+        <label class="col-xs-3 control-label">Parent Category</label>
+        <div class="col-xs-9">
+          <input type="dropdown" id="parent" name="parent" class="form-control" ng-model="new_category.parent" value="">
+        </div>
+      </div> -->
+    <div class="form-group">
+        <label class="col-xs-3 control-label">parent</label>
+        <div class="col-xs-9">
+      <select ng-model="main.new_category.parent">
+        <option ng-repeat="x in main.categories" value="{{x.name}}">{{x.name}}</option>
+      </select>
+      </div>
+    </div>
+      <div class="form-group">
+        <label class="col-xs-3 control-label">Discription</label>
+        <div class="col-xs-9">
+          <input type="text" id="discription" name="discription" class="form-control" ng-model="main.new_category.discription" value="">
+        </div>
+      </div>
+      {{main.new_category}}
+    </form>
+    <!-- <script>
+      angular.module('Admin').directive('fileModel', ['$parse', function ($parse) {
+      return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+          var model = $parse(attrs.fileModel);
+          var modelSetter = model.assign;
+
+          element.bind('change', function(){
+              scope.$apply(function(){
+                  modelSetter(scope, element[0].files[0]);
+              });
+          });
+      }
+      };
+      }]);
+    </script> -->
+  </div>
+</div>
+</div>

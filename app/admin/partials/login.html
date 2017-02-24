@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark bg-primary navbar-fixed-top" style="">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color:white" href="#">Tripshire</a>
+    </div>
+      <ul  class="nav navbar-nav navbar-right">
+        <li><a ng-href="#/register" class="white"><span class="glyphicon glyphicon-log-in"></span> register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="col-md-12" style="text-align: center">
+<div class="col-md-4"></div>
+<div class="col-md-4" >
+  <h1><b>Login</b></h1>
+  <div ng-show="login.error" class="alert alert-danger">{{login.errorMessage}}</div>
+  <form class="form" ng-submit="login.loginUser()">
+    <div class="form-group">
+      <label><b>email</b></label>
+      <input type="email" class="form-control" name="email" ng-model="login.loginForm.email" required>
+    </div>
+    <div class="form-group">
+      <label><b>Password</b></label>
+        <input type="password" class="form-control" name="password" ng-model="login.loginForm.password" required>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-default" ng-disabled="login.disabled">Login</button>
+      </div>
+  </form>
+</div>
+</div>

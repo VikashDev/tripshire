@@ -1,0 +1,172 @@
+extends ./layout
+
+block content
+	.single_article_page_wrapper
+		.single_article_page
+			.header_wrapper
+				include ./page_header.jade
+			.article_content_wrapper
+				.arcticle_content
+					.article_header_wrapper
+						.article_header(style='background: url("#{activity.cover_image}") 50% no-repeat; background-size: cover;')
+					.icons_data_wrapper
+						.icons_data
+							.center_align.unauth_section.flex_box
+								if(activity.recommended_for_hrs)
+									.icon_data.flex_1.flex_stretch_self
+										.ico.inline_top.mb10
+											img.mw.inline_top(src='/dist/finalImages/icons/average_visit_duration.png')
+										.t Recommended for #{activity.recommended_for_hrs} Hours
+								if(activity.cost_per_person)
+									.icon_data.flex_1.flex_stretch_self
+										.ico.inline_top.mb10
+											img.mw.inline_top(src='/dist/finalImages/icons/entrance_fee.png')
+										.t Rp. #{activity.cost_per_person} / person
+								if(activity.opening_hrs.start && activity.opening_hrs.end)
+									.icon_data.flex_1.flex_stretch_self
+										.ico.inline_top.mb10
+											img.mw.inline_top(src='/dist/finalImages/icons/opening_hours.png')
+										.t Opens from #{activity.opening_hrs.start} to #{activity.opening_hrs.end}
+					.article_begin_wrapper
+						.article_begin.unauth_section
+							.flex_box.displayblockat550
+								.flex_1.begin_header
+									.text
+										.article_title
+											.inline_top.mr10 #{activity.title}
+											.inline_top(style='margin-top: -1px;')
+												star-rating(stars='#{activity.rating}')
+										.article_location #{activity.location}
+								.flex_1
+									.tags
+										each tag in activity.tags
+											.inline_middle.tag #{tag}
+					.article_content_wrapper
+						.article_content.unauth_section
+							.flex_box.displayblockat550
+								.flex_1
+									.content.mb20 #{activity.description}
+								//- .ml20.hideat550
+								//- .coordinates_wrapper
+									.coordinates.mw(style='width: 400px')
+										<iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=15&center=-8.7185%2C115.1686&key=AIzaSyBpsiypBixG0K7wvGC1B93kdJDh00v2Ao4" allowfullscreen></iframe>
+
+
+				if(related_items)
+					.related_content_wrapper(style='margin: 50px 0')
+						.unauth_section
+							.big_title.mb20 Nearby activities
+							.owl-carousel.related_cats._owl-theme
+								each related_item in related_items
+									a.section_cat(href='#{related_item.url}' style='height: 250px; color: #333')
+										.flex_box.flex_column.full_h
+											.flex_1(style='background: url("#{related_item.image}") 50% no-repeat; background-size: cover')
+											.dets.mt10
+												.t.bold
+													.inline_top(style='margin: 2px 0; margin-right: 10px;') #{related_item.title}
+													.inline_top
+														star-rating(stars='#{related_item.rating}')
+												.t(style='color: #999') #{related_item.description}
+
+		.footer_sec
+			include ./footer.jade
+
+
+	style
+		:uglify-css
+			.single_article_page_wrapper .article_header
+			{
+				height: 65vh;
+			}
+			
+			.single_article_page_wrapper .article_begin
+			{
+				padding: 30px 20px;
+			}
+
+			.single_article_page_wrapper .icons_data
+			{
+				padding: 20px;
+				background: #fafafa;
+				_border-bottom: 1px solid #eaeaea;
+			}
+
+			.single_article_page_wrapper .icons_data .icon_data
+			{
+				opacity: .6;
+				padding: 0 10px;
+			}
+
+			.single_article_page_wrapper .icons_data .icon_data:not(:last-child)
+			{
+				border-right: 1px dashed #eaeaea;
+			}
+
+			.single_article_page_wrapper .icons_data .ico
+			{
+				width: 30px;
+				height: 30px;
+			}
+
+			.single_article_page_wrapper .article_begin .tags .tag
+			{
+				padding: 5px 10px;
+				background: #f8f8f8;
+				margin: 2px;
+				border-radius: 3px;
+			}
+			
+			.single_article_page_wrapper .article_title
+			{
+				font-size: 25px;
+				font-weight: 200;
+				_color: #666;
+			}
+
+			.single_article_page_wrapper .article_location
+			{
+				font-size: 18px;
+				color: #999;
+			}
+
+			.single_article_page_wrapper .article_content
+			{
+				padding: 30px 20px;
+			}
+
+			.single_article_page_wrapper .section_cat
+			{
+				height: 387px;
+				_width: 258px;
+				display: block;
+			}
+
+
+			@media screen and (max-width: 550px)
+			{
+				.single_article_page_wrapper .article_header
+				{
+					height: 50vh;
+				}
+				
+				.single_article_page_wrapper .article_begin .begin_header
+				{
+					margin-bottom: 20px;
+				}
+
+				.single_article_page_wrapper .icons_data
+				{
+					padding: 10px;
+				}
+
+				.single_article_page_wrapper .icons_data .icon_data
+				{
+					font-size: 11px;
+				}
+
+				.single_article_page_wrapper .icons_data .ico
+				{
+					width: 20px;
+					height: 20px;
+				}
+			}

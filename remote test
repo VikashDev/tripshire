@@ -1,0 +1,15 @@
+curl -H "Content-Type: application/json" -X POST -d '{"name":"soqmething","category":"categories","tags":["some","thing"],"location":[{"lat":"87.5","long":"78.9"}],"attrs":[{"key":"some","value":"thing"},{"key":"key2","value":"value2"}]}' http://localhost:3000/api/activities 
+
+curl -H "Content-Type: application/json" -X POST -d '{"name":"soqmething","parent":"categories"}' http://localhost:3000/api/categories 
+
+585f5bea7a650b193240cc9e
+
+curl -H "Content-Type: application/json" -X POST -d '{"id":"585f5bea7a650b193240cc9e"}' http://localhost:3000/api/categories 
+
+ curl -H "Content-Type: application/json" -X POST -d '{"name":"Alas Purwo","category":"categories","tags":["National Park", "Wildlife Reserve", "Nature Reserve", "Wildlife Sanctuary"],"highlights":["Turtle Conservation", "Birds", "Banteng Spotting", "Javanese Bull" ], "location":[{"lat":"87.5","long":"78.9"}],"attrs":[{"key":"pricerange","val":"225.000 IDR per person"}],"operator":[{"name":"Blue Flame Tour","website":"http://blueflametour.com/baluran-national-park-tour-baluran/","contact_no":"6285235991411","address":"Jalan Stasiun Karangasem (Karangasem Station Banyuwangi) Kavling A1 number : 01 Lingkungan Watu Ulo , Bakungan Banyuwangi -East Java","rating":"5"}]}' http://localhost:3000/api/activities 
+
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Alas Purwo","category":"categories","tags":["National Park", "Wildlife Reserve", "Nature Reserve", "Wildlife Sanctuary"],"highlights":["Turtle Conservation", "Birds", "Banteng Spotting"],"attrs":[{"key":"pricerange","val":"225.000 IDR per person"}],"address":"New Textile Market, Surat, Gujarat","operator":[{"name":"Blue Flame Tour","website":"http://blueflametour.com/baluran-national-park-tour-baluran/","contact_no":"6285235991411","address":"Jalan Stasiun Karangasem (Karangasem Station Banyuwangi) Kavling A1 number : 01 Lingkungan Watu Ulo , Bakungan Banyuwangi -East Java","rating":"5"}]}' http://localhost:3000/api/activities 
+
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Kuta Beach","category":"categories","tags":["Beaches", "Outdoor Activities", "Nature"],"highlights":[],"attrs":[{"key":"pricerange","val":"225.000 IDR per person"}],"address":"Kuta, Bali, Indonesia","operator":[]}' http://localhost:3000/api/activities 
+
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Uluwatu Temple" ,"category":"temple","tags":["Religious Sites", "Hindu", "Temple"],"highlights":["Ancient", "Nature", "Sunset", "Cliff", "Sea", "Gardens"],"attrs":[{"key":"pricerange","val":"225.000 IDR per person"}],"address":"Jl. Raya Uluwatu, Pecatu, Nusa Dua Peninsula, Bali, Indonesia","operator":[]}' http://localhost:3000/api/activities 

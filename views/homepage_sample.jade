@@ -1,0 +1,208 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		// The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+		meta(name='description', content='')
+		meta(name='author', content='')
+		link(rel='icon', href='/images/icon.png', size='64*64')
+		title Tripshire
+		// Bootstrap core CSS
+		link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+		// Just for debugging purposes.
+		//if lt IE 9
+			script(src='../../assets/js/ie8-responsive-file-warning.js')
+		script(src='../../assets/js/ie-emulation-modes-warning.js')
+		// HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+		//if lt IE 9
+			script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+			script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+		// Custom styles for this template
+		link(href='/css/styleNew.css', rel='stylesheet')
+	body
+		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+			.container-fluid
+				// Brand and toggle get grouped for better mobile display
+				.navbar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='#')
+				// Collect the nav links, forms, and other content for toggling
+				.collapse.navbar-collapse.navbar-ex1-collapse
+					form.navbar-form.navbar-left(role='search')
+						.form-group
+							.icon-addon.addon-lg
+								input#email.form-control(type='text', placeholder='Search Tumblr')
+								label.glyphicon.glyphicon-search(for='email', rel='tooltip', title='email')
+					ul.nav.navbar-nav.navbar-right
+						li
+							a.current(href='#') Bookmarks
+						li
+							a.current(href='#') Notification
+						li
+							a.current(href='#') Messages
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+								| Dropdown 
+								span.caret
+							ul.dropdown-menu
+								li
+									a(href='#') Action
+								li
+									a(href='#') Another action
+								li
+									a(href='#') Something else here
+								li.divider(role='separator')
+								li
+									a(href='#') Separated link
+								li.divider(role='separator')
+								li
+									a(href='#') One more separated link
+
+				// /.navbar-collapse
+		.container.body-div
+			.col-md-12.main-block
+				.col-md-8.paddingtb
+					.dropdown.col-md-2
+						.board-pic
+					.col-md-6.content-full
+						.content
+							ul.content-elements
+								li
+									#post-first.post-text
+										h3.post-text-a Aa
+										p Text
+								li
+									.post-text
+										i.fa.fa-camera(aria-hidden='true')
+										p Photo
+								li
+									.post-text
+										i.fa.fa-quote-left(aria-hidden='true')
+										p Quote
+								li
+									.post-text
+										i.fa.fa-link(aria-hidden='true')
+										p Link
+								li
+									.post-text
+										i.fa.fa-comment(aria-hidden='true')
+										p Chat
+								li
+									.post-text
+										i.fa.fa-headphones(aria-hidden='true')
+										p Audio
+								li
+									#post-last.post-text
+										i.fa.fa-video-camera(aria-hidden='true')
+										p Video
+				each homepage_section in homepage_sections
+					each category in homepage_section.categories
+						each content in homepage_section.sub_cat
+							.col-md-8.paddingtb
+								.dropdown.col-md-2
+									img(src='https://68.media.tumblr.com/avatar_f6b16c97605d_64.png' alt='Trolltunga Norway', width='64px', height='64px')
+									ul.dropdown-menu.dropdown-menu-right
+										li
+											img(src='', alt='Trolltunga Norway', width='300', height='200')
+										li
+											a(href='#') Action
+										li
+											a(href='#') Another action
+										li
+											a(href='#') Something else here
+										li.divider(role='separator')
+										li
+											a(href='#') Separated link
+										li.divider(role='separator')
+										li
+											a(href='#') One more separated link
+
+
+
+								.col-md-6.content-full
+									.posts-div
+										.texts-pad
+											.posts-heading
+												p
+													b.plr staff
+													i.plr.fa.fa-retweet.retweet(aria-hidden='true')
+													b.plr.author-name thefandometrics
+													a.plr.follow(href='') Follow
+												hr.after-follow
+											.poster-heading
+												img.poster-heading-icon(src='https://68.media.tumblr.com/avatar_561ddb424d57_64.png')
+												b.img-title #{content.title} 
+										.texts-pad
+											.poster-content
+												h2.headline Hot off the algorithms, it’s Fandometrics.
+										a(href='#')		
+											img.img(src='#{content.image}')
+											.texts-pad
+											p.sub-heading
+												a(href='') Television
+												| : Miraculous Melissa McCarthy
+											blockquote.blockquote
+												p
+													| ⬆ 
+													em
+														b Miraculous
+													b.tweet-content
+														| (@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease.
+													br
+													|                     ☆ 
+													em
+														b Saturday Night Live
+													b.tweet-content came back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.
+											.tags
+												p.tag #week in review
+											.vote-share
+												.vote
+													span 1,954 notes
+													i.plr.fa.fa-thumbs-o-up(aria-hidden='true')
+													i.plr.fa.fa-thumbs-o-down(aria-hidden='true')
+													a(href='#', data-toggle='modal', data-target='#myModal')
+														i.plr.fa.fa-comment-o(aria-hidden='true')
+
+												.share
+													i.plr.fa.fa-facebook(aria-hidden='true')
+													i.plr.fa.fa-google(aria-hidden='true')
+													i.plr.fa.fa-pinterest(aria-hidden='true')
+																//- i.fa.fa-tumblr(aria-hidden='true')	
+			.col-md-4.p10.sideinfo.col-md-offset-7
+						#login-box
+							.fluid(style='margin-left: 15px;')
+								.panel.panel-primary.panel-transparent
+									.panel-heading
+										h3.panel-title Hey its a question for you?
+									.panel-body
+										| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod arcu ut diam maximus auctor. Sed malesuada maximus tellus, dignissim volutpat urna hendrerit at. Cras nisi turpis, mattis vitae ornare ut, bibendum et massa. Nulla at tellus a arcu luctus ultrices ac non felis. Maecenas euismod efficitur ipsum vel vestibulum. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit.											
+			//
+				Bootstrap core JavaScript
+				==================================================
+			// Placed at the end of the document so the pages load faster
+			script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+			script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+			script(src='https://use.fontawesome.com/7cc7091fc2.js')
+			script(src="/js/main.js")
+			// IE10 viewport hack for Surface/desktop Windows 8 bug
+			script(src='http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
+			#myModal.modal.fade.col-md-4.col-md-offset-8(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+				.modal-dialog(role='document')
+					.modal-content
+						.modal-header
+							button.close(type='button', data-dismiss='modal', aria-label='Close')
+								span(aria-hidden='true') ×
+							h4#myModalLabel.modal-title
+								| Modal title
+								.modal-body
+									p
+										| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod arcu ut diam maximus auctor. Sed malesuada maximus tellus, dignissim volutpat urna hendrerit at. Cras nisi turpis, mattis vitae ornare ut, bibendum et massa. Nulla at tellus a arcu luctus ultrices ac non felis. Maecenas euismod efficitur ipsum vel vestibulum. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Aenean tempus eget nulla at condimentum. Ut a arcu quis dui ultricies efficitur. Vestibulum suscipit diam ullamcorper velit tempor, in ullamcorper odio sollicitudin. Vestibulum congue nisl nibh, ut elementum quam tristique non. Nulla in sollicitudin dolor. Morbi ac justo nulla. Suspendisse massa neque, vestibulum id dolor non, congue rhoncus nibh.Phasellus porta tellus vel ipsum vehicula, nec fermentum lectus porta. Aenean viverra magna eu risus lacinia malesuada. Sed molestie auctor pharetra.
+								.modal-footer
+									button.btn.btn-default(type='button', data-dismiss='modal') Close
+									button.btn.btn-primary(type='button') Save changes    

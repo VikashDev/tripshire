@@ -1,0 +1,1 @@
+!function(){var e=angular.module("pageHeaderCtrl",[]);e.controller("pageHeaderCtrl",["$scope","$rootScope",function(e,o){}])}();
