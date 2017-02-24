@@ -5,9 +5,9 @@ var config = {
 		'callBackUrl': '/google_callback'
 	},
 	facebook: {
-		'clientId': '',
-		'clientSecret': '',
-		'callBackUrl': ''
+		'clientId': 222791594791421,
+		'clientSecret': '634954b5b3e9f1db82b32ccba379d42e',
+		'callBackUrl': 'fb/fb_callback'
 	}
 };
 

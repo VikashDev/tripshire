@@ -43,4 +43,4 @@ UserSchema.methods.verifyPassword = function(password, cb) {
 
 
 
-module.exports = mongoose.model('Admin', AdminSchema);
+module.exports = mongoose.model('User', UserSchema);

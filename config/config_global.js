@@ -45,8 +45,7 @@ var config = {
 
 			]
 
-		}
-
+}
 		, {
 
 			title: 'Adventure sports',

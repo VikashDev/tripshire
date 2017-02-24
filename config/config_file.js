@@ -19,7 +19,7 @@ var config = {
                 category: 'Art_Galleries_Museums',
                 image: '/dist/finalImages/sightseeing/museums.jpg'
             }, {
-                title: 'Landmarks', 
+                title: 'Landmarks',
                 category: 'Landmarks',
                 image: 'https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale,w_450/v1484334025/landmarks_generic_lc8mjo.png'
             }, {
@@ -190,7 +190,58 @@ var config = {
 
             ]
 
-        }
+        },{
+
+            title: 'Adventure sports',
+            categories: [{
+                title: 'Scuba Diving',
+                // description: 'asfaf asfa sfsf sd',
+                image: '/dist/finalImages/adventure_sports/scuba_diving.jpg'
+            }, {
+                title: 'Surfing',
+                // description: 'asfaf asfa sfsf sd',
+                image: '/dist/finalImages/adventure_sports/surfing.jpg'
+            }, {
+                title: 'Cycling & MTB',
+                // description: 'asfaf asfa sfsf sd',
+                image: '/dist/finalImages/adventure_sports/cycling.jpg'
+            }, {
+                title: 'Trekking',
+                // description: 'asfaf asfa sfsf sd',
+                image: '/dist/finalImages/adventure_sports/trekking.jpg'
+            }, {
+                title: 'White Water Rafting',
+                // description: 'asfaf asfa sfsf sd',
+                image: '/dist/finalImages/adventure_sports/rafting.jpg'
+            }, {
+                title: 'Abseiling',
+                // description: 'asfaf asfa sfsf sd',
+                image: '/dist/finalImages/adventure_sports/abseiling.jpg'
+            }, {
+                title: 'Caving',
+                // description: 'asfaf asfa sfsf sd',
+                image: '/dist/finalImages/adventure_sports/caving.jpg'
+            }],
+            sub_cat: [{
+                    title: 'Featured in Adventure Sports',
+                    content: [{
+                        title: 'Mount Batur Sunrise Trekking',
+                        // description: 'asfaf asfa sfsf sd',
+                        image: '/dist/finalImages/nature_featured/mount_bromo.jpg'
+                    }, {
+                        title: 'Cycle from Mt. Batur Crater to Ubud',
+                        // description: 'asfaf asfa sfsf sd',
+                        image: '/dist/finalImages/nature_featured/mount_agung.jpg'
+                    }, {
+                        title: 'Mount Batur',
+                        // description: 'asfaf asfa sfsf sd',
+                        image: '/dist/finalImages/nature_featured/mount_batur.jpg'
+                    }]
+                }
+
+            ]
+
+        },
 
     ]
 

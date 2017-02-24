@@ -17,6 +17,21 @@ conn.once("open", function() {
     gfs = Grid(conn.db);
 });
 
+var shuffle = function(array) {
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
+        console.log(array.length);
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+};
 exports.init = function(app) {
     app.get('/', function(req, res, next) {
 
@@ -27,8 +42,9 @@ exports.init = function(app) {
     });
 
     app.get('/newPage', function(req, res, next) {
+        // console.log(config.homepage_sections[0].sub_cat[0].content);
         res.render('homepage_sample', {
-            homepage_sections: config.homepage_sections
+            homepage_sections: shuffle(config.homepage_sections)
         });
     });
     app.get('/activity/:activity_slug', function(req, res, next) {

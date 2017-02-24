@@ -3,6 +3,7 @@ var localStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var Admin = require('../models/admin');
+var User = require('../models/user');
 var config = require('../../config/config_auth.js');
 var mongoose = require('mongoose');
 passport.use(new localStrategy({
@@ -11,7 +12,7 @@ passport.use(new localStrategy({
 
     },
     function(username, password, callback) {
-        Admin.findOne({
+        User.findOne({
                 email: username
             },
             function(err, docs) {
@@ -53,18 +54,18 @@ passport.use(new GoogleStrategy({
     });
 }));
 
-// passport.use(new FacebookStrategy({
-//         clientID: config.facebook.clientID,
-//         clientSecret: config.facebook.clientSecret,
-//         callbackURL: config.facebook.callBackURL
-//     },
-//     function(accessToken, refreshToken, profile, done) {
-//         console.log(accessToken, refreshToken, profile);
-//         process.nextTick(function() {
-//             // return done(null, profile);
-//         });
-//     }
-// ));
+passport.use(new FacebookStrategy({
+        clientID: 'c222791594791421',
+        clientSecret: config.facebook.clientSecret,
+        callbackURL: config.facebook.callBackURL
+    },
+    function(accessToken, refreshToken, profile, done) {
+        console.log(accessToken, refreshToken, profile);
+        process.nextTick(function() {
+            // return done(null, profile);
+        });
+    }
+));
 
 passport.serializeUser(function(user, done) {
     console.log(user.email);

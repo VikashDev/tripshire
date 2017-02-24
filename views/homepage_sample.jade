@@ -102,14 +102,14 @@ html(lang='en')
 										i.fa.fa-video-camera(aria-hidden='true')
 										p Video
 				each homepage_section in homepage_sections
-					each category in homepage_section.categories
-						each content in homepage_section.sub_cat
+					each category in homepage_section.sub_cat
+						each content in category.content
 							.col-md-8.paddingtb
 								.dropdown.col-md-2
 									img(src='https://68.media.tumblr.com/avatar_f6b16c97605d_64.png' alt='Trolltunga Norway', width='64px', height='64px')
 									ul.dropdown-menu.dropdown-menu-right
 										li
-											img(src='', alt='Trolltunga Norway', width='300', height='200')
+											img(src='#{content.image}', alt='Trolltunga Norway', width='300', height='200')
 										li
 											a(href='#') Action
 										li
