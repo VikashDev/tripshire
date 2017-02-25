@@ -1,5 +1,5 @@
 doctype html
-html(lang='en')
+html(lang='en' ng-app='tripshire' ng-controller='homeController as home')
 	head
 		meta(charset='utf-8')
 		meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -46,6 +46,8 @@ html(lang='en')
 							a.current(href='#') Notification
 						li
 							a.current(href='#') Messages
+						li
+							a(href='#', data-toggle='modal', data-target='#myLoginModal') SignUp
 						li.dropdown
 							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
 								| Dropdown 
@@ -76,7 +78,7 @@ html(lang='en')
 								li
 									#post-first.post-text
 										h3.post-text-a Aa
-										p Text
+										p {{home.text}}
 								li
 									.post-text
 										i.fa.fa-camera(aria-hidden='true')
@@ -101,79 +103,78 @@ html(lang='en')
 									#post-last.post-text
 										i.fa.fa-video-camera(aria-hidden='true')
 										p Video
-				each homepage_section in homepage_sections
-					each category in homepage_section.sub_cat
-						each content in category.content
-							.col-md-8.paddingtb
-								.dropdown.col-md-2
-									img(src='https://68.media.tumblr.com/avatar_f6b16c97605d_64.png' alt='Trolltunga Norway', width='64px', height='64px')
-									ul.dropdown-menu.dropdown-menu-right
-										li
-											img(src='#{content.image}', alt='Trolltunga Norway', width='300', height='200')
-										li
-											a(href='#') Action
-										li
-											a(href='#') Another action
-										li
-											a(href='#') Something else here
-										li.divider(role='separator')
-										li
-											a(href='#') Separated link
-										li.divider(role='separator')
-										li
-											a(href='#') One more separated link
+
+				each content in homepage_sections
+					.col-md-8.paddingtb
+						.dropdown.col-md-2
+							img(src='https://68.media.tumblr.com/avatar_f6b16c97605d_64.png' alt='Trolltunga Norway', width='64px', height='64px')
+							ul.dropdown-menu.dropdown-menu-right
+								li
+									img(src='#{content.image}', alt='Trolltunga Norway', width='300', height='200')
+								li
+									a(href='#') Action
+								li
+									a(href='#') Another action
+								li
+									a(href='#') Something else here
+								li.divider(role='separator')
+								li
+									a(href='#') Separated link
+								li.divider(role='separator')
+								li
+									a(href='#') One more separated link
 
 
 
-								.col-md-6.content-full
-									.posts-div
-										.texts-pad
-											.posts-heading
-												p
-													b.plr staff
-													i.plr.fa.fa-retweet.retweet(aria-hidden='true')
-													b.plr.author-name thefandometrics
-													a.plr.follow(href='') Follow
-												hr.after-follow
-											.poster-heading
-												img.poster-heading-icon(src='https://68.media.tumblr.com/avatar_561ddb424d57_64.png')
-												b.img-title #{content.title} 
-										.texts-pad
-											.poster-content
-												h2.headline Hot off the algorithms, it’s Fandometrics.
-										a(href='#')		
-											img.img(src='#{content.image}')
-											.texts-pad
-											p.sub-heading
-												a(href='') Television
-												| : Miraculous Melissa McCarthy
-											blockquote.blockquote
-												p
-													| ⬆ 
-													em
-														b Miraculous
-													b.tweet-content
-														| (@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease.
-													br
-													|                     ☆ 
-													em
-														b Saturday Night Live
-													b.tweet-content came back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.
-											.tags
-												p.tag #week in review
-											.vote-share
-												.vote
-													span 1,954 notes
-													i.plr.fa.fa-thumbs-o-up(aria-hidden='true')
-													i.plr.fa.fa-thumbs-o-down(aria-hidden='true')
-													a(href='#', data-toggle='modal', data-target='#myModal')
-														i.plr.fa.fa-comment-o(aria-hidden='true')
+						.col-md-6.content-full
+							.posts-div
+								.texts-pad
+									.posts-heading
+										p
+											b.plr staff
+											i.plr.fa.fa-retweet.retweet(aria-hidden='true')
+											b.plr.author-name thefandometrics
+											a.plr.follow(href='') Follow
+										hr.after-follow
+									.poster-heading
+										img.poster-heading-icon(src='https://68.media.tumblr.com/avatar_561ddb424d57_64.png')
+										b.img-title #{content.title} 
+								.texts-pad
+									.poster-content
+										h2.headline Hot off the algorithms, it’s Fandometrics.
+								a(href='#')		
+									img.img(src='#{content.image}')
+									.texts-pad
+									p.sub-heading
+										a(href='') Television
+										| : Miraculous Melissa McCarthy
+									blockquote.blockquote
+										p
+											| ⬆ 
+											em
+												b Miraculous
+											b.tweet-content
+												| (@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease.
+											br
+											|                     ☆ 
+											em
+												b Saturday Night Live
+											b.tweet-content came back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.
+									.tags
+										p.tag #week in review
+									.vote-share
+										.vote
+											span 1,954 notes
+											i.plr.fa.fa-thumbs-o-up(aria-hidden='true')
+											i.plr.fa.fa-thumbs-o-down(aria-hidden='true')
+											a(href='#', data-toggle='modal', data-target='#myModal')
+												i.plr.fa.fa-comment-o(aria-hidden='true')
 
-												.share
-													i.plr.fa.fa-facebook(aria-hidden='true')
-													i.plr.fa.fa-google(aria-hidden='true')
-													i.plr.fa.fa-pinterest(aria-hidden='true')
-																//- i.fa.fa-tumblr(aria-hidden='true')	
+										.share
+											i.plr.fa.fa-facebook(aria-hidden='true')
+											i.plr.fa.fa-google(aria-hidden='true')
+											i.plr.fa.fa-pinterest(aria-hidden='true')
+														//- i.fa.fa-tumblr(aria-hidden='true')	
 			.col-md-4.p10.sideinfo.col-md-offset-7
 						#login-box
 							.fluid(style='margin-left: 15px;')
@@ -189,7 +190,9 @@ html(lang='en')
 			script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
 			script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
 			script(src='https://use.fontawesome.com/7cc7091fc2.js')
+			script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js")
 			script(src="/js/main.js")
+			script(src='/js/controllers/homeController.js')
 			// IE10 viewport hack for Surface/desktop Windows 8 bug
 			script(src='http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
 			#myModal.modal.fade.col-md-4.col-md-offset-8(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
@@ -206,3 +209,23 @@ html(lang='en')
 								.modal-footer
 									button.btn.btn-default(type='button', data-dismiss='modal') Close
 									button.btn.btn-primary(type='button') Save changes    
+
+			#myLoginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+				.modal-dialog(role='document')
+					.modal-content
+						.modal-header
+							button.close(type='button', data-dismiss='modal', aria-label='Close')
+								span(aria-hidden='true') ×
+							h4#myModalLabel.modal-title Modal title
+						.modal-body
+							.form-group
+								label(for='exampleInputEmail1') Email address
+								input#exampleInputEmail1.form-control(type='email', placeholder='Email')
+							.form-group
+								label(for='exampleInputPassword1') Password
+								input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+
+						.modal-footer
+							button.btn.btn-default(type='button', data-dismiss='modal') Close
+							button.btn.btn-primary(type='button') Save changes
+	

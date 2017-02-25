@@ -10,7 +10,9 @@ var UserSchema = new Schema({
 	email: 				{ type: String, required:true, lowercase: true , index : { unique: true } },
 	password : 			{ type: String, required:true , select:true },
 	created_at: 		{ type: Date, default:Date.now },
-	isAdmin: 			{ type: Boolean, default: false}
+	isAdmin: 			{ type: Boolean, default: false},
+	provider:           { type: String},
+	oauthID:  			{ type: String} 
 
 });
 

@@ -4,7 +4,7 @@ var express = require('express'),
     Attributes = require('../models/attributes.js'),
     Guidelines = require('../models/guidelines.js'),
     request = require('request'),
-    passport = require('passport');
+    app = express();
 router.use('/somename', function(req, res, next) {
     console.log('in use');
     var category = req.query.category;
@@ -177,20 +177,22 @@ router.route('/wiki')
 
 router.route('/test')
     .get(function(req, res, next) {
-        console.log('Hello passport');
-        passport.authenticate('facebook', {scope: 'email'});
+            console.log('Hello passport');
+            passport.authenticate('facebook'),
+                function(req, res) {
+
+                };
 
     });
 
 router.route('/fb_callback')
     .get(function(req, res, next) {
         console.log('Hello passport');
-        passport.authenticate('google', {
-                failureRedirect: '/',
-                successRedirect: '/'
+        passport.authenticate('facebook', {
+                failureRedirect: '/'
             }),
             function(req, res) {
-                console.log('Inside here');
+                res.redirect('/');
             };
 
     });

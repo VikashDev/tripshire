@@ -5,7 +5,7 @@ var upload = multer({
     dest: "./uploads"
 }).single('file');
 var Grid = require("gridfs-stream");
-var config = require("../../config");
+var config = require("../../config/config_temp.js");
 var passport = require('passport');
 var filter = require("../controllers/filter");
 var search = require("../controllers/search");
@@ -20,12 +20,13 @@ conn.once("open", function() {
 var shuffle = function(array) {
     var currentIndex = array.length,
         temporaryValue, randomIndex;
-        console.log(array.length);
+    console.log(array.length);
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
         // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
+        // console.log(array[randomIndex].sub_cat[0].content);
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
@@ -44,9 +45,23 @@ exports.init = function(app) {
     app.get('/newPage', function(req, res, next) {
         // console.log(config.homepage_sections[0].sub_cat[0].content);
         res.render('homepage_sample', {
-            homepage_sections: shuffle(config.homepage_sections)
+            homepage_sections: shuffle(config.content)
+
         });
     });
+
+    app.get('/test',
+        passport.authenticate('facebook', {
+            scope: 'email'
+        }),
+        function(req, res) {});
+    app.get('/suggest/fb_callback',
+        passport.authenticate('facebook', {
+            failureRedirect: '/'
+        }),
+        function(req, res) {
+            res.redirect('/account');
+        });
     app.get('/activity/:activity_slug', function(req, res, next) {
         activity_detail(req.params.activity_slug, function(err, results, related_items) {
             res.render('single_article', {
