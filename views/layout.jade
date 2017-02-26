@@ -6,11 +6,22 @@ html(ng-app="tripshireApp" ng-controller="globalController" itemscope itemtype="
 
 		link(href='https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700' rel='stylesheet' type='text/css')
 		link(href='/dist/finalImages/icon.png' rel='icon')
-
+		//- link(rel='icon', href='/images/icon.png', size='64*64')	
 		link(href='/css/style.min.css' rel='stylesheet')
 		link(rel="stylesheet" href="/owl_assets/owl.carousel.min.css")
 		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.9.0/rzslider.min.css")
 		link(rel="stylesheet" href="/css/nouislider.min.css")
+		link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+		// Just for debugging purposes.
+		//if lt IE 9
+			script(src='../../assets/js/ie8-responsive-file-warning.js')
+		script(src='../../assets/js/ie-emulation-modes-warning.js')
+		// HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+		//if lt IE 9
+			script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+			script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+		// Custom styles for this template
+		link(href='/css/styleNew.css', rel='stylesheet')
 
 	body(ng-cloak class='{{isOnMobileDevice() ? "mobile_view" : ""}}')
 		block content
@@ -19,9 +30,11 @@ html(ng-app="tripshireApp" ng-controller="globalController" itemscope itemtype="
 	include ./components.jade
 
 	script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
-	script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js")
-	//- script(src='/js/controllers/pageHeaderCtrl.js' rel='javascript')
-	//- script(src='/js/ngapp.js' rel='javascript')
-	//- script(src='/owl_assets/owl.carousel.min.js' rel='javascript')
-	script(src='/dist/js/build.js')
+	script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
+	script(src='/js/controllers/pageHeaderCtrl.js' rel='javascript')
+
+	script(src='/js/ngapp.js' rel='javascript')
+	//- script(src='/js/controllers/homeController.js' rel='javascript')
+	script(src='/owl_assets/owl.carousel.min.js' rel='javascript')
+	//- script(src='/dist/js/build.js')
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.9.0/rzslider.min.js' rel='javascript')

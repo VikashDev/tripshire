@@ -1,4 +1,5 @@
 var Admin = require('../models/admin');
+var User = require('../models/user');
 var passport = require('passport');
 
 // Create endpoint /api/admin for POST

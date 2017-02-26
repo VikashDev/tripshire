@@ -12,7 +12,7 @@ passport.use(new localStrategy({
 
     },
     function(username, password, callback) {
-        User.findOne({
+        Admin.findOne({
                 email: username
             },
             function(err, docs) {
