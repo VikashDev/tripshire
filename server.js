@@ -92,6 +92,10 @@ app.get('/admin',function(req,res){
   app.use('/admin',compression());
     res.sendFile(path.join(__dirname, '/app/admin', 'index.html'));
 });
+
+app.get('/feedsPage', function(req, res){
+  res.sendFile(path.join(__dirname, '/views', 'homepage_sample.html'));
+}); 
 routes.init(app);
 app.use('/v1/api',require('./server/routes/api.js'));
 app.use('/suggest', require('./server/routes/suggestEditroute.js'));
