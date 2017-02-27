@@ -12,12 +12,13 @@ block content
 						span.icon-bar
 						span.icon-bar
 					a.navbar-brand(href='#')
+						img(src='/images/web-logo.png')
 				// Collect the nav links, forms, and other content for toggling
 				.collapse.navbar-collapse.navbar-ex1-collapse
 					form.navbar-form.navbar-left(role='search')
-						.form-group
+						.form-group(style="padding-left: 150px;")
 							.icon-addon.addon-lg
-								input#email.form-control(type='text', placeholder='Search Tumblr')
+								input#email.form-control(type='text', placeholder='Search Tripshire')
 								label.glyphicon.glyphicon-search(for='email', rel='tooltip', title='email')
 					ul.nav.navbar-nav.navbar-right
 						li
@@ -45,124 +46,168 @@ block content
 								li.divider(role='separator')
 								li
 									a(href='#') One more separated link
-
 				// /.navbar-collapse
 		.container.body-div
 			.col-md-12.main-block
 				.col-md-8.paddingtb
 					.dropdown.col-md-2
-						.board-pic
+						// <div class="board-pic"></div>
 					.col-md-6.content-full
 						.content
-							ul.content-elements
-								li
-									#post-first.post-text
-										h3.post-text-a Aa
-										p {{test}}
-								li
-									.post-text
-										i.fa.fa-camera(aria-hidden='true')
-										p Photo
-								li
-									.post-text
-										i.fa.fa-quote-left(aria-hidden='true')
-										p Quote
-								li
-									.post-text
-										i.fa.fa-link(aria-hidden='true')
-										p Link
-								li
-									.post-text
-										i.fa.fa-comment(aria-hidden='true')
-										p Chat
-								li
-									.post-text
-										i.fa.fa-headphones(aria-hidden='true')
-										p Audio
-								li
-									#post-last.post-text
-										i.fa.fa-video-camera(aria-hidden='true')
-										p Video
-
-				each content in homepage_sections
+							.row
+								.col-md-6.post-text
+									a(href='')
+										i.fa.fa-address-card(aria-hidden='true', style='margin-left: 100px;margin-top: 20px;')
+										h4.text-center Add a card
+								.col-md-6
+									a(href='')
+										i.fa.fa-question(aria-hidden='true', style='margin-left: 100px;margin-top: 20px;')
+										h4.text-center Ask a question
+						//
+							<div class="content">
+							<ul class="content-elements">
+							<li>
+							<div id="post-first" class="post-text">
+							<h3 class="post-text"><i aria-hidden="true" class="fa fa-camera"></i></h3>
+							<p>{{test}}</p>
+							</div>
+							</li>
+							<li>
+							<div class="post-text">
+							<i aria-hidden="true" class="fa fa-camera"></i>
+							<p>Ask a card</p>
+							</div>
+							</li>
+							<li>
+							<div class="post-text">
+							<i aria-hidden="true" class="fa fa-camera"></i>
+							<p>Ask a question</p>
+							</div>
+							</li>
+							<li>
+							<div class="post-text"><i aria-hidden="true" class="fa fa-quote-left"></i>
+							<p>Quote</p>
+							</div>
+							</li>
+							<li>
+							<div class="post-text"><i aria-hidden="true" class="fa fa-link"></i>
+							<p>Link</p>
+							</div>
+							</li>
+							<li>
+							<div class="post-text"><i aria-hidden="true" class="fa fa-comment"></i>
+							<p>Chat</p>
+							</div>
+							</li>
+							<li>
+							<div class="post-text"><i aria-hidden="true" class="fa fa-headphones"></i>
+							<p>Audio</p>
+							</div>
+							</li>
+							<li>
+							<div id="post-last" class="post-text"><i aria-hidden="true" class="fa fa-video-camera"></i>
+							<p>Video</p>
+							</div>
+							</li>
+							</ul>
+							</div>
+				each content in homepage_sections			
 					.col-md-8.paddingtb
 						.dropdown.col-md-2
-							img(src='https://68.media.tumblr.com/avatar_f6b16c97605d_64.png' alt='Trolltunga Norway', width='64px', height='64px')
+							img.img-circular(src='http://lorempixel.com/100/100/people/9/')
 							ul.dropdown-menu.dropdown-menu-right
-								li
-									img(src='#{content.image}', alt='Trolltunga Norway', width='300', height='200')
-								li
-									a(href='#') Action
-								li
-									a(href='#') Another action
-								li
-									a(href='#') Something else here
-								li.divider(role='separator')
-								li
-									a(href='#') Separated link
-								li.divider(role='separator')
-								li
-									a(href='#') One more separated link
-
-
-
+								.card.hovercard
+									.cardheader
+									.avatar
+										img(alt='', src='http://lorempixel.com/100/100/people/9/')
+									.info
+										.title
+											a(target='_blank', href='#') Script Eden
+										.desc Passionate designer
+										.desc Curious developer
+										.desc Tech geek
+									.bottom
+										a.btn.btn-danger.btn-sm(rel='publisher', href='https://plus.google.com/#')
+											i.fa.fa-google-plus
+										a.btn.btn-primary.btn-sm(rel='publisher', href='https://plus.google.com/#')
+											i.fa.fa-facebook
 						.col-md-6.content-full
+							div
 							.posts-div
-								.texts-pad
-									.posts-heading
-										p
-											b.plr staff
-											i.plr.fa.fa-retweet.retweet(aria-hidden='true')
-											b.plr.author-name thefandometrics
-											a.plr.follow(href='') Follow
-										hr.after-follow
-									.poster-heading
-										img.poster-heading-icon(src='https://68.media.tumblr.com/avatar_561ddb424d57_64.png')
-										b.img-title #{content.title} 
+								//
+									<div class="texts-pad">
+									<div class="posts-heading">
+									<p><b class="plr">staff</b><i aria-hidden="true" class="plr fa fa-retweet retweet"></i><b class="plr author-name">thefandometrics</b><a href="" class="plr follow">Follow</a></p>
+									<hr class="after-follow"/>
+									</div>
+									<div class="poster-heading"><img src="https://68.media.tumblr.com/avatar_561ddb424d57_64.png" class="poster-heading-icon"/><b class="img-title"> </b></div>
+									</div>
 								.texts-pad
 									.poster-content
-										h2.headline Hot off the algorithms, it’s Fandometrics.
-								a(href='#')		
-									img.img(src='#{content.image}')
-									.texts-pad
-									p.sub-heading
-										a(href='') Television
-										| : Miraculous Melissa McCarthy
-									blockquote.blockquote
+										.row
+											.col-md-9
+												h2 #{content.title}
+											.col-md-3
+												p.pull-right(style='margin-top: 15px;') Bookmark
+								.row
+									a(href='#')
+										img.img-resposive(src='#{content.image}', style='margin-left: 15px')
+								.row(style='margin-top: 20px; margin-left: 15px;')
+									.col-md-12
+										small Wikipidea:
 										p
-											| ⬆ 
-											em
-												b Miraculous
-											b.tweet-content
-												| (@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease.
-											br
-											|                     ☆ 
-											em
-												b Saturday Night Live
-											b.tweet-content came back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.
-									.tags
-										p.tag #week in review
-									.vote-share
-										.vote
-											span 1,954 notes
-											i.plr.fa.fa-thumbs-o-up(aria-hidden='true')
-											i.plr.fa.fa-thumbs-o-down(aria-hidden='true')
+											| #{content.description}
+								//
+									<p class="sub-heading">
+									<a href="">Television</a>: Miraculous Melissa McCarthy</p>
+									<blockquote class="blockquote">
+									<p>⬆ <em><b>Miraculous</b></em><b class="tweet-content">(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease.</b><br/>                    ☆ <em><b>Saturday Night Live</b></em><b class="tweet-content">came back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.</b></p>
+									</blockquote>
+								.row(style='margin-top: 10px; margin-left: 15px;')
+									.col-md-12
+										p.tag Tags :
+								.row(style='margin-top: 10px; margin-left: 15px;')
+									.col-md-12
+										p.tag Highlights :
+								//
+									<div class="tags">
+									<p class="tag">#week in review</p>
+									</div>
+								.row
+									.col-md-6
+										.vote(style='margin-left: 30px;')
+											span
+												a(href='')  1,954 notes
+											a(href='')
+												i.plr.fa.fa-thumbs-o-up(aria-hidden='true')
+											a(href='')
+												i.plr.fa.fa-thumbs-o-down(aria-hidden='true')
 											a(href='#', data-toggle='modal', data-target='#myModal')
 												i.plr.fa.fa-comment-o(aria-hidden='true')
-
-										.share
-											i.plr.fa.fa-facebook(aria-hidden='true')
-											i.plr.fa.fa-google(aria-hidden='true')
-											i.plr.fa.fa-pinterest(aria-hidden='true')
-														//- i.fa.fa-tumblr(aria-hidden='true')	
+									.col-md-5(style='margin-bottom: 20px;')
+										i.plr.fa.fa-facebook(aria-hidden='true')
+										i.plr.fa.fa-google(aria-hidden='true')
+										i.plr.fa.fa-pinterest(aria-hidden='true')
+								//
+									<div class="vote-share">
+									<div class="vote">
+									<span>1,954 notes</span>
+									<i aria-hidden="true" class="plr fa fa-thumbs-o-up"></i>
+									<i aria-hidden="true" class="plr fa fa-thumbs-o-down"></i>
+									<a href="#" data-toggle="modal" data-target="#myModal">
+									<i aria-hidden="true" class="plr fa fa-comment-o"></i>
+									</a>
+									</div>
+									<div class="share"><i aria-hidden="true" class="plr fa fa-facebook"></i><i aria-hidden="true" class="plr fa fa-google"></i><i aria-hidden="true" class="plr fa fa-pinterest"></i></div>
+									</div></a>
 			.col-md-4.p10.sideinfo.col-md-offset-7
-						#login-box
-							.fluid(style='margin-left: 15px;')
-								.panel.panel-primary.panel-transparent
-									.panel-heading
-										h3.panel-title Hey its a question for you?
-									.panel-body
-										| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod arcu ut diam maximus auctor. Sed malesuada maximus tellus, dignissim volutpat urna hendrerit at. Cras nisi turpis, mattis vitae ornare ut, bibendum et massa. Nulla at tellus a arcu luctus ultrices ac non felis. Maecenas euismod efficitur ipsum vel vestibulum. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit.											
+				#login-box
+					.fluid(style='margin-left: 15px;')
+						.panel.panel-primary.panel-transparent
+							.panel-heading
+								h3.panel-title Hey its a question for you?
+							.panel-body
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod arcu ut diam maximus auctor. Sed malesuada maximus tellus, dignissim volutpat urna hendrerit at. Cras nisi turpis, mattis vitae ornare ut, bibendum et massa. Nulla at tellus a arcu luctus ultrices ac non felis. Maecenas euismod efficitur ipsum vel vestibulum. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit.
 			//
 				Bootstrap core JavaScript
 				==================================================
@@ -170,10 +215,9 @@ block content
 			script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
 			script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
 			script(src='https://use.fontawesome.com/7cc7091fc2.js')
-			script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
-			script(src="/js/main.js")
-			script(src='/js/ngapp.js' rel='javascript')
-			//- script(src='/js/controllers/homeController.js')
+			script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js')
+			script(src='/js/main.js')
+			script(src='/js/ngapp.js', rel='javascript')
 			// IE10 viewport hack for Surface/desktop Windows 8 bug
 			script(src='http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
 			#myModal.modal.fade.col-md-4.col-md-offset-8(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
@@ -190,23 +234,35 @@ block content
 								.modal-footer
 									button.btn.btn-default(type='button', data-dismiss='modal') Close
 									button.btn.btn-primary(type='button') Save changes    
-
 			#myLoginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-				.modal-dialog(role='document')
-					.modal-content
-						.modal-header
-							button.close(type='button', data-dismiss='modal', aria-label='Close')
-								span(aria-hidden='true') ×
-							h4#myModalLabel.modal-title Modal title
-						.modal-body
-							.form-group
-								label(for='exampleInputEmail1') Email address
-								input#exampleInputEmail1.form-control(type='email', placeholder='Email',name='email', ng-model="login.email")
-							.form-group
-								label(for='exampleInputPassword1') Password
-								input#exampleInputPassword1.form-control(type='password', placeholder='Password',name='password', ng-model="login.password")
+				.middlePage
+					.page-header
+						h1.text-center(style='color: #fff;') Welcome to TripShire 
+						h4.text-center(style='color: #fff;') Join our awesome community ! Sigup: It's Free
+					.panel.panel-info
+						//
+							<div class="panel-heading">
+							<h3 class="panel-title text-center">SignUp Its Free</h3>
+							</div>
+						.panel-body
+							.row
+								.col-md-4
+								.col-md-4
+									a(href='#')
+										img.img-responsive(src='/images/facebook.png', width='200px', height='100px')
+									br
+									a(href='#')
+										img.img-responsive(src='/images/google.png', width='200px', height='100px')
+							.row
+								hr
+								.col-md-12
+									p.text-center
+										| Already Existing User ? 
+										a(href='#') Login
+					p.text-center(style='color: #fff;')
+						| We understand you agree to our   
+						a(href='') Terms & Condition
+						|  
+						a(href='') Privacy Policy
 
-						.modal-footer
-							button.btn.btn-default(type='button', data-dismiss='modal') Close
-							button.btn.btn-primary(type='button', ng-click="submit()") Save changes
 	
