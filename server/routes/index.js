@@ -34,7 +34,7 @@ var shuffle = function(array) {
     return array;
 };
 exports.init = function(app) {
-    app.get('/', function(req, res, next) {
+    app.get('/oldPage', function(req, res, next) {
 
         res.render('homepage', {
             homepage_sections: config.homepage_sections
@@ -42,7 +42,7 @@ exports.init = function(app) {
 
     });
 
-    app.get('/newPage', function(req, res, next) {
+    app.get('/', function(req, res, next) {
         // console.log(config.homepage_sections[0].sub_cat[0].content);
         res.render('homepage_sample', {
             homepage_sections: shuffle(config.content)
