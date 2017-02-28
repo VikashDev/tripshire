@@ -64,7 +64,9 @@ exports.init = function(app) {
         }),
         function(req, res) {
             console.log(req.user);
-            res.redirect('/');
+            res.json({
+                user: req.user
+            });
         });
     app.get('/auth/google',
         passport.authenticate('google', {
@@ -78,7 +80,9 @@ exports.init = function(app) {
         function(req, res) {
             // res.redirect('/');
             console.log(req.user);
-            res.redirect('/');
+            res.json({
+                user: req.user
+            });
         });
     app.get('/activity/:activity_slug', function(req, res, next) {
         activity_detail(req.params.activity_slug, function(err, results, related_items) {
