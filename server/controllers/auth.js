@@ -51,36 +51,31 @@ passport.use(new GoogleStrategy({
     // console.log(accessToken, refreshToken, profile);
     process.nextTick(function() {
         // return done(null, profile);
-
         console.log(profile);
-        // return done(null, profile);
+        // return callback(null, profile);
 
 
         User.findOne({
-                email: profile.id
+                oauthID: profile.id
             },
             function(err, docs) {
                 if (err) {
+                    console.log('Error');
                     return callback(err);
                 }
 
                 if (!docs) {
                     // return callback(null, false);
-                    user = new User({
-                        // name: profile.displayName,
-                        // email: profile._json.email,
-                        // provider: 'Google',
-                        // oauthID: profile.id
-
+                    console.log('New User');
+                    var user = new User({
+                        name: profile.displayName,
+                        email: profile._json.email,
+                        provider: 'Google',
+                        oauthID: profile.id
 
                     });
-                    user.save(function(err, result) {
-                        if (err) {
-                            return callback(err);
-                        } else {
-                            console.log(result);
-                        }
-                    });
+                    console.log(user.validateSync());
+                    callback(null, user);
                 } else {
                     return callback(null, docs);
                 }
@@ -101,33 +96,30 @@ passport.use(new FacebookStrategy({
     function(request, accessToken, refreshToken, profile, callback) {
         // console.log(accessToken, refreshToken, profile);
         process.nextTick(function() {
-            // console.log(profile);
+            console.log(profile);
             // return done(null, profile);
 
             User.findOne({
-                    email: profile.id
+                    oauthID: profile.id
                 },
                 function(err, docs) {
                     if (err) {
+                        console.log('Error');
                         return callback(err);
                     }
 
                     if (!docs) {
                         // return callback(null, false);
-                        user = new User({
+                        console.log('New User');
+                        var user = new User({
                             name: profile.displayName,
                             email: profile._json.email,
                             provider: 'Facebook',
                             oauthID: profile.id
 
                         });
-                        user.save(function(err, result) {
-                            if (err) {
-                                return callback(err);
-                            } else {
-                                console.log(result);
-                            }
-                        });
+                        console.log(user.validateSync());
+                        callback(null, user);
                     } else {
                         return callback(null, docs);
                     }

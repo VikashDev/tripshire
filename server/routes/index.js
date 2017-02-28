@@ -5,6 +5,7 @@ var upload = multer({
     dest: "./uploads"
 }).single('file');
 var Grid = require("gridfs-stream");
+var adminController = require('../controllers/admincontroller');
 var config = require("../../config/config_temp.js");
 var passport = require('passport');
 var filter = require("../controllers/filter");
@@ -50,17 +51,34 @@ exports.init = function(app) {
         });
     });
 
-    app.get('/test',
+    app.get('/auth/facebook',
         passport.authenticate('facebook', {
             scope: 'email'
         }),
-        function(req, res) {});
+        function(req, res) {
+            // console.log(req);
+        });
     app.get('/suggest/fb_callback',
         passport.authenticate('facebook', {
             failureRedirect: '/'
         }),
         function(req, res) {
-            res.redirect('/account');
+            console.log(req.user);
+            res.redirect('/');
+        });
+    app.get('/auth/google',
+        passport.authenticate('google', {
+            scope: 'email'
+        }),
+        function(req, res) {});
+    app.get('/google_callback',
+        passport.authenticate('google', {
+            failureRedirect: '/'
+        }),
+        function(req, res) {
+            // res.redirect('/');
+            console.log(req.user);
+            res.redirect('/');
         });
     app.get('/activity/:activity_slug', function(req, res, next) {
         activity_detail(req.params.activity_slug, function(err, results, related_items) {
