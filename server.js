@@ -98,8 +98,8 @@ app.get('/feedsPage', function(req, res){
 }); 
 
 routes.init(app);
-// app.use('/v1/api',require('./server/routes/api.js'));
-// app.use('/suggest', require('./server/routes/suggestEditroute.js'));
+app.use('/v1/api',require('./server/routes/api.js'));
+app.use('/suggest', require('./server/routes/suggestEditroute.js'));
 var feedPageApi=require("./feedPage.js");
 app.use('/feeds',feedPageApi);
 
