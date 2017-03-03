@@ -4,13 +4,15 @@ var passport = require('passport');
 
 // Create endpoint /api/admin for POST
 exports.postAdmin = function(req, res) {
-    var admin = new Admin({
+    var user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        oauthID: req.body.oauthID,
+        provider: req.body.provider
     });
     console.log(req.body.name);
-    admin.save(function(err) {
+    user.save(function(err) {
         if (err) {
             return res.json({
                 'status': "false",
