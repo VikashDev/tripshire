@@ -3,7 +3,7 @@
 
         let apiData = function() {
             console.log('In API');
-            return $http.get('https://tripshire1.herokuapp.com/feeds');
+            return $http.get('/feeds');
         };
 
         // let facebook = () => {
