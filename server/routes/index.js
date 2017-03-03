@@ -8,6 +8,7 @@ var Grid = require("gridfs-stream");
 var adminController = require('../controllers/admincontroller');
 var config = require("../../config/config_temp.js");
 var passport = require('passport');
+var path = require('path');
 var filter = require("../controllers/filter");
 var search = require("../controllers/search");
 var activity_detail = require("../controllers/getActivityDetail")
@@ -45,10 +46,7 @@ exports.init = function(app) {
 
     app.get('/', function(req, res, next) {
         // console.log(config.homepage_sections[0].sub_cat[0].content);
-        res.render('homepage_sample', {
-            homepage_sections: shuffle(config.content)
-
-        });
+        res.sendFile(path.join(__dirname, '../../views', 'index.html'));
     });
 
     app.get('/auth/facebook',
