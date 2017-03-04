@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var fs = require("fs");
 var multer = require("multer");
+var user;
 var upload = multer({
     dest: "./uploads"
 }).single('file');
@@ -43,7 +44,10 @@ exports.init = function(app) {
         });
 
     });
-
+    app.get('/user', function(req, res, next) {
+        console.log('User', user);
+        res.send(user);
+    });
     app.get('/', function(req, res, next) {
         // console.log(config.homepage_sections[0].sub_cat[0].content);
         res.sendFile(path.join(__dirname, '../../views', 'index.html'));
@@ -53,24 +57,27 @@ exports.init = function(app) {
         passport.authenticate('facebook', {
             scope: 'email'
         }),
-        function(req, res) {
+        function(req, res, next) {
             // console.log(req);
+
         });
     app.get('/suggest/fb_callback',
         passport.authenticate('facebook', {
-            failureRedirect: '/'
+            failureRedirect: '/test',
+            successRedirect: '/'
         }),
         function(req, res) {
             console.log(req.user);
             res.json({
                 user: req.user
             });
-        });
+        }); 
     app.get('/auth/google',
         passport.authenticate('google', {
             scope: 'email'
         }),
         function(req, res) {});
+
     app.get('/google_callback',
         passport.authenticate('google', {
             failureRedirect: '/'

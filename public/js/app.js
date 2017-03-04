@@ -1,1 +1,1 @@
-let apiApp = angular.module('apiApp', []);
+let apiApp = angular.module('apiApp', ['infinite-scroll']);
