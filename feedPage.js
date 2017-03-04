@@ -24,7 +24,11 @@ var Activity = mongoose.model('feeds', new schema({
     "duration": Number,
     "image_url": [String],
     "attrs": [String],
-    "wiki": [String]
+    "wiki": [{
+        'title': String,
+        'url': String,
+        'extract': String
+    }]
 }));
 
 var count = 98;

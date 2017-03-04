@@ -133,13 +133,13 @@ passport.use(new FacebookStrategy({
 
 passport.serializeUser(function(user, done) {
     console.log('Serialize', user);
-    done(null, user.id);
+    done(null, user);
 });
 // used to deserialize the user
-passport.deserializeUser(function(id, done) {
-    console.log('deserialize', id);
+passport.deserializeUser(function(user, done) {
+    console.log('deserialize', user);
     Admin.findOne({
-        email: id
+        email: user.email
     }, function(err, user) {
         done(err, user);
     });

@@ -1,12 +1,5 @@
 (function() {
     angular.module('apiApp').factory('dataFactory', function($http) {
-        var config = {
-            headers: {
-                'Access-Control-Allow-Origin': 'http://localhost:2000',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
-            }
-        };
 
         let apiData = function() {
             console.log('In API');
@@ -22,7 +15,7 @@
         };
 
         let google = () => {
-            return $http.get('/auth/google', config).then((res) => {
+            return $http.get('/auth/google').then((res) => {
                 console.log(res);
             }, (err) => {
                 console.log(err);
@@ -51,6 +44,7 @@
                 url += "?" + this.after;
             console.log(url);
             $http.get(url).then(function(data) {
+                console.log(data);
                 var items = data.data.data;
                 var index = data.data.index;
                 var start_index = data.data.starting_index;

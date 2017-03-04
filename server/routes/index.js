@@ -45,12 +45,18 @@ exports.init = function(app) {
 
     });
     app.get('/user', function(req, res, next) {
-        console.log('User', user);
+        console.log('User', req.user);
         res.send(user);
     });
     app.get('/', function(req, res, next) {
         // console.log(config.homepage_sections[0].sub_cat[0].content);
-        res.sendFile(path.join(__dirname, '../../views', 'index.html'));
+        if (req.user !== null) {
+            res.sendFile(path.join(__dirname, '../../views', 'index.html'));
+        }else{
+            res.json({
+                user: req.user
+            });
+        }
     });
 
     app.get('/auth/facebook',
@@ -71,7 +77,7 @@ exports.init = function(app) {
             res.json({
                 user: req.user
             });
-        }); 
+        });
     app.get('/auth/google',
         passport.authenticate('google', {
             scope: 'email'

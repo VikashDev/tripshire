@@ -1,1 +1,4 @@
-let apiApp = angular.module('apiApp', ['infinite-scroll']);
+(function() {
+    angular.module('apiApp', ['infinite-scroll', 'ngRoute']).config(routing);
+    routing.$inject = ['']
+})();
