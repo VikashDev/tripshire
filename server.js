@@ -89,6 +89,7 @@ app.use(morgan("dev"));
 app.use('/', express.static(__dirname + '/public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use('/views', express.static(__dirname + '/views'));
 app.use('/app', express.static(__dirname + '/app/admin/dist'));
 
 // app.use('/', suggest);

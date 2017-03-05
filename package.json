@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "angular-google-places-autocomplete": "^0.2.9",
+    "angular-route": "^1.6.2",
     "babyparse": "^0.4.6",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
