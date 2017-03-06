@@ -3,6 +3,10 @@
     routing.$inject = ['$httpProvider', '$routeProvider'];
     console.log('Routes');
     function routing($httpProvider, $routeProvider) {
-    	console.log('Routes');
+    	$routeProvider
+    	.when("/page3", {
+       	 templateUrl : "/views/view.html"
+   		 })
+    	console.log('Routes imp');
     }
 })();

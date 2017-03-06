@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="apiApp">
+<html ng-app='page3' >
     <head>
         <title>Tripshire</title>
         
@@ -304,7 +304,7 @@
         
         </style>
     </head>
-    <body style="background-color: #36465D" ng-controller= "apiCtrl" >
+    <body ng-controller='page3Ctrl' style="background-color: #36465D"   >
         <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display-->
@@ -338,154 +338,10 @@
             </div>
         </nav>
         <div ng-view></div>
-        <div class="container-fluid" style="margin-top: 90px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-2" style="padding-left: 30px;">
-                        <div class="row" style="background-color: #fff;  margin-bottom: 20px; border-radius: 5px;">
-                            <div class="col-md-6">
-                                <a href="" class="text-center" style="text-decoration:none; color: #000;" >
-                                    <p><img src="/images/card.png"  style="width: 40px; padding-top: 20px;"/></p>
-                                    <h3 class="text-center">Add a Card</h3>
-                                </a>
-                            </div>
-                            <div class="col-md-6" >
-                                <a href="" class="text-center" style="text-decoration:none; color: #000;">
-                                    <p><img src="/images/query.png"  style="width: 35px; padding-top: 15px;" /></p>
-                                    <h3 class="text-center">Ask a Question</h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" infinite-scroll='activities.nextPage()' infinite-scroll-distance='1' >
-                    <div class="col-md-7 col-md-offset-1" ng-repeat="item in activities.items" style="margin-bottom: 20px;">
-                        <div class="row ">
-                            
-                            <div class="col-md-2 ">
-                                <a href="#" id="profileImage" style="margin-left: -20px; " >
-                                    <img src="http://lorempixel.com/100/100/people/9/" class="img-circular" />
-                                </a>
-                                <div class="card hovercard profileDetail">
-                                    <div class="cardheader">
-                                    </div>
-                                    <div class="avatar">
-                                        <img alt="" src="http://lorempixel.com/100/100/people/9/">
-                                    </div>
-                                    <div class="info">
-                                        <div class="title">
-                                            <a target="_blank" href="#">Script Eden</a>
-                                        </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                    </div>
-                                    <div class="bottom">
-                                        <a class="btn btn-primary btn-sm" rel="publisher"
-                                            href="#">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                        
-                                        <a class="btn btn-danger btn-sm" rel="publisher"
-                                            href="#">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                        <a class="btn btn-primary btn-twitter btn-sm" href="#">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                        
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-10" style="background-color: #fff; border-radius: 3px;" >
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-9 col-sm-10">
-                                                <h3 style="font-size: 20px;"><a  ng-click="logger($index);">{{item.name}}</a></h3>
-                                                 
-                                                   
-                                                <div class="row thumbs-up" >
-                                                    <ul style="margin-left: -24px;">
-                                                        
-                                                        <!--  <li style="padding: 0px;"><a href="#"><img src="/images/location.png" class="img-responsive" style="height: 18px; margin-top: 4px;" /></a></li>
-                                                        
-                                                        <li><span style="display:block;text-overflow: ellipsis;width: 350px;overflow: hidden; white-space: nowrap;">{{item.address}}</span></li> -->
-                                                    </ul>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row thumbs-up" style="margin-top: 20px;" >
-                                                    <ul >
-                                                        
-                                                        <li ><a href="#">
-                                                        <img src="/images/bookmark.png" class="img-responsive" style="height: 18px;" /></a></li>
-                                                        <li style="padding: 5px 5px 5px 0px;">Bookmark</li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row ">
-                                            <div class="col-md-12" style="padding: 0px;">
-                                                <a href="#">
-                                                    <img src="{{item.image_url[0]}}" class="img-responsive">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            
-                                            <p style="padding-left: 20px; padding-top: 20px;">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression. </p>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 tags">
-                                                
-                                                <a href="#" class="primary" ng-repeat = "tag in item.tags">{{tag}}</a>
-                                                <a href="#" class="primary" ng-repeat = "highlight in item.highlights">{{highlight}}</a>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
-                                            <div class="col-md-5 ">
-                                                <div class="row thumbs-up" >
-                                                    <ul style="margin-left: -25px;">
-                                                        <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive" style="height: 20px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/thumbs_down_rp.png" class="img-responsive" style="height: 30px; margin-top: -5px;" /></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" style="height: 20px; margin-top: 2px;" /></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-md-offset-1" >
-                                                <div class="row thumbs-up " >
-                                                    <ul style="margin-left: 45px;">
-                                                        <li><a href="#"><img src="/images/facebook_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/instagram_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/pinterest_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/tumblr_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/twitter_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--                     <div class="col-md-4 hidden-sm hidden-xs sideInfo">
-                        <div class="panel panel-primary panel-transparent">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Hey its a question for you?</h3>
-                            </div>
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod arcu ut diam maximus auctor. Sed malesuada maximus tellus, dignissim volutpat urna hendrerit at. Cras nisi turpis, mattis vitae ornare ut, bibendum et massa. Nulla at tellus a arcu luctus ultrices ac non felis. Maecenas euismod efficitur ipsum vel vestibulum. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. </div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
+        <div>
+			<h1 style="position: relative; top:200px;">{{datax}}</h1>        	
         </div>
+        
         <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block !important;" class="modal fade col-md-4 col-md-offset-8">
             <div role="document" style="overflow-y: initial !important" class="modal-dialog">
                 <div style=" overflow-y: auto;" class="modal-content">
@@ -539,9 +395,9 @@
         <script src="/js/angular.js"></script>
         <script src="/node_modules/angular-route/angular-route.min.js"></script>
         <script src="/js/ng-infinite-scroll.min.js"></script>
-        <script src="/js/app.js"></script>
-        <script type="text/javascript" src = "/js/data.factory.js"></script>
-        <script src="/js/api.ctrl.js"></script>
+        <script src="/js/app3.js"></script> 
+        <script src="/js/page3.ctrl.js"></script>
+         <script type="text/javascript" src = "/js/page3.factory.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/7cc7091fc2.js"></script>
     </body>
