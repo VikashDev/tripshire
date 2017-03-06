@@ -8,6 +8,7 @@
     <style type="text/css">
     body {
         font-family: 'Roboto', sans-serif;
+        overflow-x: hidden;
     }
     
     .card {
@@ -360,11 +361,50 @@
         position: relative;
         overflow-y: scroll;
     }
+    
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px #19283c;
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px #19283c;
+    }
+    
+    .shadow_below {
+        box-shadow: 0px 2px 1px rgba(25, 40, 60, 0.36);
+    }
+    
+    .ptn_bg {
+        background: #38475c;
+        background-color: #38475c;
+    }
+    
+    .img-circle {
+        border-radius: 50%;
+    }
+    
+    .tags {
+        padding: 4px;
+        margin: 3px;
+        background-color: #19283c;
+        border-radius: 4px;
+        color: white;
+    }
+    
+    .tags:hover {
+        cursor: pointer;
+    }
     </style>
 </head>
 
 <body ng-controller='page3Ctrl' style="background-color: #36465D">
-    <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+    <nav style="background-color: #19283C;" role="navigation" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display-->
             <div class="navbar-header">
@@ -382,32 +422,97 @@
                     <div class="form-group">
                         <div class="icon-addon addon-lg">
                             <input id="email" type="text" placeholder="Search Tripshire" class="form-control" />
-                            <label for="email" rel="tooltip" title="email" class="glyphicon glyphicon-search"></label>
+                            <label for="email" rel="tooltip" style="color: #fff" title="email" class="glyphicon glyphicon-search"></label>
                         </div>
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="current">Bookmarks</a></li>
-                    <li><a href="#" class="current">Notification</a></li>
-                    <li><a href="#" class="current">Messages</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myLoginModal">SignUp</a></li>
+                    <li><a style="color: #fff" href="#" class="current">Bookmarks</a></li>
+                    <li><a style="color: #fff" href="#" class="current">Notification</a></li>
+                    <li><a style="color: #fff" href="#" class="current">Messages</a></li>
+                    <li><a style="color: #fff" href="#" data-toggle="modal" data-target="#myLoginModal">SignUp</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse-->
         </div>
     </nav>
     <div ng-view></div>
-    <div style="position: relative; top:6vh;">
+    <div style="position: relative; top:6.8vh;">
         <div id="demoScroll" style="padding: 0px; margin: 0px;" class="constrained col-md-2   hidden-sm hidden-xs scroll_main">
             <div style="padding: 0px; margin: 0px;" infinite-scroll-container='"#demoScroll"' infinite-scroll='activities.nextPage()' infinite-scroll-distance='1'>
             </div>
             <center>
                 <div bgcolor="#38475c" class='animated fadeInUp' ng-repeat="item in activities.items" style="padding: 2px; margin-bottom: 2.5%; background-color: #19283c" class="shadow_below" width='100%'>
-                    <img class='cover animated fadeIn' width="100%" src="http://segarebalitour.com/wp-content/uploads/2015/03/Tanah-Lot-temple-Bali-Tour.jpg">
-                    <h4 style="color: #ffffff;">{{item.name}} </h4>
+                    <img class='cover animated fadeIn' width="100%" ng-src="{{item.image_url[0]}}">
+                    <h4 style="color: #ffffff;"> <a style="text-decoration: none; color: #fff;" ng-click="logger($index);">{{item.name}}</a> </h4>
                 </div>
             </center>
         </div>
+        <div style="padding: 0px; margin: 0px;" class="col-md-10">
+            <img width="100%" height="350px" style="object-fit:cover;" class="cover shadow_below" ng-src="{{SelectedPlace.image_url[0]}}">
+            <br/>
+            <br/>
+            <h3 style="color: #ffffff;position: relative; left: 5%;">
+				{{SelectedPlace.name}}, 
+				<span style="width: 30px; margin-right: 90px;">&nbsp;</span><img width='65px' height="65px" class="img-circle hidden-md hidden-lg" src="https://www.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33.jpg?s=512">
+ 			<img width='65px' height="65px" class="img-circle hidden-md hidden-lg" src="https://www.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33.jpg?s=512">
+ 			<img width='65px' height="65px" class="img-circle hidden-md hidden-lg" src="https://www.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33.jpg?s=512">
+				<br/>
+				<h4 style="color: #ffffff; position: relative; left: 6%;">
+				 City, Country 
+
+			<span style="width: 30px; margin-right: 130px;">&nbsp;</span><button class="btn hidden-lg hidden-md ">Bookmark</button>
+ 			<button class="btn hidden-lg hidden-md " >Suggest an Edit</button>	
+				</h4>
+				<div class="row">
+					 
+					<div style="padding-left: 6.8%;" class="col-xs-5 hidden-lg hidden-md">
+							<h4 style="margin-top: 5px;color: #ffffff;">Highlights</h4>
+ 							<br>
+ 							<span ng-repeat="i in SelectedPlace.highlights" class="tags">{{i}}</span>
+					</div>
+					<div style="padding-left: 0;" class="col-xs-5 hidden-lg hidden-md">
+							<h4 style="margin-top: 5px;color: #ffffff;">Related</h4>
+ 							<br>
+ 							<span ng-repeat="i in SelectedPlace.tags" class="tags">{{i}}</span> 
+					</div>
+					<div class="col-xs-1 hidden-lg hidden-md">
+					
+					</div>
+				</div>
+				
+			
+		</h3>
+            <br/>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div style="font-family:Circular std, Avenir, Verdana, Sans Serif; font-size: 1.25em; text-align: justify; color: #19283C; padding: 4px ;color: #19283c; border-radius: 8px ;background-color:#ffffff ;" class="col-md-6 sm_mar">
+            {{SelectedPlace.description}} <br/><span ng-repeat="i in SelectedPlace.wiki">{{i.extract}}<br/></span> 
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div style="" class="col-md-3 hidden-xs hidden-sm">
+            <button class="btn ">Bookmark</button>
+            <button class="btn ">Suggest an Edit</button>
+            <br/>
+            <br/>
+            <img width='75px' height="75px" class="img-circle" src="https://www.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33.jpg?s=512">
+            <img width='75px' height="75px" class="img-circle" src="https://www.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33.jpg?s=512">
+            <img width='75px' height="75px" class="img-circle" src="https://www.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33.jpg?s=512">
+            <br/>
+            <br/>
+            <h4 style="margin-top: 5px;color: #ffffff;">Highlights</h4>
+            <br>
+            <span ng-repeat="i in SelectedPlace.highlights" class="tags">{{i}}</span>
+            <br/>
+            <br/>
+            <h4 style="margin-top: 5px;color: #ffffff;">Related</h4>
+            <br>
+            <span ng-repeat="i in SelectedPlace.tags" class="tags">{{i}}</span>
+        </div>
+        <br/>
+    </div>
     </div>
     <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block !important;" class="modal fade col-md-4 col-md-offset-8">
         <div role="document" style="overflow-y: initial !important" class="modal-dialog">
