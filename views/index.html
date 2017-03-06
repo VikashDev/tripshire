@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="apiApp">
-    <head>
-        <title>Tripshire</title>
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <style type="text/css">
-        body {
+
+<head>
+    <title>Tripshire</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style type="text/css">
+    body {
         font-family: 'Roboto', sans-serif;
-        }
-        .card {
+    }
+    
+    .card {
         padding-top: 20px;
         margin: 10px 0 20px 0;
         /*background-color: rgba(214, 224, 226, 0.2); */
@@ -25,18 +26,21 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        }
-        .card .card-heading {
+    }
+    
+    .card .card-heading {
         padding: 0 20px;
         margin: 0;
-        }
-        .card .card-heading.simple {
+    }
+    
+    .card .card-heading.simple {
         font-size: 20px;
         font-weight: 300;
         color: #777;
         border-bottom: 1px solid #e5e5e5;
-        }
-        .card .card-heading.image img {
+    }
+    
+    .card .card-heading.image img {
         display: inline-block;
         width: 46px;
         height: 46px;
@@ -46,61 +50,73 @@
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        }
-        .card .card-heading.image .card-heading-header {
+    }
+    
+    .card .card-heading.image .card-heading-header {
         display: inline-block;
         vertical-align: top;
-        }
-        .card .card-heading.image .card-heading-header h3 {
+    }
+    
+    .card .card-heading.image .card-heading-header h3 {
         margin: 0;
         font-size: 14px;
         line-height: 16px;
         color: #262626;
-        }
-        .card .card-heading.image .card-heading-header span {
+    }
+    
+    .card .card-heading.image .card-heading-header span {
         font-size: 12px;
         color: #999999;
-        }
-        .card .card-body {
+    }
+    
+    .card .card-body {
         padding: 0 20px;
         margin-top: 20px;
-        }
-        .card .card-media {
+    }
+    
+    .card .card-media {
         padding: 0 20px;
         margin: 0 -14px;
-        }
-        .card .card-media img {
+    }
+    
+    .card .card-media img {
         max-width: 100%;
         max-height: 100%;
-        }
-        .card .card-actions {
+    }
+    
+    .card .card-actions {
         min-height: 30px;
         padding: 0 20px 20px 20px;
         margin: 20px 0 0 0;
-        }
-        .card .card-comments {
+    }
+    
+    .card .card-comments {
         padding: 20px;
         margin: 0;
         background-color: #f8f8f8;
-        }
-        .card .card-comments .comments-collapse-toggle {
+    }
+    
+    .card .card-comments .comments-collapse-toggle {
         padding: 0;
         margin: 0 20px 12px 20px;
-        }
-        .card .card-comments .comments-collapse-toggle a,
-        .card .card-comments .comments-collapse-toggle span {
+    }
+    
+    .card .card-comments .comments-collapse-toggle a,
+    .card .card-comments .comments-collapse-toggle span {
         padding-right: 5px;
         overflow: hidden;
         font-size: 12px;
         color: #999;
         text-overflow: ellipsis;
         white-space: nowrap;
-        }
-        .card-comments .media-heading {
+    }
+    
+    .card-comments .media-heading {
         font-size: 13px;
         font-weight: bold;
-        }
-        .card.people {
+    }
+    
+    .card.people {
         position: relative;
         display: inline-block;
         width: 170px;
@@ -109,11 +125,13 @@
         margin-left: 20px;
         overflow: hidden;
         vertical-align: top;
-        }
-        .card.people:first-child {
+    }
+    
+    .card.people:first-child {
         margin-left: 0;
-        }
-        .card.people .card-top {
+    }
+    
+    .card.people .card-top {
         position: absolute;
         top: 0;
         left: 0;
@@ -121,14 +139,17 @@
         width: 170px;
         height: 150px;
         background-color: #ffffff;
-        }
-        .card.people .card-top.green {
+    }
+    
+    .card.people .card-top.green {
         background-color: #53a93f;
-        }
-        .card.people .card-top.blue {
+    }
+    
+    .card.people .card-top.blue {
         background-color: #427fed;
-        }
-        .card.people .card-info {
+    }
+    
+    .card.people .card-info {
         position: absolute;
         top: 150px;
         display: inline-block;
@@ -139,8 +160,9 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        }
-        .card.people .card-info .title {
+    }
+    
+    .card.people .card-info .title {
         display: block;
         margin: 8px 14px 0 14px;
         overflow: hidden;
@@ -148,8 +170,9 @@
         font-weight: bold;
         line-height: 18px;
         color: #404040;
-        }
-        .card.people .card-info .desc {
+    }
+    
+    .card.people .card-info .desc {
         display: block;
         margin: 8px 14px 0 14px;
         overflow: hidden;
@@ -157,8 +180,9 @@
         line-height: 16px;
         color: #737373;
         text-overflow: ellipsis;
-        }
-        .card.people .card-bottom {
+    }
+    
+    .card.people .card-bottom {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -170,8 +194,9 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        }
-        .card.hovercard {
+    }
+    
+    .card.hovercard {
         position: relative;
         padding-top: 0;
         overflow: hidden;
@@ -180,18 +205,21 @@
         width: 200px;
         z-index: 100;
         margin-left: -70px;
-        }
-        .card.hovercard .cardheader {
+    }
+    
+    .card.hovercard .cardheader {
         background: url("http://lorempixel.com/850/280/nature/4/");
         background-size: cover;
         height: 135px;
-        }
-        .card.hovercard .avatar {
+    }
+    
+    .card.hovercard .avatar {
         position: relative;
         top: -50px;
         margin-bottom: -50px;
-        }
-        .card.hovercard .avatar img {
+    }
+    
+    .card.hovercard .avatar img {
         width: 100px;
         height: 100px;
         max-width: 100px;
@@ -199,54 +227,70 @@
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        border: 5px solid rgba(255,255,255,0.5);
-        }
-        .card.hovercard .info {
+        border: 5px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .card.hovercard .info {
         padding: 4px 8px 10px;
-        }
-        .card.hovercard .info .title {
+    }
+    
+    .card.hovercard .info .title {
         margin-bottom: 4px;
         font-size: 24px;
         line-height: 1;
         color: #262626;
         vertical-align: middle;
-        }
-        .card.hovercard .info .desc {
+    }
+    
+    .card.hovercard .info .desc {
         overflow: hidden;
         font-size: 12px;
         line-height: 20px;
         color: #737373;
         text-overflow: ellipsis;
-        }
-        .card.hovercard .bottom {
+    }
+    
+    .card.hovercard .bottom {
         padding: 0 20px;
         margin-bottom: 17px;
-        }
-        .rowWithFullWidth {
+    }
+    
+    .rowWithFullWidth {
         margin-left: 0 !important;
         margin-right: 0 !important;
-        }
-        /* tags css */
-        .tags a{border:1px solid #DDD;display:inline-block;color:#717171;background:#FFF;
-        -webkit-box-shadow:0 1px 1px 0 rgba(180,180,180,0.1);
-        box-shadow:0 1px 1px 0 rgba(180,180,180,0.1);
-        -webkit-transition:all .1s ease-in-out;-moz-transition:all .1s ease-in-out;
-        -o-transition:all .1s ease-in-out;
-        -ms-transition:all .1s ease-in-out;
-        transition:all .1s ease-in-out;
-        border-radius:7px;
-        margin:0 3px 6px 0;
-        padding:0px 10px;
-        font-size:12px}
-        .tags a.primary{color:#FFF;background-color:#747474;}
-        
-        .thumbs-up ul li {
+    }
+    /* tags css */
+    
+    .tags a {
+        border: 1px solid #DDD;
+        display: inline-block;
+        color: #717171;
+        background: #FFF;
+        -webkit-box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1);
+        box-shadow: 0 1px 1px 0 rgba(180, 180, 180, 0.1);
+        -webkit-transition: all .1s ease-in-out;
+        -moz-transition: all .1s ease-in-out;
+        -o-transition: all .1s ease-in-out;
+        -ms-transition: all .1s ease-in-out;
+        transition: all .1s ease-in-out;
+        border-radius: 7px;
+        margin: 0 3px 6px 0;
+        padding: 0px 10px;
+        font-size: 12px
+    }
+    
+    .tags a.primary {
+        color: #FFF;
+        background-color: #747474;
+    }
+    
+    .thumbs-up ul li {
         list-style-type: none;
         float: left;
         padding: 5px;
-        }
-        
-        .thumbs-up ul li a i {
+    }
+    
+    .thumbs-up ul li a i {
         background: #205D7A;
         color: #fff;
         width: 40px;
@@ -257,217 +301,229 @@
         margin-right: 10px;
         padding-top: 15%;
         transition: all 0.2s ease-in-out;
-        }
-        .thumbs-up ul li a i:hover {
+    }
+    
+    .thumbs-up ul li a i:hover {
         opacity: .7;
-        }
-        .profileDetail {
+    }
+    
+    .profileDetail {
         display: none;
-        }
-        .profileDetail:hover .profileDetails {
+    }
+    
+    .profileDetail:hover .profileDetails {
         display: block;
-        }
-        .sideinfo{
+    }
+    
+    .sideinfo {
         position: absolute;
         z-index: 10;
         float: right;
-        }
-        #myModal .modal-dialog {
+    }
+    
+    #myModal .modal-dialog {
         margin-top: 24%;
         width: 100%;
         height: 100%;
-        
         max-height: 500px;
         overflow-y: hidden;
-        }
-        #myModal .modal-body {
+    }
+    
+    #myModal .modal-body {
         max-height: 80%;
         overflow-y: auto;
-        }
-        /*}*/
-        #myModal .modal-content{
+    }
+    /*}*/
+    
+    #myModal .modal-content {
         /*margin-top: 20%;*/
-        background-color: #ffffff; !important;
+        background-color: #ffffff;
+        !important;
         /*height: 80%;*/
         max-height: 500px;
         overflow-y: hidden;
-        }
-        #myModal .modal-p{
+    }
+    
+    #myModal .modal-p {
         text-align: center;
         color: white;
         font-size: 16px;
         font-weight: 200;
-        }
-        #myModal .modal-img{
+    }
+    
+    #myModal .modal-img {
         border-radius: 50%;
-        }
-        
-        </style>
-    </head>
-    <body style="background-color: #36465D" ng-controller= "apiCtrl" >
-        <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display-->
-                <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle">
+    }
+    
+   
+    </style>
+</head>
+
+<body style="background-color: #36465D" ng-controller="apiCtrl">
+    <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display-->
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    </button><a href="#" class="navbar-brand"><img src="/images/web-logo.png" style="height: 200%;"></a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling-->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <form role="search" class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <div class="icon-addon addon-lg">
-                                <input id="email" type="text" placeholder="Search Tripshire" class="form-control"/>
-                                <label for="email" rel="tooltip" title="email" class="glyphicon glyphicon-search"></label>
-                            </div>
-                        </div>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" class="current">Bookmarks</a></li>
-                        <li><a href="#" class="current">Notification</a></li>
-                        <li><a href="#" class="current">Messages</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#myLoginModal">SignUp</a></li>
-                        
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse-->
+                </button>
+                <a href="#" class="navbar-brand"><img src="/images/web-logo.png" style="height: 200%;"></a>
             </div>
-        </nav>
-        <div ng-view></div>
-        <div class="container-fluid" style="margin-top: 90px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-2" style="padding-left: 30px;">
-                        <div class="row" style="background-color: #fff;  margin-bottom: 20px; border-radius: 5px;">
-                            <div class="col-md-6">
-                                <a href="" class="text-center" style="text-decoration:none; color: #000;" >
-                                    <p><img src="/images/card.png"  style="width: 40px; padding-top: 20px;"/></p>
-                                    <h3 class="text-center">Add a Card</h3>
-                                </a>
-                            </div>
-                            <div class="col-md-6" >
-                                <a href="" class="text-center" style="text-decoration:none; color: #000;">
-                                    <p><img src="/images/query.png"  style="width: 35px; padding-top: 15px;" /></p>
-                                    <h3 class="text-center">Ask a Question</h3>
-                                </a>
-                            </div>
+            <!-- Collect the nav links, forms, and other content for toggling-->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <form role="search" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <div class="icon-addon addon-lg">
+                            <input id="email" type="text" placeholder="Search Tripshire" class="form-control" />
+                            <label for="email" rel="tooltip" title="email" class="glyphicon glyphicon-search"></label>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="current">Bookmarks</a></li>
+                    <li><a href="#" class="current">Notification</a></li>
+                    <li><a href="#" class="current">Messages</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#myLoginModal">SignUp</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse-->
+        </div>
+    </nav>
+    <div ng-view></div>
+    <div class="container-fluid" style="margin-top: 90px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2" style="padding-left: 30px;">
+                    <div class="row" style="background-color: #fff;  margin-bottom: 20px; border-radius: 5px;">
+                        <div class="col-md-6">
+                            <a href="" class="text-center" style="text-decoration:none; color: #000;">
+                                <p><img src="/images/card.png" style="width: 40px; padding-top: 20px;" /></p>
+                                <h3 class="text-center">Add a Card</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="" class="text-center" style="text-decoration:none; color: #000;">
+                                <p><img src="/images/query.png" style="width: 35px; padding-top: 15px;" /></p>
+                                <h3 class="text-center">Ask a Question</h3>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="row" infinite-scroll='activities.nextPage()' infinite-scroll-distance='1' >
-                    <div class="col-md-7 col-md-offset-1" ng-repeat="item in activities.items" style="margin-bottom: 20px;">
-                        <div class="row ">
-                            
-                            <div class="col-md-2 ">
-                                <a href="#" id="profileImage" style="margin-left: -20px; " >
-                                    <img src="http://lorempixel.com/100/100/people/9/" class="img-circular" />
-                                </a>
-                                <div class="card hovercard profileDetail">
-                                    <div class="cardheader">
+            </div>
+            <div class="row" infinite-scroll='activities.nextPage()' infinite-scroll-distance='1'>
+                <div class="col-md-7 col-md-offset-1" ng-repeat="item in activities.items" style="margin-bottom: 20px;">
+                    <div class="row ">
+                        <div class="col-md-2 ">
+                            <a href="#" id="profileImage" style="margin-left: -20px; ">
+                                <img src="http://lorempixel.com/100/100/people/9/" class="img-circular" />
+                            </a>
+                            <div class="card hovercard profileDetail">
+                                <div class="cardheader">
+                                </div>
+                                <div class="avatar">
+                                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                                </div>
+                                <div class="info">
+                                    <div class="title">
+                                        <a target="_blank" href="#">Script Eden</a>
                                     </div>
-                                    <div class="avatar">
-                                        <img alt="" src="http://lorempixel.com/100/100/people/9/">
-                                    </div>
-                                    <div class="info">
-                                        <div class="title">
-                                            <a target="_blank" href="#">Script Eden</a>
-                                        </div>
-                                        <div class="desc">Passionate designer</div>
-                                        <div class="desc">Curious developer</div>
-                                        <div class="desc">Tech geek</div>
-                                    </div>
-                                    <div class="bottom">
-                                        <a class="btn btn-primary btn-sm" rel="publisher"
-                                            href="#">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                        
-                                        <a class="btn btn-danger btn-sm" rel="publisher"
-                                            href="#">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                        <a class="btn btn-primary btn-twitter btn-sm" href="#">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                        
-                                        
-                                    </div>
+                                    <div class="desc">Passionate designer</div>
+                                    <div class="desc">Curious developer</div>
+                                    <div class="desc">Tech geek</div>
+                                </div>
+                                <div class="bottom">
+                                    <a class="btn btn-primary btn-sm" rel="publisher" href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" rel="publisher" href="#">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                    <a class="btn btn-primary btn-twitter btn-sm" href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="col-md-10" style="background-color: #fff; border-radius: 3px;" >
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-9 col-sm-10">
-                                                <h3 style="font-size: 20px;"><a  ng-click="logger($index);">{{item.name}}</a></h3>
-                                                 
-                                                   
-                                                <div class="row thumbs-up" >
-                                                    <ul style="margin-left: -24px;">
-                                                        
-                                                        <!--  <li style="padding: 0px;"><a href="#"><img src="/images/location.png" class="img-responsive" style="height: 18px; margin-top: 4px;" /></a></li>
+                        </div>
+                        <div class="col-md-10" style="background-color: #fff; border-radius: 3px;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-9 col-sm-10">
+                                            <h3 style="font-size: 20px;"><a  ng-click="logger($index);">{{item.name}}</a></h3>
+                                            <div class="row thumbs-up">
+                                                <ul style="margin-left: -24px;">
+                                                    <!--  <li style="padding: 0px;"><a href="#"><img src="/images/location.png" class="img-responsive" style="height: 18px; margin-top: 4px;" /></a></li>
                                                         
                                                         <li><span style="display:block;text-overflow: ellipsis;width: 350px;overflow: hidden; white-space: nowrap;">{{item.address}}</span></li> -->
-                                                    </ul>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="row thumbs-up" style="margin-top: 20px;" >
-                                                    <ul >
-                                                        
-                                                        <li ><a href="#">
-                                                        <img src="/images/bookmark.png" class="img-responsive" style="height: 18px;" /></a></li>
-                                                        <li style="padding: 5px 5px 5px 0px;">Bookmark</li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="row ">
-                                            <div class="col-md-12" style="padding: 0px;">
-                                                <a href="#">
-                                                    <img src="{{item.image_url[0]}}" class="img-responsive">
-                                                </a>
+                                        <div class="col-md-3">
+                                            <div class="row thumbs-up" style="margin-top: 20px;">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="/images/bookmark.png" class="img-responsive" style="height: 18px;" /></a>
+                                                    </li>
+                                                    <li style="padding: 5px 5px 5px 0px;">Bookmark</li>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            
-                                            <p style="padding-left: 20px; padding-top: 20px;">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression. </p>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-12" style="padding: 0px;">
+                                            <a href="#">
+                                                <img src="{{item.image_url[0]}}" class="img-responsive">
+                                            </a>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12 tags">
-                                                
-                                                <a href="#" class="primary" ng-repeat = "tag in item.tags">{{tag}}</a>
-                                                <a href="#" class="primary" ng-repeat = "highlight in item.highlights">{{highlight}}</a>
-                                                
+                                    </div>
+                                    <div class="row">
+                                        <p style="padding-left: 20px; padding-top: 20px;">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression. </p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 tags">
+                                            <a href="#" class="primary" ng-repeat="tag in item.tags">{{tag}}</a>
+                                            <a href="#" class="primary" ng-repeat="highlight in item.highlights">{{highlight}}</a>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
+                                        <div class="col-md-5 ">
+                                            <div class="row thumbs-up">
+                                                <ul style="margin-left: -25px;">
+                                                    <li>
+                                                        <a href="#"><img src="/images/thumbs_up.png" class="img-responsive" style="height: 20px;" /></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="/images/thumbs_down_rp.png" class="img-responsive" style="height: 30px; margin-top: -5px;" /></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" style="height: 20px; margin-top: 2px;" /></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
-                                            <div class="col-md-5 ">
-                                                <div class="row thumbs-up" >
-                                                    <ul style="margin-left: -25px;">
-                                                        <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive" style="height: 20px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/thumbs_down_rp.png" class="img-responsive" style="height: 30px; margin-top: -5px;" /></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" style="height: 20px; margin-top: 2px;" /></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-md-offset-1" >
-                                                <div class="row thumbs-up " >
-                                                    <ul style="margin-left: 45px;">
-                                                        <li><a href="#"><img src="/images/facebook_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/instagram_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/pinterest_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/tumblr_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        <li><a href="#"><img src="/images/twitter_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                        <div class="col-md-6 col-md-offset-1">
+                                            <div class="row thumbs-up ">
+                                                <ul style="margin-left: 45px;">
+                                                    <li>
+                                                        <a href="#"><img src="/images/facebook_bw.png" class="img-responsive" style="height: 25px;" /></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="/images/instagram_bw.png" class="img-responsive" style="height: 25px;" /></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="/images/pinterest_bw.png" class="img-responsive" style="height: 25px;" /></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="/images/tumblr_bw.png" class="img-responsive" style="height: 25px;" /></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="/images/twitter_bw.png" class="img-responsive" style="height: 25px;" /></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -475,7 +531,8 @@
                             </div>
                         </div>
                     </div>
-                    <!--                     <div class="col-md-4 hidden-sm hidden-xs sideInfo">
+                </div>
+                <!--                     <div class="col-md-4 hidden-sm hidden-xs sideInfo">
                         <div class="panel panel-primary panel-transparent">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Hey its a question for you?</h3>
@@ -483,66 +540,65 @@
                             <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod arcu ut diam maximus auctor. Sed malesuada maximus tellus, dignissim volutpat urna hendrerit at. Cras nisi turpis, mattis vitae ornare ut, bibendum et massa. Nulla at tellus a arcu luctus ultrices ac non felis. Maecenas euismod efficitur ipsum vel vestibulum. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. </div>
                         </div>
                     </div> -->
-                </div>
             </div>
         </div>
-        <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block !important;" class="modal fade col-md-4 col-md-offset-8">
-            <div role="document" style="overflow-y: initial !important" class="modal-dialog">
-                <div style=" overflow-y: auto;" class="modal-content">
-                    <div  class="modal-header">
-                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-                        <h3 align="center" id="myModalLabel" class="modal-title animated fadeInDown">Post Heading</h3>
-                        <img class="animated fadeInDown" style="margin-top: 5px;" src="../res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale%2cf_auto%2cq_auto%2cw_538/v1484421161/seminyak_beach_wuakuw.jpg" width='100%' style="margin:0px;">
-                        
-                        <div ng-repeat="i in array"  class="row">
-                            <hr>
-                            <div align="center" class="col-xs-1">
-                                <img style="border-radius: 50%; vertical-align: center; position: relative;top: 8px;" width="30px" height="30px" src="http://lorempixel.com/100/100/people/9/">
-                            </div>
-                            <div align="left" class="col-xs-11">
-                                <h5><b>User_Name: </b>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</h5>
-                            </div>
+    </div>
+    <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block !important;" class="modal fade col-md-4 col-md-offset-8">
+        <div role="document" style="overflow-y: initial !important" class="modal-dialog">
+            <div style=" overflow-y: auto;" class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                    <h3 align="center" id="myModalLabel" class="modal-title animated fadeInDown">Post Heading</h3>
+                    <img class="animated fadeInDown" style="margin-top: 5px;" src="../res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale%2cf_auto%2cq_auto%2cw_538/v1484421161/seminyak_beach_wuakuw.jpg" width='100%' style="margin:0px;">
+                    <div ng-repeat="i in array" class="row">
+                        <hr>
+                        <div align="center" class="col-xs-1">
+                            <img style="border-radius: 50%; vertical-align: center; position: relative;top: 8px;" width="30px" height="30px" src="http://lorempixel.com/100/100/people/9/">
                         </div>
-                        
-                        <div style="bottom: 0px" class="row">
-                            <div class="col-xs-10">
-                                <input type="text" class="form-control" name="">
-                            </div>
-                            <div class="col-xs-2">
-                                <input type="button" value="Post" class="btn btn-primary" name="" />
-                            </div>
+                        <div align="left" class="col-xs-11">
+                            <h5><b>User_Name: </b>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</h5>
+                        </div>
+                    </div>
+                    <div style="bottom: 0px" class="row">
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" name="">
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="button" value="Post" class="btn btn-primary" name="" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="myLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade col-md-6 col-md-offset-3">
-            <div class="middlePage">
-                <div class="panel panel-info">
-                    <div class="panel-body">
-                        <div style="margin-bottom: 0px;" class="row" align="center">
-                            <img class="animated swing" src="images/logo-dark.png" style="margin-top: 5px; position: relative;top: -2" width="50%">
-                            <h4 style="color: #19283c; position: relative;" class="text-center">Join our awesome community ! Sigup: It's Free</h4>
-                        </div>
-                        <div align="center" style="position: relative;" class="row">
-                            <a href="/auth/facebook"><img src="/images/facebook.png" width="200px" height="100px" class="img-responsive"></a>
-                            <a href="#" ng-click="googleUser()" ><img src="/images/google.png" width="200px" height="100px" class="img-responsive"></a>
-                        </div>
+    </div>
+    <div id="myLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade col-md-6 col-md-offset-3">
+        <div class="middlePage">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div style="margin-bottom: 0px;" class="row" align="center">
+                        <img class="animated swing" src="images/logo-dark.png" style="margin-top: 5px; position: relative;top: -2" width="50%">
+                        <h4 style="color: #19283c; position: relative;" class="text-center">Join our awesome community ! Sigup: It's Free</h4>
                     </div>
-                    <hr>
-                    <h4 class="text-center">Already Existing User ? <a href="#">Login</a></h4>
-                    <p style="color: #19283c;" class="text-center">We understand you agree to our <a href="#">Terms & Condition</a> <a href="#">Privacy Policy</a></p>
+                    <div align="center" style="position: relative;" class="row">
+                        <a href="/auth/facebook"><img src="/images/facebook.png" width="200px" height="100px" class="img-responsive"></a>
+                        <a href="#" ng-click="googleUser()"><img src="/images/google.png" width="200px" height="100px" class="img-responsive"></a>
+                    </div>
                 </div>
+                <hr>
+                <h4 class="text-center">Already Existing User ? <a href="#">Login</a></h4>
+                <p style="color: #19283c;" class="text-center">We understand you agree to our <a href="#">Terms & Condition</a> <a href="#">Privacy Policy</a></p>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="/js/angular.js"></script>
-        <script src="/node_modules/angular-route/angular-route.min.js"></script>
-        <script src="/js/ng-infinite-scroll.min.js"></script>
-        <script src="/js/app.js"></script>
-        <script type="text/javascript" src = "/js/data.factory.js"></script>
-        <script src="/js/api.ctrl.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="https://use.fontawesome.com/7cc7091fc2.js"></script>
-    </body>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/js/angular.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="/js/ng-infinite-scroll.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/data.factory.js"></script>
+    <script src="/js/api.ctrl.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/7cc7091fc2.js"></script>
+</body>
+
 </html>

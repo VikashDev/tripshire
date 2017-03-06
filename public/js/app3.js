@@ -7,3 +7,4 @@
     	console.log('routes pg3');
     }
 })();
+angular.module('page3').value('THROTTLE_MILLISECONDS', 250) 
