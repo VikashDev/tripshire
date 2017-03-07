@@ -34,6 +34,7 @@
         }).then(function() {
             // Listen for sign-in state changes.
             console.log('Gapi init then');
+            console.log(gapi.auth2.getAuthInstance().isSignedIn.get());
             // gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
             // // Handle the initial sign-in state.
             // updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());

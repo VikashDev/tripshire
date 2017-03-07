@@ -90,29 +90,61 @@
             };
 
             $scope.googleCall = function() {
-                gapi.client.people.people.get({
-                    resourceName: 'people/me'
-                }).then(function(resp) {
-                    console.log(resp);
-                    var p = document.createElement('p');
-                    var name = resp.result.names[0].displayName;
-                    $scope.data.name = resp.result.names[0].givenName;
-                    $scope.data.email = resp.result.emailAddresses[0].value;
-                    $scope.data.provider = 'Google';
-                    $scope.data.oauthId = resp.result.metadata.sources[0].id;
-                    $scope.data.accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).accessToken;
-                    p.appendChild(document.createTextNode('Hello, ' + name + '!'));
-                    document.getElementById('content').appendChild(p);
-                    console.log(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).accessToken);
-                    console.log($scope.data);
-                    $http.post('/user/save', $scope.data).then(function success(response) {
-                        console.log(response);
-                        $rootScope.user = response.user;
+                console.log(gapi.auth2.getAuthInstance().isSignedIn.get());
+                var isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
+                if (!isSignedIn) {
+                    gapi.auth2.getAuthInstance().signIn().then(function() {
+                        gapi.client.people.people.get({
+                            resourceName: 'people/me'
+                        }).then(function(resp) {
+                            console.log(resp);
+                            var p = document.createElement('p');
+                            var name = resp.result.names[0].displayName;
+                            $scope.data.name = resp.result.names[0].givenName;
+                            $scope.data.email = resp.result.emailAddresses[0].value;
+                            $scope.data.provider = 'Google';
+                            $scope.data.oauthId = resp.result.metadata.sources[0].id;
+                            $scope.data.accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).accessToken;
+                            p.appendChild(document.createTextNode('Hello, ' + name + '!'));
+                            document.getElementById('content').appendChild(p);
+                            console.log(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).accessToken);
+                            console.log($scope.data);
+                            $http.post('/user/save', $scope.data).then(function success(response) {
+                                console.log(response);
+                                $rootScope.user = response.user;
 
-                    }, function error(err) {
-                        console.log(err);
+                            }, function error(err) {
+                                console.log(err);
+                            });
+                        });
                     });
-                });
+
+
+                } else {
+                    gapi.client.people.people.get({
+                        resourceName: 'people/me'
+                    }).then(function(resp) {
+                        console.log(resp);
+                        var p = document.createElement('p');
+                        var name = resp.result.names[0].displayName;
+                        $scope.data.name = resp.result.names[0].givenName;
+                        $scope.data.email = resp.result.emailAddresses[0].value;
+                        $scope.data.provider = 'Google';
+                        $scope.data.oauthId = resp.result.metadata.sources[0].id;
+                        $scope.data.accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).accessToken;
+                        p.appendChild(document.createTextNode('Hello, ' + name + '!'));
+                        document.getElementById('content').appendChild(p);
+                        console.log(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).accessToken);
+                        console.log($scope.data);
+                        $http.post('/user/save', $scope.data).then(function success(response) {
+                            console.log(response);
+                            $rootScope.user = response.user;
+
+                        }, function error(err) {
+                            console.log(err);
+                        });
+                    });
+                }
             };
         });
 
