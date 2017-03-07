@@ -7,6 +7,7 @@ var upload = multer({
 }).single('file');
 var Grid = require("gridfs-stream");
 var adminController = require('../controllers/admincontroller');
+var User = require('../models/user.js');
 var config = require("../../config/config_temp.js");
 var passport = require('passport');
 var path = require('path');
@@ -44,19 +45,36 @@ exports.init = function(app) {
         });
 
     });
-    app.get('/user', function(req, res, next) {
-        console.log('User', req.user);
-        res.send(user);
+    app.post('/user/save', function(req, res){
+        console.log(req.body);
+        var user = new User();
+        user.name = req.body.name;
+        user.email = req.body.email;
+        user.oauthID = req.body.oauthId;
+        user.accessToken = req.body.accessToken;
+        user.provider = req.body.provider;
+
+        req.logIn(user,function(err){
+            if(err)
+                throw err;
+        });
+        user.save(function(err, result){
+            if(err){
+                console.log(err);
+                return res.json({
+                    'err': err
+                });
+            }else{
+                res.json({
+                    'user': req.user,
+                    'success': true
+                });
+            }
+        });
     });
+
     app.get('/', function(req, res, next) {
-        // console.log(config.homepage_sections[0].sub_cat[0].content);
-        if (req.user !== null) {
-            res.sendFile(path.join(__dirname, '../../views', 'index.html'));
-        }else{
-            res.json({
-                user: req.user
-            });
-        }
+        res.sendFile(path.join(__dirname, '../../views', 'index.html'));
     });
 
     app.get('/auth/facebook',
@@ -69,14 +87,14 @@ exports.init = function(app) {
         });
     app.get('/suggest/fb_callback',
         passport.authenticate('facebook', {
-            failureRedirect: '/test',
-            successRedirect: '/'
+            failureRedirect: '#/user',
+            successRedirect: '#/user'
         }),
         function(req, res) {
             console.log(req.user);
-            res.json({
-                user: req.user
-            });
+            // res.json({
+            //     user: req.user
+            // });
         });
     app.get('/auth/google',
         passport.authenticate('google', {
@@ -86,14 +104,15 @@ exports.init = function(app) {
 
     app.get('/google_callback',
         passport.authenticate('google', {
-            failureRedirect: '/'
+            failureRedirect: '#/user',
+            successRedirect: '#/user'
         }),
         function(req, res) {
             // res.redirect('/');
             console.log(req.user);
-            res.json({
-                user: req.user
-            });
+            // res.json({
+            //     user: req.user
+            // });
         });
     app.get('/activity/:activity_slug', function(req, res, next) {
         activity_detail(req.params.activity_slug, function(err, results, related_items) {
