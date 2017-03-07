@@ -1,3 +1,244 @@
-<div>
-	<h1>Hiiiii</h1>
+<div class="container-fluid" style="margin-top: 90px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2 addCard">
+                <div class="row" style="background-color: #fff;  margin-bottom: 20px; border-radius: 5px;">
+                    <div class="col-md-6 col-xs-6">
+                        <a href="" class="text-center" style="text-decoration:none; color: #000;" >
+                            <p><img src="/images/card.png"  style="width: 40px; padding-top: 20px;"/></p>
+                            <h3 class="text-center" style="color: #333;
+                            font-weight: 200;">Add a Card</h3>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-xs-6" >
+                        <a href="" class="text-center" style="text-decoration:none; color: #000;">
+                            <p><img src="/images/query.png"  style="width: 35px; padding-top: 15px;" /></p>
+                            <h3 class="text-center" style="color: #333;
+                            font-weight: 200;">Ask a Question</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" infinite-scroll='activities.nextPage()' infinite-scroll-distance='2'>
+            <div class="col-md-7 col-md-offset-1" ng-repeat="item in activities.items track by $index" style="margin-bottom: 20px;">
+                <div class="row">
+                    
+                    <div class="col-md-2 dropdown hidden-xs" >
+                        <div class="btn-group show-on-hover">
+                            <a href="#" style="margin-left: 10px; " id="profileImage">
+                                <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" class="img-circular" width="75" style="border-radius: 5px; margin-bottom: 10px;" />
+                            </a>
+                            <a href="#" style="margin-left: 10px;" id="profileImage">
+                                <img src="https://trello-avatars.s3.amazonaws.com/38d0f17e4f3cbfd10da79bafe77c3dce/original.png" class="img-circular" width="75" style="border-radius: 5px; margin-bottom: 10px;" />
+                            </a>
+                            <a href="#" style="margin-left: 10px; " id="profileImage">
+                                <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9GCNF6-982ec2a44ec0-1024" class="img-circular" width="75" style="border-radius: 5px; margin-bottom: 10px;" />
+                            </a>
+                            <a href="#" style="margin-left: 10px;" id="profileImage">
+                                <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/12717671_983160448405080_1701550644403961728_n.jpg?oh=41bd3cef587c1cf49c4c45f258be5c5c&oe=5937AFF5" class="img-circular" width="75" style="border-radius: 5px;" />
+                            </a>
+                            
+                            <ul class="dropdown-menu" role="menu">
+                                <div class="card hovercard ">
+                                    <div class="cardheader">
+                                    </div>
+                                    <div class="avatar">
+                                        <img alt="" src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512">
+                                    </div>
+                                    <div class="info">
+                                        <div class="title">
+                                            <a target="_blank" href="#">Script Eden</a>
+                                        </div>
+                                        <div class="desc">Passionate designer</div>
+                                        <div class="desc">Curious developer</div>
+                                        <div class="desc">Tech geek</div>
+                                    </div>
+                                    <div class="bottom">
+                                        <a class="btn btn-primary btn-sm" rel="publisher"
+                                            href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                        
+                                        <a class="btn btn-danger btn-sm" rel="publisher"
+                                            href="#">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                        <a class="btn btn-primary btn-twitter btn-sm" href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="col-md-10" style="background-color: #fff; border-radius: 3px;" >
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <div class="row">
+                                    <div class="col-xs-9 hidden-sm hidden-md hidden-lg cardImage">
+                                        <ul>
+                                            <li>
+                                            <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" /></li>
+                                            <li><img src="https://trello-avatars.s3.amazonaws.com/38d0f17e4f3cbfd10da79bafe77c3dce/original.png" /></li>
+                                            <li>
+                                            <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" /></li>
+                                            <li><img src="https://trello-avatars.s3.amazonaws.com/38d0f17e4f3cbfd10da79bafe77c3dce/original.png" /></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 col-xs-3 hidden-md hidden-lg hidden-sm">
+                                        <div class="row thumbs-up smallBookmark" style="margin-top: 10px;" >
+                                            <ul >
+                                                
+                                                <li style="float: right; padding-right: 20px;"><a href="#">
+                                                <img src="/images/bookmark.png" class="img-responsive bookmarkImage" style="height: 18px;" /></a></li>
+                                                
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-9 col-xs-9 placeName">
+                                        <a href="/#!/page3" ng-click="setStorage($index)"><h3 >{{item.name}}</h3></a>
+                                        
+                                        
+                                    </div>
+                                    
+                                    <div class="col-md-3 col-xs-3 hidden-xs">
+                                        <div class="row thumbs-up smallBookmark" style="margin-top: 20px;" >
+                                            <ul >
+                                                
+                                                <li ><a href="#">
+                                                <img src="/images/bookmark.png" class="img-responsive bookmarkImage" style="height: 18px;" /></a></li>
+                                                <li class="hideBookmark" style="padding: 5px 5px 5px 0px;">Bookmark</li>
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-md-12" style="padding: 0px;">
+                                        <a href="/#!/page3" ng-click="setStorage($index)">
+                                            <img src="{{item.image_url[0]}}" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row thumbs-up" >
+                                    <ul style="margin-left: -24px;">
+                                        <p style="margin-top: 10px;">Location: .....</p>
+                                        
+                                        <!--  <li style="padding: 0px;"><a href="#"><img src="/images/location.png" class="img-responsive" style="height: 18px; margin-top: 4px;" /></a></li>
+                                        
+                                        <li><span style="display:block;text-overflow: ellipsis;width: 350px;overflow: hidden; white-space: nowrap;">{{item.address}}</span></li> -->
+                                    </ul>
+                                </div>
+                                <div class="row">
+                                    
+                                    <p style="padding-left: 20px; ">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression. </p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 tags">
+                                        <a href="#" class="primary" ng-repeat = "tag in item.tags">{{tag}}</a>
+                                        <a href="#" class="primary" ng-repeat = "highlight in item.highlights">{{highlight}}</a>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
+                                    <div class="col-md-5 col-xs-4">
+                                        <div class="row thumbs-up" >
+                                            <ul style="margin-left: -25px;">
+                                                <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive" style="height: 20px;" /></a></li>
+                                                <li><a href="#"><img src="/images/thumbs_down_rp.png" class="img-responsive" style="height: 30px; margin-top: -5px;" /></a></li>
+                                                <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" style="height: 20px; margin-top: 2px;" /></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 " >
+                                        <div class="row thumbs-up socialButtonLinks"  >
+                                            <ul>
+                                                <li><a href="#"><img src="/images/facebook_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                <li><a href="#"><img src="/images/instagram_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                <li><a href="#"><img src="/images/pinterest_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                <li><a href="#"><img src="/images/tumblr_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                <li><a href="#"><img src="/images/twitter_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-md-4 hidden-sm hidden-xs sideInfo ">
+                <div class="panel panel-primary panel-transparent">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Hey its a question for you?</h3>
+                    </div>
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod arcu ut diam maximus auctor. Sed malesuada maximus tellus, dignissim volutpat urna hendrerit at. Cras nisi turpis, mattis vitae ornare ut, bibendum et massa. Nulla at tellus a arcu luctus ultrices ac non felis. Maecenas euismod efficitur ipsum vel vestibulum. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. Nam imperdiet ipsum nunc, sit amet varius felis maximus quis. Etiam efficitur, mauris placerat luctus facilisis, ligula sem pellentesque nunc, ac viverra tellus velit sit amet purus. Proin a nunc id quam tempor blandit vitae id orci. Cras lectus turpis, varius nec elementum venenatis, suscipit ut nisl.Nulla condimentum est in leo mollis, sit amet varius erat pulvinar. Donec posuere turpis non est ultrices lobortis. Donec commodo aliquam sodales. Ut id finibus velit. </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</div>
+<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: block !important;" class="modal fade col-md-4 col-md-offset-8">
+    <div role="document" style="overflow-y: initial !important" class="modal-dialog">
+        <div style=" overflow-y: auto;" class="modal-content">
+            <div  class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                <h3 align="center" id="myModalLabel" class="modal-title animated fadeInDown">Post Heading</h3>
+                <img class="animated fadeInDown" style="margin-top: 5px;" src="../res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale%2cf_auto%2cq_auto%2cw_538/v1484421161/seminyak_beach_wuakuw.jpg" width='100%' style="margin:0px;">
+                
+                <div ng-repeat="i in array"  class="row">
+                    <hr>
+                    <div align="center" class="col-xs-1">
+                        <img style="border-radius: 50%; vertical-align: center; position: relative;top: 8px;" width="30px" height="30px" src="http://lorempixel.com/100/100/people/9/">
+                    </div>
+                    <div align="left" class="col-xs-11">
+                        <h5><b>User_Name: </b>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</h5>
+                    </div>
+                </div>
+                
+                <div style="bottom: 0px" class="row">
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" name="">
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="button" value="Post" class="btn btn-primary" name="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade col-md-6 col-md-offset-3">
+    <div class="middlePage">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div style="margin-bottom: 0px;" class="row" align="center">
+                    <img class="animated swing" src="/images/logo-dark.png" style="margin-top: 5px; position: relative;top: -2" width="50%">
+                    <h4 style="color: #19283c; position: relative;" class="text-center">Join our awesome community ! Sigup: It's Free</h4>
+                </div>
+                <div align="center" style="position: relative;" class="row">
+                    <a href="#" ng-click="facebookCall()"><img src="/images/facebook.png" width="200px" height="100px" class="img-responsive"></a>
+                    <a href="#" ng-click="googleCall()"><img src="/images/google.png" width="200px" height="100px" class="img-responsive"></a>
+                    <button id="authorize-button" style="display: none;">Authorize</button>
+                    <button id="signout-button" style="display: none;">Sign Out</button>
+                    <div id="content"></div>
+                </div>
+            </div>
+            <hr>
+            <h4 class="text-center">Already Existing User ? <a href="#">Login</a></h4>
+            <p style="color: #19283c;" class="text-center">We understand you agree to our <a href="#">Terms & Condition</a> <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
 </div>

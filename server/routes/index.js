@@ -72,7 +72,6 @@ exports.init = function(app) {
             }
         });
     });
-
     app.get('/', function(req, res, next) {
         res.sendFile(path.join(__dirname, '../../views', 'index.html'));
     });

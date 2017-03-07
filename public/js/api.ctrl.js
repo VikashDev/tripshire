@@ -1,9 +1,10 @@
 (function() {
 
     angular.module('apiApp')
-        .controller('apiCtrl', ($scope, $http, Activities, $location, $rootScope) => {
+        .controller('apiCtrl', function($scope, $http, Activities, $window, $rootScope) {
 
-            $scope.data = '';
+            $scope.test = 'test it';
+
             $scope.cards = null;
             $scope.activities = new Activities();
             console.log($scope.cards);
@@ -46,8 +47,13 @@
             }
             $scope.facebookCall = function() {
                 console.log('hello facebook');
+                FB.getLoginStatus(function(response){
+                    console.log(response);
+                });
+
                 FB.login(function(response) {
-                    if (response.authResponse) {
+                    console.log(response);
+                    if (response.authResponse && response.status!=undefined) {
                         console.log('Welcome!  Fetching your information.... ');
                         FB.api('/me', {
                             locale: 'en_US',
@@ -146,6 +152,12 @@
                     });
                 }
             };
+
+            $scope.setStorage = function(index) {
+                var showable = $scope.activities.items[index];
+                $window.localStorage.setItem('Selected', JSON.stringify(showable));
+            };
+
         });
 
 })();

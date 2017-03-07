@@ -35,11 +35,6 @@
             // Listen for sign-in state changes.
             console.log('Gapi init then');
             console.log(gapi.auth2.getAuthInstance().isSignedIn.get());
-            // gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-            // // Handle the initial sign-in state.
-            // updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-            // authorizeButton.onclick = handleAuthClick;
-            // signoutButton.onclick = handleSignoutClick;
         });
     }
 
@@ -49,7 +44,14 @@
     running.$inject = ['$rootScope', '$location', '$window', '$http'];
 
     function routing($locationProvider, $routeProvider) {
-
+    	$routeProvider.when('/',{
+    		templateUrl: '/views/feeds.html',
+    		controller: 'apiCtrl'
+    	}).
+    	when('/page3', {
+    		templateUrl: '/views/view.html',
+    		controller: 'singleCtrl'
+    	});
         if (window.history && window.history.pushState) {
             $locationProvider.html5Mode({
                 enabled: true,
