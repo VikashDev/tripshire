@@ -12,8 +12,9 @@ passport.use(new localStrategy({
 
     },
     function(username, password, callback) {
-        Admin.findOne({
-                email: username
+        User.findOne({
+                email: username,
+                provider: 'Local'
             },
             function(err, docs) {
                 if (err) {
@@ -34,7 +35,7 @@ passport.use(new localStrategy({
                     if (!isMatch) {
                         return callback(null, false);
                     }
-
+                    console.log('docs', docs);
                     // Success
                     return callback(null, docs);
                 });
@@ -138,7 +139,7 @@ passport.serializeUser(function(user, done) {
 // used to deserialize the user
 passport.deserializeUser(function(user, done) {
     console.log('deserialize', user);
-    Admin.findOne({
+    User.findOne({
         email: user.email
     }, function(err, user) {
         done(err, user);

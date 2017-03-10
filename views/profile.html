@@ -1,0 +1,347 @@
+<style type="text/css">
+body {
+background-color: #F5F8FA;"
+}
+.navbar-default {
+background-color:  #fff;
+}
+.well-reset {
+padding: 9px;
+}
+.cover-pic {
+height: 300px;
+background-image: url('https://static.pexels.com/photos/186642/pexels-photo-186642.jpeg');
+max-height: 300px;
+background-size: cover;
+background-position: center;
+}
+.custom-feed {
+list-style: none;
+}
+.color-change {
+background-color: #fff;
+}
+.remove-pad {
+margin-top: 10px;
+padding: 0 10px;
+}
+.profile-pills > li > a {
+padding: 5px 5px;
+color: #000;
+}
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 cover-pic">
+        </div>
+        </div> <!-- main-image ends-->
+    </div>
+    <div class="well well-reset">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 hidden-xs hidden-sm"></div>
+                <div class="col-md-6 col-sm-8 col-xs-12">
+                    <div class="row hidden-xs">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home1">CARDS</a></li>
+                            <li><a data-toggle="tab" href="#question1">QUESTIONS</a></li>
+                            <li><a data-toggle="tab" href="#answer1">ANSWER</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4 ">
+                    <button class="btn btn-default hidden-xs pull-right" style="font-weight: 900; margin-top: 12px;">Edit Profile</button>
+                </div>
+                <div class="col-md-3 col-sm-4 ">
+                    <button class="btn btn-sm hidden-md hidden-lg hidden-sm pull-right" style="font-weight: 900; margin-top: 12px;">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+        </div><!-- edit profile button tab ends -->
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-3  hidden-sm hidden-xs" style="top: -200px;">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 profile-small">
+                            <img src="/images/pro.jpg" class="img-thumbnail img-responsive" width="200px" height="200px">
+                            <h3>Vikash kumar</h3>
+                            <p>New Delhi, India</p>
+                            <ul class="nav nav-pills nav-stacked profile-pills" >
+                                
+                                <li><a href="#">Following {{followers}}</a></li>
+                                <li><a href="#">Followers {{following}}</a></li>
+                                <li><a href="#">Up Votes 32</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3  col-sm-12 hidden-lg hidden-md hidden-sm"  style="margin-bottom: 20px;">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12"  style="height: 55px;">
+                            <div class="row">
+                                <div class="col-xs-5" style="top: -180px;">
+                                    <img src="img/pro.jpg" class="img-thumbnail img-responsive" width="200px" height="200px">
+                                    <h4><strong>Vikash kumar</strong></h4>
+                                    <span>{{following}} <a href="#">Following </a></span><br />
+                                    <span>{{followers}} <a href="#">Followers </a></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class=""></div>
+                    </div>
+                </div>
+                <div class="col-md-6"><!--feeds part -->
+                <div class="row hidden-lg hidden-sm hidden-md">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">CARDS</a></li>
+                        <li><a data-toggle="tab" href="#question">QUESTIONS</a></li>
+                        <li><a data-toggle="tab" href="#answer">ANSWER</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <div class="row" >
+                                <div class="col-md-11" style="margin-bottom: 20px;">
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <div class="row">
+                                                <div class="col-xs-9 hidden-sm hidden-md hidden-lg cardImage">
+                                                    <ul>
+                                                        <li>
+                                                        <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" /></li>
+                                                        <li><img src="https://trello-avatars.s3.amazonaws.com/38d0f17e4f3cbfd10da79bafe77c3dce/original.png" /></li>
+                                                        <li>
+                                                        <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9GCNF6-982ec2a44ec0-1024" /></li>
+                                                        <li><img src="https://trello-avatars.s3.amazonaws.com/19c365fc66978d68c84e87afbfa4b496/170.png" /></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-3 col-xs-3 hidden-md hidden-lg hidden-sm">
+                                                    <div class="row thumbs-up smallBookmark" style="margin-top: 10px;" >
+                                                        <ul >
+                                                            
+                                                            <li style="float: right; padding-right: 20px;"><a href="#">
+                                                            <img src="/images/bookmark.png" class="img-responsive bookmarkImage" style="height: 18px;" /></a></li>
+                                                            
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9 col-xs-9 placeName">
+                                                    <h3 >Arjuna Temple</h3>
+                                                </div>
+                                                
+                                                <div class="col-md-3 col-xs-3 hidden-xs">
+                                                    <div class="row thumbs-up smallBookmark" style="margin-top: 20px;" >
+                                                        <ul >
+                                                            
+                                                            <li ><a href="#">
+                                                            <img src="/images/bookmark.png" class="img-responsive bookmarkImage" style="height: 18px;" /></a></li>
+                                                            <li class="hideBookmark" style="padding: 5px 5px 5px 0px;">Bookmark</li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row ">
+                                                <div class="col-md-12" style="padding: 0px;">
+                                                    <a href="#">
+                                                        <img src="https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale,f_auto,q_auto/v1484039254/arjuna_temple_ka0e0b.png" class="img-responsive">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row thumbs-up" >
+                                                <ul style="margin-left: -24px;">
+                                                    <p style="margin-top: 10px;">Location: .....</p>
+                                                    
+                                                    <!--  <li style="padding: 0px;"><a href="#"><img src="/images/location.png" class="img-responsive" style="height: 18px; margin-top: 4px;" /></a></li>
+                                                    
+                                                    <li><span style="display:block;text-overflow: ellipsis;width: 350px;overflow: hidden; white-space: nowrap;">{{item.address}}</span></li> -->
+                                                </ul>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <p style="padding-left: 20px; ">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression. </p>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 tags">
+                                                    <a href="#" class="primary" ng-repeat = "tag in item.tags">{{tag}}</a>
+                                                    <a href="#" class="primary" ng-repeat = "highlight in item.highlights">{{highlight}}</a>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
+                                                <div class="col-md-5 col-xs-4">
+                                                    <div class="row thumbs-up" >
+                                                        <ul style="margin-left: -25px;">
+                                                            <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive" style="height: 20px;" /></a></li>
+                                                            
+                                                            <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" style="height: 20px; margin-top: 2px;" /></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7 " >
+                                                    <div class="row thumbs-up socialButtonLinks"  >
+                                                        <ul>
+                                                            <li><a href="#"><img src="/images/facebook_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                            <li><a href="#"><img src="/images/instagram_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                            <li><a href="#"><img src="/images/pinterest_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                            <li><a href="#"><img src="/images/tumblr_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                            <li><a href="#"><img src="/images/twitter_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="question" class="tab-pane fade">
+                            <h3>Ask Question</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        </div>
+                        <div id="answer" class="tab-pane fade">
+                            <h3>Answer</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tab-content hidden-xs" >
+                    <div id="home1" class="tab-pane fade in active">
+                        <div class="row" >
+                            <div class="col-md-11" style="margin-bottom: 20px;">
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <div class="row">
+                                            <div class="col-xs-9 hidden-sm hidden-md hidden-lg cardImage">
+                                                <ul>
+                                                    <li>
+                                                    <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" /></li>
+                                                    <li><img src="https://trello-avatars.s3.amazonaws.com/38d0f17e4f3cbfd10da79bafe77c3dce/original.png" /></li>
+                                                    <li>
+                                                    <img src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" /></li>
+                                                    <li><img src="https://trello-avatars.s3.amazonaws.com/38d0f17e4f3cbfd10da79bafe77c3dce/original.png" /></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3 col-xs-3 hidden-md hidden-lg hidden-sm">
+                                                <div class="row thumbs-up smallBookmark" style="margin-top: 10px;" >
+                                                    <ul >
+                                                        
+                                                        <li style="float: right; padding-right: 20px;"><a href="#">
+                                                        <img src="/images/bookmark.png" class="img-responsive bookmarkImage" style="height: 18px;" /></a></li>
+                                                        
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-9 col-xs-9 placeName">
+                                                <h3 >Arjuna Temple</h3>
+                                            </div>
+                                            
+                                            <div class="col-md-3 col-xs-3 hidden-xs">
+                                                <div class="row thumbs-up smallBookmark" style="margin-top: 20px;" >
+                                                    <ul >
+                                                        
+                                                        <li ><a href="#">
+                                                        <img src="/images/bookmark.png" class="img-responsive bookmarkImage" style="height: 18px;" /></a></li>
+                                                        <li class="hideBookmark" style="padding: 5px 5px 5px 0px;">Bookmark</li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-md-12" style="padding: 0px;">
+                                                <a href="#">
+                                                    <img src="https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale,f_auto,q_auto/v1484039254/arjuna_temple_ka0e0b.png" class="img-responsive">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row thumbs-up" >
+                                            <ul style="margin-left: -24px;">
+                                                <p style="margin-top: 10px;">Location: .....</p>
+                                                
+                                                <!--  <li style="padding: 0px;"><a href="#"><img src="/images/location.png" class="img-responsive" style="height: 18px; margin-top: 4px;" /></a></li>
+                                                
+                                                <li><span style="display:block;text-overflow: ellipsis;width: 350px;overflow: hidden; white-space: nowrap;">{{item.address}}</span></li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <p style="padding-left: 20px; ">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression. </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 tags">
+                                                <a href="#" class="primary" ng-repeat = "tag in item.tags">{{tag}}</a>
+                                                <a href="#" class="primary" ng-repeat = "highlight in item.highlights">{{highlight}}</a>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom: 15px; margin-top: 15px;">
+                                            <div class="col-md-5 col-xs-4">
+                                                <div class="row thumbs-up" >
+                                                    <ul style="margin-left: -25px;">
+                                                        <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive" style="height: 20px;" /></a></li>
+                                                        
+                                                        <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" style="height: 20px; margin-top: 2px;" /></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 " >
+                                                <div class="row thumbs-up socialButtonLinks"  >
+                                                    <ul>
+                                                        <li><a href="#"><img src="/images/facebook_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                        <li><a href="#"><img src="/images/instagram_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                        <li><a href="#"><img src="/images/pinterest_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                        <li><a href="#"><img src="/images/tumblr_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                        <li><a href="#"><img src="/images/twitter_bw.png" class="img-responsive" style="height: 25px;" /></a></li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="question1" class="tab-pane fade">
+                        <h3>Ask Question</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                    </div>
+                    <div id="answer1" class="tab-pane fade">
+                        <h3>Answer</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                    </div>
+                    
+                </div>
+                <div class="col-md-3 hidden-xs"><!--Recomandation part -->
+                <!-- <div class="row">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <h4>Who to follow</h4>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            -->
+        </div>
+        
+    </div>

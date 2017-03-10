@@ -45,11 +45,11 @@ function coodinateFinder(address, callback) {
     });
 };
 //admin router
-router.route('/admin')
+router.route('/user')
     .post(adminController.postAdmin)
     .get(authController.isAuthenticated, adminController.getAdmin);
-router.route('/admin/login').post(adminController.login);
-router.get('/admin/logout', function(req, res) {
+router.route('/user/login').post(adminController.login);
+router.get('/user/logout', function(req, res) {
     req.logout();
     res.status(200).json({
         status: 'Bye!'

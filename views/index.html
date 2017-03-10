@@ -10,9 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link rel="stylesheet" href="owl_assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.9.0/rzslider.min.css">
         <link rel="stylesheet" href="css/nouislider.min.css">
-        <link href="../maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <base href="/">
         <style type="text/css">
         body {
@@ -189,6 +187,7 @@
         width: 200px;
         z-index: 100;
         margin-left: -45px;
+        margin-top: -10px;
         }
         .card.hovercard .cardheader {
         background: url("http://lorempixel.com/850/280/nature/4/");
@@ -364,6 +363,91 @@
         -webkit-box-shadow: none;
         box-shadow: none;
         }
+        /****** LOGIN MODAL ******/
+        .loginmodal-container {
+        padding: 30px;
+        
+        width: 100% !important;
+        background-color: #F7F7F7;
+        margin: 0 auto;
+        border-radius: 2px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        
+        }
+        .loginmodal-container h1 {
+        text-align: center;
+        font-size: 1.8em;
+        font-family: roboto;
+        }
+        .loginmodal-container input[type=submit] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+        }
+        .loginmodal-container input[type=text], input[type=password] {
+        height: 44px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        border-top: 1px solid #c0c0c0;
+        /* border-radius: 2px; */
+        padding: 0 8px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        }
+        .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+        border: 1px solid #b9b9b9;
+        border-top: 1px solid #a0a0a0;
+        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .loginmodal {
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Arial', sans-serif;
+        font-weight: 700;
+        height: 36px;
+        padding: 0 8px;
+        /* border-radius: 3px; */
+        /* -webkit-user-select: none;
+        user-select: none; */
+        }
+        .loginmodal-submit {
+        /* border: 1px solid #3079ed; */
+        border: 0px;
+        color: #fff;
+        text-shadow: 0 1px rgba(0,0,0,0.1);
+        background-color: #4d90fe;
+        padding: 17px 0px;
+        font-family: roboto;
+        font-size: 14px;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+        }
+        .loginmodal-submit:hover {
+        /* border: 1px solid #2f5bb7; */
+        border: 0px;
+        text-shadow: 0 1px rgba(0,0,0,0.3);
+        background-color: #357ae8;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+        }
+        .loginmodal-container a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 400;
+        text-align: center;
+        display: inline-block;
+        
+        transition: opacity ease 0.5s;
+        }
+        .login-help{
+        font-size: 12px;
+        }
         
         /*screen-xs*/
         @media (max-width: 768px) {
@@ -382,9 +466,9 @@
         padding-left: 0px;
         }
         .placeName h3 {
-        font-size: 15px;
+        font-size: 18px;
         margin-top: 12px;
-        margin-bottom: 0px;
+        margin-bottom: 10px;
         }
         .smallBookmark {
         
@@ -421,6 +505,17 @@
         .navbar-brand {
         margin-left: 20px;
         }
+        .navbar-collapse {
+        padding-right: 0px;
+        padding-left: 25px;
+        }
+        .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: transparent;
+        }
+        .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+        margin-right: 0px;
+        margin-left: 0px;
+        }
         }
         /*screen-sm*/
         @media (min-width: 768px) and (max-width: 992px) {
@@ -445,46 +540,68 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    </button><a href="#" class="navbar-brand"><img src="/images/web-logo.png" style="height: 200%;"></a>
+                    </button><a href="#" class="navbar-brand" style="margin-top: -10px;"><img src="/images/web-logo.png" style="height: 200%;"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling-->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <form role="search" class="navbar-form navbar-left">
                         <div class="form-group">
                             <div class="icon-addon addon-lg">
-                                <input id="email" type="text" placeholder="Search Tripshire" class="form-control"/>
+                                <input id="email" type="text" placeholder="Search for a place, activity or attraction" class="form-control"/>
                                 <label for="email" rel="tooltip" title="email" class="glyphicon glyphicon-search"></label>
                             </div>
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" class="current">Bookmarks</a></li>
+                        <li><a href="#" class="current">Add a Card</a></li>
                         <li><a href="#" class="current">Notification</a></li>
                         <li><a href="#" class="current">Messages</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#myLoginModal">SignUp</a></li>
-                        
-                    </ul>
+                        <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px; background-color: transparent;">
+                                <img class="nav-profile-img" src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" alt="" style="height: 30px;  border-radius: 50%;">
+                                <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-href="/#!/profile">Zenith Kerri</a></li>
+                                    <li><a href="#">My Bookmarks</a></li>
+                                    <li><a href="#">Setting & Privacy</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse-->
                 </div>
-                <!-- /.navbar-collapse-->
-            </div>
-        </nav>
-        <div ng-view></div>
-        
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="/js/angular.js"></script>
-        <script src="https://apis.google.com/js/api.js"></script>
-        <script src="/node_modules/angular-route/angular-route.min.js"></script>
-        <script src="/js/ng-infinite-scroll.min.js"></script>
-        <script src="/js/app.js"></script>
-        <script type="text/javascript" src = "/js/data.factory.js"></script>
-        <script src="/js/api.ctrl.js"></script>
-        <script src="/js/single.ctrl.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="owl_assets/owl.carousel.min.js" rel="javascript"></script>
-        <script src="../cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.9.0/rzslider.min.js" rel="javascript"></script>
-        
-        <script src="https://apis.google.com/js/api.js"></script>
-        </script>
-    </body>
-</html>
+            </nav>
+            <div ng-view></div>
+            
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="/js/angular.js"></script>
+            <script src="https://apis.google.com/js/api.js"></script>
+            <script src="/node_modules/angular-route/angular-route.min.js"></script>
+            <script src="/js/ng-infinite-scroll.min.js"></script>
+            <script src="/js/app.js"></script>
+            <script type="text/javascript" src = "/js/data.factory.js"></script>
+            <script src="/js/api.ctrl.js"></script>
+            <script src="/js/single.ctrl.js"></script>
+            <script src="/js/profile.ctrl.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src="owl_assets/owl.carousel.min.js" rel="javascript"></script>
+            
+            
+            <script src="https://apis.google.com/js/api.js"></script>
+            </script>
+            <script type="text/javascript">
+            $('#signup-modal-popup').on('click', function () {
+            // Load up a new modal...
+            $('#signup-modal').modal('hide');
+            $('#login-modal').modal('show');
+            
+            });
+            </script>
+        </body>
+    </html>

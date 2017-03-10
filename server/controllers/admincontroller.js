@@ -8,8 +8,7 @@ exports.postAdmin = function(req, res) {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        oauthID: req.body.oauthID,
-        provider: req.body.provider
+        provider: 'Local'
     });
     console.log(req.body.name);
     user.save(function(err) {
@@ -21,14 +20,15 @@ exports.postAdmin = function(req, res) {
         }
         console.log("no error");
         res.status(200).json({
-            status: 'successfully added'
+            status: 'successfully added',
+            success: true
         });
     });
 };
 
 // Create endpoint /api/users for GET
 exports.getAdmin = function(req, res) {
-    Admin.find(function(err, docs) {
+    User.find(function(err, docs) {
         if (err)
             res.send(err);
 
@@ -51,24 +51,14 @@ exports.login = function(req, res, next) {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
-                    'error': err
+                    'error': err,
+                    success: false
                 });
             }
             res.status(200).json({
-                status: 'Login successful!'
+                status: 'Login successful!',
+                success: true
             });
         });
     })(req, res, next);
-};
-
-exports.facebookLogin = function(req, res, next) {
-    // console.log('facebook login');
-    // passport.authenticate('facebook', {
-    //         failureRedirect: '/'
-    //     }),
-    //     function(req, res) {
-    //         console.log(req.user);
-    //         res.redirect('/');
-    //     };
-
 };

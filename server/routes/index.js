@@ -45,7 +45,7 @@ exports.init = function(app) {
         });
 
     });
-    app.post('/user/save', function(req, res){
+    app.post('/user/save', function(req, res) {
         console.log(req.body);
         var user = new User();
         user.name = req.body.name;
@@ -54,23 +54,79 @@ exports.init = function(app) {
         user.accessToken = req.body.accessToken;
         user.provider = req.body.provider;
 
-        req.logIn(user,function(err){
-            if(err)
-                throw err;
-        });
-        user.save(function(err, result){
-            if(err){
+        user.save(function(err, result) {
+            if (err) {
                 console.log(err);
                 return res.json({
-                    'err': err
+                    'err': err,
+                    'success': false
                 });
-            }else{
+            } else {
+                req.logIn(result, function(err) {
+                    if (err)
+                        throw err;
+                });
                 res.json({
                     'user': req.user,
                     'success': true
                 });
             }
         });
+    });
+
+    app.post('/user/get', function(req, res) {
+        console.log(req.body);
+
+        User.findOne({
+            email: req.body.email,
+            oauthID: req.body.oauthId,
+            isAdmin: false
+        }, function(err, result) {
+            if (err) {
+                console.log(err);
+                return res.json({
+                    'err': err,
+                    'success': false
+                });
+            } else {
+                if (result === null || result === undefined)
+                    res.json({
+                        'err': 'No user',
+                        'success': false
+                    });
+                else {
+                    req.logIn(result, function(err) {
+                        if (err) {
+                            console.log('session', err);
+                        }
+                    }).then(function() {
+                        res.json({
+                            'user': req.user,
+                            'success': true
+                        });
+                    });
+
+                }
+            }
+        });
+    });
+    app.get('/user/getById/:id', function(req, res) {
+        var id = req.params.id;
+        console.log(req.isAuthenticated());
+        console.log('USer',req.user);
+        var user = req.user;
+        console.log(user._id);
+        if(user._id === id){
+            res.json({
+                'user': req.user,
+                'success': true
+            });
+        }else{
+            res.json({
+                'err': 'Login again',
+                'success': false
+            });
+        }
     });
     app.get('/', function(req, res, next) {
         res.sendFile(path.join(__dirname, '../../views', 'index.html'));

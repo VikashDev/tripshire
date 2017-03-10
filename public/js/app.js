@@ -25,7 +25,7 @@
     gapi.load('client:auth2', initClient);
 
     function initClient() {
-    	console.log('Gapi init');
+        console.log('Gapi init');
         gapi.client.init({
             apiKey: apiKey,
             discoveryDocs: discoveryDocs,
@@ -44,14 +44,18 @@
     running.$inject = ['$rootScope', '$location', '$window', '$http'];
 
     function routing($locationProvider, $routeProvider) {
-    	$routeProvider.when('/',{
-    		templateUrl: '/views/feeds.html',
-    		controller: 'apiCtrl'
-    	}).
-    	when('/page3', {
-    		templateUrl: '/views/view.html',
-    		controller: 'singleCtrl'
-    	});
+        $routeProvider.when('/', {
+            templateUrl: '/views/feeds.html',
+            controller: 'apiCtrl'
+        }).
+        when('/page3', {
+            templateUrl: '/views/view.html',
+            controller: 'singleCtrl'
+        }).
+        when('/profile', {
+            templateUrl: '/views/profile.html',
+            controller: 'profileCtrl'
+        });
         if (window.history && window.history.pushState) {
             $locationProvider.html5Mode({
                 enabled: true,
@@ -61,8 +65,7 @@
     }
 
     function running($rootScope, $location, $window) {
-        console.log('hey run');
-        console.log($location.path());
+
         // $rootScope.$on('$routeChangeStart', routeChangeStart);
 
         // function routeChangeStart(event, next, current) {

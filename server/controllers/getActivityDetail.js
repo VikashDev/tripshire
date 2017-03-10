@@ -2,6 +2,7 @@ var Activities=require('../models/activities');
 var ObjectId = require('mongoose').Types.ObjectId;
 module.exports=function (id,callback){
   Activities.findOne({"_id":id}).exec(function(err,search){
+    console.log(search.geo)
     if(err){
         console.log(err);
         return callback(err,null);
