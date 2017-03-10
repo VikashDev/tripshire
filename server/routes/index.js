@@ -115,8 +115,9 @@ exports.init = function(app) {
         console.log(req.isAuthenticated());
         console.log('USer',req.user);
         var user = req.user;
-        console.log(user._id);
-        if(user._id === id){
+        console.log(typeof(user._id), typeof(id));
+        if(user._id.toString() === id){
+            console.log('enter in');
             res.json({
                 'user': req.user,
                 'success': true

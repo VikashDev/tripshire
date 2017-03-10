@@ -1,6 +1,7 @@
 (function() {
     angular.module('apiApp')
         .controller('apiCtrl', function($scope, $http, Activities, $window, $rootScope) {
+            
             $scope.cards = null;
             $scope.activities = new Activities();
             $scope.data = {
@@ -33,8 +34,11 @@
                 $http.post('/v1/api/user', $scope.signup).then(function success(response) {
                     console.log(response);
                     if (response.data.success === true && response.status === 200) {
+                        $window.localStorage.setItem('user', response.data.user._id);
                         $('#signup-modal').modal('hide');
                     }
+                    $window.localStorage.setItem('visible', response.data.success);
+
                 }, function error(err) {
                     console.log(err);
                 });
@@ -45,8 +49,10 @@
                 $http.post('/v1/api/user/login', $scope.signIn).then(function success(response) {
                     // console.log(response);
                     if (response.data.success === true && response.status === 200) {
+                        $window.localStorage.setItem('user', response.data.user._id);
                         $('#login-modal').modal('hide');
                     }
+                    $window.localStorage.setItem('visible', response.data.success);
                 }, function error(err) {
                     console.log(err);
                 });
@@ -77,7 +83,7 @@
                             $http.post('/user/save', $scope.data).then(function success(response) {
                                 // console.log(response);
                                 if (response.data.success === true) {
-                                    $window.localStorage.setItem('user', response.data.user);
+                                    $window.localStorage.setItem('user', response.data.user._id);
                                     $('#signup-modal').modal('hide');
                                 } else {
                                     $window.localStorage.setItem('user', response.data.err);
@@ -104,7 +110,7 @@
                                 console.log($scope.data);
                                 $http.post('/user/save', $scope.data).then(function success(response) {
                                     if (response.data.success === true) {
-                                        $window.localStorage.setItem('user', response.data.user);
+                                        $window.localStorage.setItem('user', response.data.user._id);
                                         $('#signup-modal').modal('hide');
                                     } else {
                                         $window.localStorage.setItem('user', response.data.err);
@@ -140,7 +146,7 @@
                             $http.post('/user/save', $scope.data).then(function success(response) {
                                 if (response.data.success === true) {
                                     // console.log('Inside');
-                                    $window.localStorage.setItem('user', response.data.user);
+                                    $window.localStorage.setItem('user', response.data.user._id);
                                     $('#signup-modal').modal('hide');
                                 } else {
                                     // console.log('Inside false');

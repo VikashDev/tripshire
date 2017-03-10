@@ -556,8 +556,8 @@
                         <li><a href="#" class="current">Add a Card</a></li>
                         <li><a href="#" class="current">Notification</a></li>
                         <li><a href="#" class="current">Messages</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
+                        <li ng-hide={{visible}}><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                        <li ng-hide={{visible}}><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px; background-color: transparent;">
                                 <img class="nav-profile-img" src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" alt="" style="height: 30px;  border-radius: 50%;">

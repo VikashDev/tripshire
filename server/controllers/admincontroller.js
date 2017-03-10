@@ -11,18 +11,29 @@ exports.postAdmin = function(req, res) {
         provider: 'Local'
     });
     console.log(req.body.name);
-    user.save(function(err) {
+    user.save(function(err, result) {
         if (err) {
             return res.json({
                 'status': "false",
                 'error': err
             });
+        } else {
+            console.log("no error");
+            req.logIn(result, function(err) {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).json({
+                        'error': err,
+                        success: false
+                    });
+                }
+            });
+            res.status(200).json({
+                status: 'successfully added',
+                success: true,
+                user: req.user
+            });
         }
-        console.log("no error");
-        res.status(200).json({
-            status: 'successfully added',
-            success: true
-        });
     });
 };
 
@@ -57,7 +68,8 @@ exports.login = function(req, res, next) {
             }
             res.status(200).json({
                 status: 'Login successful!',
-                success: true
+                success: true,
+                user: req.user
             });
         });
     })(req, res, next);
