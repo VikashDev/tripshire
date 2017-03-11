@@ -6,6 +6,7 @@ module.exports=function (id,callback){
         console.log(err);
         return callback(err,null);
     }else{
+      if(search!=null){
     Activities.find({'geo':{$near:search.geo,$maxDistance:(parseFloat(10)/111.12)}},function(error,docs){
     if(error){
       console.log(err);
@@ -38,5 +39,6 @@ module.exports=function (id,callback){
       }
     })
     }
+  }
   })
 }
