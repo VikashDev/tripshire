@@ -2,6 +2,7 @@
     angular.module('apiApp').controller('profileCtrl', function($scope, $http, $window, $routeParams) {
         console.log('Profile Controller');
         var id = $window.localStorage.user;
+        console.log(id);
         $scope.user = undefined;
         $http.get('/user/getById/'+id).then(function success(response){
         	console.log(response);

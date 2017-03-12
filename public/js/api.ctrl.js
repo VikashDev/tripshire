@@ -1,7 +1,7 @@
 (function() {
     angular.module('apiApp')
         .controller('apiCtrl', function($scope, $http, Activities, $window, $rootScope) {
-            
+            var display = document.getElementById('display'); 
             $scope.cards = null;
             $scope.activities = new Activities();
             $scope.data = {
@@ -36,6 +36,13 @@
                     if (response.data.success === true && response.status === 200) {
                         $window.localStorage.setItem('user', response.data.user._id);
                         $('#signup-modal').modal('hide');
+                        $rootScope.allow = false;
+                    } else {
+                        display.style.textAlign = 'center';
+                        display.innerHTML = 'Not able to Signup';
+                        $scope.signup.email = undefined;
+                        $scope.signup.name = undefined;
+                        $scope.signup.password = undefined;
                     }
                     $window.localStorage.setItem('visible', response.data.success);
 
@@ -47,10 +54,16 @@
             $scope.signInCall = function() {
                 // console.log($scope.signIn);
                 $http.post('/v1/api/user/login', $scope.signIn).then(function success(response) {
-                    // console.log(response);
-                    if (response.data.success === true && response.status === 200) {
+                    if (response.status === 401 || response.statusText === 'Unauthorized') {
+                        console.log('Enter');
+                        display.style.textAlign = 'center';
+                        display.innerHTML = 'Not able to SignIn';
+                        $scope.signIn.email = undefined;
+                        $scope.signIn.password = undefined;
+                    } else {
                         $window.localStorage.setItem('user', response.data.user._id);
                         $('#login-modal').modal('hide');
+                        $rootScope.allow = false;
                     }
                     $window.localStorage.setItem('visible', response.data.success);
                 }, function error(err) {
@@ -85,8 +98,10 @@
                                 if (response.data.success === true) {
                                     $window.localStorage.setItem('user', response.data.user._id);
                                     $('#signup-modal').modal('hide');
+                                    $rootScope.allow = false;
                                 } else {
-                                    $window.localStorage.setItem('user', response.data.err);
+                                    display.style.textAlign = 'center';
+                                    display.innerHTML = 'Not able to Login';
                                 }
                                 $window.localStorage.setItem('visible', response.data.success);
                             }, function error(err) {
@@ -112,8 +127,10 @@
                                     if (response.data.success === true) {
                                         $window.localStorage.setItem('user', response.data.user._id);
                                         $('#signup-modal').modal('hide');
+                                        $rootScope.allow = false;
                                     } else {
-                                        $window.localStorage.setItem('user', response.data.err);
+                                        display.style.textAlign = 'center';
+                                        display.innerHTML = 'Not able to Login';
                                     }
                                     $window.localStorage.setItem('visible', response.data.success);
                                 }, function error(err) {
@@ -148,9 +165,10 @@
                                     // console.log('Inside');
                                     $window.localStorage.setItem('user', response.data.user._id);
                                     $('#signup-modal').modal('hide');
+                                    $rootScope.allow = false;
                                 } else {
-                                    // console.log('Inside false');
-                                    $window.localStorage.setItem('user', response.data.err);
+                                    display.style.textAlign = 'center';
+                                    display.innerHTML = 'Not able to Login';
                                 }
                                 $window.localStorage.setItem('visible', response.data.success);
                             }, function error(err) {
@@ -175,8 +193,10 @@
                             if (response.data.success === true) {
                                 $window.localStorage.setItem('user', response.data.user._id);
                                 $('#signup-modal').modal('hide');
+                                $rootScope.allow = false;
                             } else {
-                                $window.localStorage.setItem('user', response.data.err);
+                                display.style.textAlign = 'center';
+                                display.innerHTML = 'Not able to Login';
                             }
                             $window.localStorage.setItem('visible', response.data.success);
                         }, function error(err) {

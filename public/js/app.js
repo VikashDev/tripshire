@@ -55,6 +55,10 @@
         when('/profile', {
             templateUrl: '/views/profile.html',
             controller: 'profileCtrl'
+        }).
+        when('/search/:place', {
+            templateUrl: '/views/search.html',
+            controller: 'searchCtrl'
         });
         if (window.history && window.history.pushState) {
             $locationProvider.html5Mode({
@@ -64,18 +68,21 @@
         }
     }
 
-    function running($rootScope, $location, $window) {
+    function running($rootScope, $location, $window, $http) {
 
-        // $rootScope.$on('$routeChangeStart', routeChangeStart);
+        // $http.get('/v1/api/admin/status').
+        $rootScope.$on('$routeChangeStart', routeChangeStart);
 
-        // function routeChangeStart(event, next, current) {
-        //     console.log('Event');
-        //     $http.get('/user/status').then(function(data){
-        //     	if(data === true) {
-        //     		console.log('user authenticated');
-        //     	}
-        //     });
-
-        // }
+        function routeChangeStart(event, next, current) {
+            console.log('Event');
+            $http.get('/v1/api/admin/status').then(function success(response){
+                console.log(response);
+                $rootScope.allow = response.data.status;
+                console.log($rootScope.allow, response.data.status);
+            }, function error(err){
+                console.log(err);
+                $rootScope.allow = true;
+            });
+        }
     }
 })();

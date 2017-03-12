@@ -547,17 +547,18 @@
                     <form role="search" class="navbar-form navbar-left">
                         <div class="form-group">
                             <div class="icon-addon addon-lg">
-                                <input id="email" type="text" placeholder="Search for a place, activity or attraction" class="form-control"/>
+                                <input id="search" type="text" ng-model="searchText" placeholder="Search for a place, activity or attraction" class="form-control"/>
                                 <label for="email" rel="tooltip" title="email" class="glyphicon glyphicon-search"></label>
                             </div>
                         </div>
+                        <a ng-href="/search/{{searchText}}">Search</a>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#" class="current">Add a Card</a></li>
                         <li><a href="#" class="current">Notification</a></li>
                         <li><a href="#" class="current">Messages</a></li>
-                        <li ng-hide={{visible}}><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                        <li ng-hide={{visible}}><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
+                        <li ng-If="!allow"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                        <li ng-If="!allow"><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px; background-color: transparent;">
                                 <img class="nav-profile-img" src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" alt="" style="height: 30px;  border-radius: 50%;">
@@ -589,6 +590,7 @@
             <script src="/js/api.ctrl.js"></script>
             <script src="/js/single.ctrl.js"></script>
             <script src="/js/profile.ctrl.js"></script>
+            <script src="/js/search.ctrl.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
             <script src="owl_assets/owl.carousel.min.js" rel="javascript"></script>
             

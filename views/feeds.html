@@ -321,29 +321,32 @@
                 <img class="animated swing" src="/images/logo-dark.png"  width="50%" class="img-responsive">
             </div>
             <div ng-hide={{visible}}>
-            <h1>Welcome Back</h1>
-            <h5 class="text-center">Sign into your account here:</h5><br>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <form>
-                        <input type="text" name="user" ng-model="signIn.email" placeholder="Email">
-                        <input type="password" name="pass" ng-model="signIn.password" placeholder="Password">
-                        <div class="login-help pull-right" style="padding: 5px;">
-                            <a href="#" >Forgot Password ?</a>
-                        </div>
-                        <input type="submit" name="login" ng-click="signInCall()" class="login loginmodal-submit" value="Login">
-                    </form>
+                <h1>Welcome Back</h1>
+                <h5 class="text-center">Sign into your account here:</h5><br>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <form>
+                            <input type="text" name="user" ng-model="signIn.email" placeholder="Email">
+                            <input type="password" name="pass" ng-model="signIn.password" placeholder="Password">
+                            <div class="login-help pull-right" style="padding: 5px;">
+                                <a href="#" >Forgot Password ?</a>
+                            </div>
+                            <input type="submit" name="login" ng-click="signInCall()" class="login loginmodal-submit" value="Login">
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="text-center" style="margin-bottom: 15px;">Or continue with</div>
+                <div align="center" class="row">
+                    <a href="#" style="margin-right: 20px;"><img src="/images/google.png" class="img-responsive"></a>
+                    <a href="#"><img src="/images/facebook.png" class="img-responsive"></a>
                     
                 </div>
-            </div>
-            <div class="text-center" style="margin-bottom: 15px;">Or continue with</div>
-            <div align="center" class="row">
-                <a href="#" style="margin-right: 20px;"><img src="/images/google.png" class="img-responsive"></a>
-                <a href="#"><img src="/images/facebook.png" class="img-responsive"></a>
-                
-            </div>
-            <hr>
-            <h4 class="text-center">Don't have an account ?<a href="#" id="signup-modal-popup"> &nbsp; Sign up.</a></h4>
+                <div class="content">
+                    <p id="display"></p>
+                </div>
+                <hr>
+                <h4 class="text-center">Don't have an account ?<a href="#" id="signup-modal-popup"> &nbsp; Sign up.</a></h4>
             </div>
         </div>
     </div>
@@ -356,28 +359,31 @@
                 <img class="animated swing" src="/images/logo-dark.png"  width="50%" class="img-responsive">
             </div>
             <div ng-hide={{visible}}>
-            <h1>Sign up for free !!</h1><br>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <form>
-                        <input type="text" name="username" ng-model="signup.name" placeholder="Your Name">
-                        <input type="text" name="email" ng-model="signup.email" placeholder="Email Id">
-                        <input type="password" name="pass" ng-model="signup.password" placeholder="Password (min 6 characters)">
-                        <input type="submit" name="signup" class="login loginmodal-submit" ng-click="signupCall()" value="Create your free account">
-                    </form>
+                <h1>Sign up for free !!</h1><br>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <form>
+                            <input type="text" name="username" ng-model="signup.name" placeholder="Your Name">
+                            <input type="text" name="email" ng-model="signup.email" placeholder="Email Id">
+                            <input type="password" name="pass" ng-model="signup.password" placeholder="Password (min 6 characters)">
+                            <input type="submit" name="signup" class="login loginmodal-submit" ng-click="signupCall()" value="Create your free account">
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="text-center" style="margin-bottom: 15px;">Or SignUp Using</div>
+                <div align="center" class="row">
+                    <a href="#" style="margin-right: 20px;"><img src="/images/google.png" ng-click="googleCall()" class="img-responsive"></a>
+                    <a href="#"><img src="/images/facebook.png" ng-click="facebookCall()" class="img-responsive"></a>
                     
                 </div>
-            </div>
-            <div class="text-center" style="margin-bottom: 15px;">Or SignUp Using</div>
-            <div align="center" class="row">
-                <a href="#" style="margin-right: 20px;"><img src="/images/google.png" ng-click="googleCall()" class="img-responsive"></a>
-                <a href="#"><img src="/images/facebook.png" ng-click="facebookCall()" class="img-responsive"></a>
+                <div class="content">
+                    <p id="display"></p>
+                </div>
+                <hr>
                 
-            </div>
-            <hr>
-            
-            <p style="color: #19283c;" class="text-center">We understand you agree to our <a href="#">Terms & Condition</a> <a href="#">Privacy Policy</a></p>
-            <h4 class="text-center">Already have an account ?<a href="#"> &nbsp; Sign in.</a></h4>
+                <p style="color: #19283c;" class="text-center">We understand you agree to our <a href="#">Terms & Condition</a> <a href="#">Privacy Policy</a></p>
+                <h4 class="text-center">Already have an account ?<a href="#"> &nbsp; Sign in.</a></h4>
             </div>
         </div>
     </div>

@@ -1,0 +1,463 @@
+<style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+* {
+margin: 0;
+padding: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body {
+background: #2d2c41;
+font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
+}
+.iamgurdeep-pic {
+position: relative;
+}
+.username {
+bottom: 0;
+color: #ffffff;
+padding: 30px 15px 4px;
+position: absolute;
+width: 100%;
+text-shadow: 1px 1px 2px #000000;
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, #2d2c41 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, #2d2c41 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #2d2c41 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a64d4d4d',GradientType=0 ); /* IE6-9 */
+}
+.username > h2 {
+font-family: oswald;
+font-size: 27px;
+font-weight: lighter;
+margin: 31px 0 4px;
+position: relative;
+text-shadow: 1px 1px 2px #000000;
+text-transform: uppercase;
+}
+.username > h2 small {
+color: #ffffff;
+font-family: open sans;
+font-size: 13px;
+font-weight: 400;
+position: relative;
+}
+.username .fa{
+color: #ffffff;
+font-size: 14px;
+margin: 0 0 0 4px;
+position: static;
+}
+.edit-pic a {
+background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+border: 1px solid #ffffff;
+border-radius: 50%;
+color: #ffffff;
+font-size: 21px;
+height: 39px;
+line-height: 38px;
+margin: 8px;
+text-align: center;
+width: 39px;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+text-decoration: none !important;
+display: list-item;
+background-color: rgba(255, 255, 255, 0.1)
+}
+.edit-pic a:hover {
+font-size: 17px;
+opacity: 0.9;
+}
+.edit-pic a:focus {
+background:#747474;
+color: #fff;
+border: 1px solid #747474;
+}
+a:focus {
+outline: none;
+outline-offset: 0px;
+}
+.edit-pic {
+position: absolute;
+right: 0;
+top: 0;
+opacity: 0;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.tags {
+background: #747474;
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 2px;
+display: inline-block;
+font-size: 13px;
+margin: 4px 0 0;
+padding: 2px 5px;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.tags:hover {
+background: rgba(255, 255, 255, 0.3) none repeat scroll 0 0;
+border: 1px solid rgba(255, 255, 255, 0.5);
+border-radius: 2px;
+display: inline-block;
+font-size: 13px;
+margin: 4px 0 0;
+padding: 2px 5px;
+}
+#accordion:hover .edit-pic {
+opacity: unset;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.btn-o {
+float: right;
+background-color: rgba(255, 255, 255, 0.1);
+font-family: open sans;
+font-weight: normal !important;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.btn-o:hover {
+background-color: rgba(255, 255, 255, 0.4);
+color: #fff !important;
+}
+.btn-o:focus {
+background:#b63b4d;
+color: #fff;
+border: 1px solid #b63b4d;
+}
+.submenu .iamgurdeeposahan {
+background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0 !important;
+border-radius: 50%;
+height: 60px;
+padding: 2px;
+width: 60px;
+}
+.photosgurdeep > a {
+background: #ffffff none repeat scroll 0 0;
+border-radius: 50%;
+display: inline-block !important;
+padding: 0 !important;
+}
+.view-all {
+background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0 !important;
+border: 1px solid;
+float: right;
+font-family: oswald;
+font-size: 26px;
+height: 60px;
+line-height: 61px;
+text-align: center;
+width: 60px;
+}
+.photosgurdeep {
+padding: 10px 9px 4px 35px;
+}
+ul {
+list-style-type: none;
+}
+a {
+color: #b63b4d;
+text-decoration: none;
+}
+/** =======================
+* Contenedor Principal
+===========================*/
+h1 {
+color: #FFF;
+font-size: 24px;
+font-weight: 400;
+text-align: center;
+margin-top: 40px;
+}
+h1 a {
+color: #c12c42;
+font-size: 16px;
+}
+.accordion {
+width: 100%;
+max-width: 360px;
+margin: 30px auto 20px;
+background: #FFF;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+.accordion .link {
+cursor: pointer;
+display: block;
+padding: 15px 10px 15px 10px;
+color: #4D4D4D;
+font-size: 14px;
+font-weight: 700;
+
+position: relative;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.accordion li:last-child .link {
+border-bottom: 0;
+}
+.accordion li i {
+position: absolute;
+top: 16px;
+left: 12px;
+font-size: 18px;
+color: #595959;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.accordion li i.fa-chevron-down {
+right: 12px;
+left: auto;
+font-size: 16px;
+}
+.accordion li.open i.fa-chevron-down {
+-webkit-transform: rotate(180deg);
+-ms-transform: rotate(180deg);
+-o-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+.accordion li.default .submenu {display: block;}
+/**
+* Submenu
+-----------------------------*/
+.submenu {
+display: none;
+
+font-size: 14px;
+}
+.submenu a {
+display: block;
+text-decoration: none;
+color: #000;
+padding: 10px;
+
+-webkit-transition: all 0.25s ease;
+-o-transition: all 0.25s ease;
+transition: all 0.25s ease;
+}
+.submenu a:hover {
+background: #fff;
+color: #FFF;
+}
+.nav.navbar-nav .dropdown-toggle {
+padding: 0 !important;
+}
+.dropdown-toggle span {
+background: rgba(255, 255, 255, 0.1) none repeat scroll 0 0;
+border: 1px solid rgba(255, 255, 255, 0.5);
+border-radius: 50px;
+font-size: 23px !important;
+height: 38px;
+line-height: 40px;
+margin: 0 !important;
+padding: 0 !important;
+text-align: center;
+width: 38px;
+text-shadow:none !important;
+}
+.nav.navbar-nav {
+bottom: 10px;
+position: absolute;
+right: 12px;
+transition: all 0.4s ease 0s;
+}
+.navbar-nav > li > .dropdown-menu {
+border-radius: 2px !important;
+margin-top: 10px;
+min-width: 101px;
+padding: 0;
+}
+.navbar-nav > li > .dropdown-menu li a {
+color: #333333 !important;
+font-size: 13px !important;
+font-weight: 600 !important;
+padding: 2px 8px !important;
+text-align: right !important;
+text-shadow:none !important;
+}
+.dropdown-toggle {
+background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+font-size: 15px !important;
+}
+.dropdown {
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.dropdown-menu>li>a {
+color:#428bca;
+-webkit-transition: all 0.4s ease;
+-o-transition: all 0.4s ease;
+transition: all 0.4s ease;
+}
+.dropdown ul.dropdown-menu {
+border-radius:4px;
+box-shadow:none;
+}
+.dropdown ul.dropdown-menu:before {
+content: "";
+border-bottom: 10px solid #fff;
+border-right: 10px solid transparent;
+border-left: 10px solid transparent;
+position: absolute;
+top: -8px;
+right: 8px;
+z-index: 10;
+}
+.thumbs-up ul li {
+list-style-type: none;
+float: left;
+padding: 5px;
+}
+.thumbs-up ul li a i {
+background: #205D7A;
+color: #fff;
+width: 40px;
+height: 40px;
+border-radius: 20px;
+font-size: 25px;
+text-align: center;
+margin-right: 10px;
+padding-top: 15%;
+transition: all 0.2s ease-in-out;
+}
+.thumbs-up ul li a i:hover {
+opacity: .7;
+}
+.p-link {
+padding: 10px;
+}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            
+            
+            
+            <!-- Contenedor -->
+            <ul id="accordion" class="accordion">
+                <li><div class="link">Mount Galunggung</div></li>
+                <li>
+                    <div class="col col_4 iamgurdeep-pic">
+                        <img class="img-responsive iamgurdeeposahan" alt="iamgurdeeposahan" src="https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale,f_auto,q_auto/v1484327534/dieng_plateau_w02me6.png">
+                    </div>
+                    
+                </li>
+                <li>
+                    <div class="p-link">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.</div>
+                    
+                </li>
+                <li class="default open">
+                    <ul class="submenu">
+                        <li><a href="#"><span class="tags">#Nature</span> <span class="tags">#Mountain</span> <span class="tags">#volcano</span></a></li>
+                    </ul>
+                </li>
+                <li class="default open">
+                    <ul class="submenu">
+                        <li>
+                            <div class="row thumbs-up" style="margin-right: 0px; margin-left: 0px;">
+                                <ul >
+                                    <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive"  /></a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" /></a></li>
+                                    <li class="pull-right" style="border-bottom-width: 0px; margin-top: 10px;"><a href="#"><span class="glyphicon glyphicon-share-alt " aria-hidden="true"></span></a></li>
+                                </ul>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            
+            
+            
+            <!-- Contenedor -->
+            <ul id="accordion" class="accordion">
+                <li><div class="link">Mount Galunggung</div></li>
+                <li>
+                    <div class="col col_4 iamgurdeep-pic">
+                        <img class="img-responsive iamgurdeeposahan" alt="iamgurdeeposahan" src="https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale,f_auto,q_auto/v1484327534/dieng_plateau_w02me6.png">
+                    </div>
+                    
+                </li>
+                <li>
+                    <div class="p-link">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.</div>
+                    
+                </li>
+                <li class="default open">
+                    <ul class="submenu">
+                        <li><a href="#"><span class="tags">#Nature</span> <span class="tags">#Mountain</span> <span class="tags">#volcano</span></a></li>
+                    </ul>
+                </li>
+                <li class="default open">
+                    <ul class="submenu">
+                        <li>
+                            <div class="row thumbs-up" style="margin-right: 0px; margin-left: 0px;">
+                                <ul >
+                                    <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive"  /></a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" /></a></li>
+                                    <li class="pull-right" style="border-bottom-width: 0px; margin-top: 10px;"><a href="#"><span class="glyphicon glyphicon-share-alt " aria-hidden="true"></span></a></li>
+                                </ul>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="col-md-4 col-xs-12">
+            
+            
+            
+            <!-- Contenedor -->
+            <ul id="accordion" class="accordion">
+                <li><div class="link">Mount Galunggung</div></li>
+                <li>
+                    <div class="col col_4 iamgurdeep-pic">
+                        <img class="img-responsive iamgurdeeposahan" alt="iamgurdeeposahan" src="https://res.cloudinary.com/tripshire-solutions-pvt-ltd/image/upload/c_scale,f_auto,q_auto/v1484327534/dieng_plateau_w02me6.png">
+                    </div>
+                    
+                </li>
+                <li>
+                    <div class="p-link">Television: Miraculous Melissa McCarthy ⬆ Miraculous(@officialmiraculousladybug) jumps three spots to No. 3 in anticipation of its Netflix rerelease. ☆ Saturday Night Livecame back at No. 13 after Melissa McCarthy killed that Sean Spicer impression.</div>
+                    
+                </li>
+                <li class="default open">
+                    <ul class="submenu">
+                        <li><a href="#"><span class="tags">#Nature</span> <span class="tags">#Mountain</span> <span class="tags">#volcano</span></a></li>
+                    </ul>
+                </li>
+                <li class="default open">
+                    <ul class="submenu">
+                        <li>
+                            <div class="row thumbs-up" style="margin-right: 0px; margin-left: 0px;">
+                                <ul >
+                                    <li><a href="#"><img src="/images/thumbs_up.png" class="img-responsive"  /></a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal"><img src="/images/forum.png" class="img-responsive" /></a></li>
+                                    <li class="pull-right" style="border-bottom-width: 0px; margin-top: 10px;"><a href="#"><span class="glyphicon glyphicon-share-alt " aria-hidden="true"></span></a></li>
+                                </ul>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
