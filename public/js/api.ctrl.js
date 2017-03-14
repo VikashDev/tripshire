@@ -36,7 +36,8 @@
                     if (response.data.success === true && response.status === 200) {
                         $window.localStorage.setItem('user', response.data.user._id);
                         $('#signup-modal').modal('hide');
-                        $rootScope.allow = false;
+                        // $rootScope.allow = false;
+                        $window.location.href = '/';
                     } else {
                         display.style.textAlign = 'center';
                         display.innerHTML = 'Not able to Signup';
@@ -63,7 +64,8 @@
                     } else {
                         $window.localStorage.setItem('user', response.data.user._id);
                         $('#login-modal').modal('hide');
-                        $rootScope.allow = false;
+                        // $rootScope.allow = false;
+                        $window.location.href = '/';
                     }
                     $window.localStorage.setItem('visible', response.data.success);
                 }, function error(err) {
@@ -98,7 +100,8 @@
                                 if (response.data.success === true) {
                                     $window.localStorage.setItem('user', response.data.user._id);
                                     $('#signup-modal').modal('hide');
-                                    $rootScope.allow = false;
+                                    $window.location.href = '/';
+                                    // $rootScope.allow = false;
                                 } else {
                                     display.style.textAlign = 'center';
                                     display.innerHTML = 'Not able to Login';
@@ -127,7 +130,8 @@
                                     if (response.data.success === true) {
                                         $window.localStorage.setItem('user', response.data.user._id);
                                         $('#signup-modal').modal('hide');
-                                        $rootScope.allow = false;
+                                        $window.location.href = '/';
+                                        // $rootScope.allow = false;
                                     } else {
                                         display.style.textAlign = 'center';
                                         display.innerHTML = 'Not able to Login';
@@ -165,7 +169,8 @@
                                     // console.log('Inside');
                                     $window.localStorage.setItem('user', response.data.user._id);
                                     $('#signup-modal').modal('hide');
-                                    $rootScope.allow = false;
+                                    $window.location.href = '/';
+                                    
                                 } else {
                                     display.style.textAlign = 'center';
                                     display.innerHTML = 'Not able to Login';
@@ -193,7 +198,8 @@
                             if (response.data.success === true) {
                                 $window.localStorage.setItem('user', response.data.user._id);
                                 $('#signup-modal').modal('hide');
-                                $rootScope.allow = false;
+                                // $rootScope.allow = false;
+                                $window.location.href = '/';
                             } else {
                                 display.style.textAlign = 'center';
                                 display.innerHTML = 'Not able to Login';
