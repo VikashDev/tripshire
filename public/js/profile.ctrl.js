@@ -9,6 +9,12 @@
         	$scope.user = response.data.user;
         	$scope.followers = $scope.user.followers.length;
         	$scope.following = $scope.user.following.length;
+            if($scope.user.profilePic === null || $scope.user.profilePic === undefined || $scope.user.profilePic === '' ){
+                console.log('Hi Pic');
+                $scope.picUrl = false;
+            }else{
+                $scope.picUrl = true;
+            }
         }, function error(err){
         	console.log(err);
         });

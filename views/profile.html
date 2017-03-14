@@ -63,14 +63,16 @@ color: #000;
                 <div class="col-md-3  hidden-sm hidden-xs" style="top: -200px;">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 profile-small">
-                            <img src="/images/pro.jpg" class="img-thumbnail img-responsive" width="200px" height="200px">
-                            <h3>Vikash kumar</h3>
+                            <img ng-show="picUrl" ng-src="{{user.profilePic}}" class="img-thumbnail img-responsive" width="200px" height="200px">
+                            <img ng-hide="picUrl" src="/images/defaultUser.png" class="img-thumbnail img-responsive" width="200px" height="200px">
+                            
+                            <h3>{{user.name}}</h3>
                             <p>New Delhi, India</p>
                             <ul class="nav nav-pills nav-stacked profile-pills" >
                                 
                                 <li><a href="#">Following {{followers}}</a></li>
                                 <li><a href="#">Followers {{following}}</a></li>
-                                <li><a href="#">Up Votes 32</a></li>
+                                <li><a href="#">Up Votes {{user.votes.up}}</a></li>
                                 
                             </ul>
                         </div>

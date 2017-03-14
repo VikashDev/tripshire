@@ -53,6 +53,7 @@ exports.init = function(app) {
         user.oauthID = req.body.oauthId;
         user.accessToken = req.body.accessToken;
         user.provider = req.body.provider;
+        user.profilePic = req.body.profilePic;
 
         user.save(function(err, result) {
             if (err) {

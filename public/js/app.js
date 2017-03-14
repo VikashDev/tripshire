@@ -79,7 +79,7 @@
         function routeChangeStart(event, next, current) {
             console.log('Event');
             $http.get('/v1/api/admin/status').then(function success(response){
-                console.log(response);
+                // console.log(response);
                 $rootScope.allow = response.data.status;
                 console.log($rootScope.allow, response.data.status);
             }, function error(err){

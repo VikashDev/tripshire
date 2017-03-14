@@ -50,7 +50,7 @@ var UserSchema = new Schema({
         type: [String]
     },
     profilePic: {
-        type: [Buffer]
+        type: String
     },
     coverPic: {
         type: [Buffer]

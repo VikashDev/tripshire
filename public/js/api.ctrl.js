@@ -1,7 +1,7 @@
 (function() {
     angular.module('apiApp')
         .controller('apiCtrl', function($scope, $http, Activities, $window, $rootScope) {
-            var display = document.getElementById('display'); 
+            var display = document.getElementById('display');
             $scope.cards = null;
             $scope.activities = new Activities();
             $scope.data = {
@@ -9,7 +9,8 @@
                 email: undefined,
                 provider: undefined,
                 oauthId: undefined,
-                accessToken: undefined
+                accessToken: undefined,
+                profilePic: undefined
             };
             $scope.signup = {
                 email: undefined,
@@ -94,6 +95,7 @@
                             $scope.data.name = response.name;
                             $scope.data.provider = 'facebook';
                             $scope.data.accessToken = FB.getAuthResponse().accessToken;
+                            $scope.data.profilePic = response.picture.data.url;
                             console.log($scope.data);
                             $http.post('/user/save', $scope.data).then(function success(response) {
                                 // console.log(response);
@@ -125,6 +127,7 @@
                                 $scope.data.name = response.name;
                                 $scope.data.provider = 'facebook';
                                 $scope.data.accessToken = FB.getAuthResponse().accessToken;
+                                $scope.data.profilePic = response.picture.data.url;
                                 console.log($scope.data);
                                 $http.post('/user/save', $scope.data).then(function success(response) {
                                     if (response.data.success === true) {
@@ -162,6 +165,7 @@
                             $scope.data.provider = 'Google';
                             $scope.data.oauthId = resp.result.metadata.sources[0].id;
                             $scope.data.accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+                            $scope.data.profilePic = resp.result.photos[0].url;
                             // console.log(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token);
                             // console.log($scope.data);
                             $http.post('/user/save', $scope.data).then(function success(response) {
@@ -170,7 +174,7 @@
                                     $window.localStorage.setItem('user', response.data.user._id);
                                     $('#signup-modal').modal('hide');
                                     $window.location.href = '/';
-                                    
+
                                 } else {
                                     display.style.textAlign = 'center';
                                     display.innerHTML = 'Not able to Login';
@@ -191,6 +195,7 @@
                         $scope.data.provider = 'Google';
                         $scope.data.oauthId = resp.result.metadata.sources[0].id;
                         $scope.data.accessToken = gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token;
+                        $scope.data.profilePic = resp.result.photos[0].url;
                         // console.log(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token);
                         // console.log($scope.data);
                         $http.post('/user/save', $scope.data).then(function success(response) {
