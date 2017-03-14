@@ -561,10 +561,12 @@
                         <li ng-If="!allow"><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
                         <li class="dropdown" ng-If="allow">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px; background-color: transparent;">
-                                <img class="nav-profile-img" src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" alt="" style="height: 30px;  border-radius: 50%;">
+                                <img ng-show="pic" class="nav-profile-img" ng-src="{{picUrl}}" alt="" style="height: 30px;  border-radius: 50%;">
+                                <img ng-hide="pic" class="nav-profile-img" src="/images/defaultUser.png" alt="" style="height: 30px;  border-radius: 50%;">
+                                
                                 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a ng-href="/#!/profile">Zenith Kerri</a></li>
+                                    <li><a ng-href="/#!/profile">{{name}}</a></li>
                                     <li><a href="#">My Bookmarks</a></li>
                                     <li><a href="#">Setting & Privacy</a></li>
                                     <li><a ng-href="/#!/help">Help</a></li>

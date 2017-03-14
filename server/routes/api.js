@@ -64,7 +64,9 @@ router.get('/admin/status', function(req, res) {
         });
     }
     res.status(200).json({
-        status: true
+        status: true,
+        pic: req.user.profilePic,
+        name: req.user.name
     });
 });
 
