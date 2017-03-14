@@ -1,4 +1,4 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     uglify = require('gulp-uglify'),
     cleanCSS = require('gulp-clean-css'),
@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     webpack = require('webpack'),
     path = require('path');
 
-var pathFiles = {
+const pathFiles = {
     jsFiles: ['./public/js/**/*.js'],
     cssFiles: ['./public/css/*.css']
 };

@@ -59,6 +59,9 @@
         when('/search/:place', {
             templateUrl: '/views/search.html',
             controller: 'searchCtrl'
+        }).
+        when('/help', {
+            templateUrl: '/views/help_center.html'
         });
         if (window.history && window.history.pushState) {
             $locationProvider.html5Mode({

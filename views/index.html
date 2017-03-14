@@ -540,7 +540,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    </button><a href="#" class="navbar-brand" style="margin-top: -10px;"><img src="/images/web-logo.png" style="height: 200%;"></a>
+                    </button><a ng-href="/" class="navbar-brand" style="margin-top: -10px;"><img src="/images/web-logo.png" style="height: 200%;"></a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling-->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -559,7 +559,7 @@
                         <li><a href="#" class="current">Messages</a></li>
                         <li ng-If="!allow"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
                         <li ng-If="!allow"><a href="#" data-toggle="modal" data-target="#signup-modal">Signup</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown" ng-If="allow">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="height:50px; background-color: transparent;">
                                 <img class="nav-profile-img" src="https://ca.slack-edge.com/T2U9L6TPY-U2U9WRGP9-84396f90b735-512" alt="" style="height: 30px;  border-radius: 50%;">
                                 <span class="caret"></span></a>
@@ -567,7 +567,7 @@
                                     <li><a ng-href="/#!/profile">Zenith Kerri</a></li>
                                     <li><a href="#">My Bookmarks</a></li>
                                     <li><a href="#">Setting & Privacy</a></li>
-                                    <li><a href="#">Help</a></li>
+                                    <li><a ng-href="/#!/help">Help</a></li>
                                     <li><a href="#">Logout</a></li>
                                 </ul>
                             </li>
