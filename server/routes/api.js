@@ -417,6 +417,7 @@ router.route('/activities/:id').get(function(req, res) {
 });
 router.route('/activities/filter/:filter').get(function(req, res) {
     filter = req.params.filter;
+    console.log(filter);
     switch (filter) {
         case "duration":
             min = req.query.min;
@@ -521,7 +522,7 @@ router.route('/activities/filter/:filter').get(function(req, res) {
                         'error': "no nearby activities found"
                     });
                 }
-
+                console.log(result);
                 lat = result[0]['latitude']
                 longi = result[0]['longitude']
                 max_distance = req.query['distance']

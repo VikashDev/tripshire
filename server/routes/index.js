@@ -1,19 +1,19 @@
-var mongoose = require('mongoose');
-var fs = require("fs");
-var multer = require("multer");
-var user;
-var upload = multer({
+const mongoose = require('mongoose');
+const fs = require("fs");
+const multer = require("multer");
+const user;
+const upload = multer({
     dest: "./uploads"
 }).single('file');
-var Grid = require("gridfs-stream");
-var adminController = require('../controllers/admincontroller');
-var User = require('../models/user.js');
-var config = require("../../config/config_temp.js");
-var passport = require('passport');
-var path = require('path');
-var filter = require("../controllers/filter");
-var search = require("../controllers/search");
-var activity_detail = require("../controllers/getActivityDetail")
+const Grid = require("gridfs-stream");
+const adminController = require('../controllers/admincontroller');
+const User = require('../models/user.js');
+const config = require("../../config/config_file.js");
+const passport = require('passport');
+const path = require('path');
+const filter = require("../controllers/filter");
+const search = require("../controllers/search");
+const activity_detail = require("../controllers/getActivityDetail")
 conn = mongoose.connection
 var gfs;
 Grid.mongo = mongoose.mongo;
@@ -21,22 +21,6 @@ conn.once("open", function() {
     gfs = Grid(conn.db);
 });
 
-var shuffle = function(array) {
-    var currentIndex = array.length,
-        temporaryValue, randomIndex;
-    console.log(array.length);
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        // console.log(array[randomIndex].sub_cat[0].content);
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-    return array;
-};
 exports.init = function(app) {
     app.get('/oldPage', function(req, res, next) {
 

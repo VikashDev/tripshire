@@ -1,5 +1,5 @@
 //dependencies
-var express = require('express');
+const express = require('express');
 path = require('path');
 favicon = require('serve-favicon');
 logger = require('morgan');
@@ -15,18 +15,18 @@ routes = require('./server/routes');
 config = require('./config');
 compression = require('compression');
 suggest = require('./server/routes/suggestEditroute.js');
-var crypto = require('crypto');
+const crypto = require('crypto');
 
-var generate_key = function() {
+const generate_key = function() {
     var sha = crypto.createHash('sha256');
     sha.update(Math.random().toString());
     return sha.digest('hex');
 };
 //variable
 // mongodb://james:james@ds139278.mlab.com:39278/tripshire
-var mlab_url = "mongodb://tripshire:tripshire@ds157248.mlab.com:57248/tripshire";
+const mlab_url = "mongodb://tripshire:tripshire@ds157248.mlab.com:57248/tripshire";
 port = process.env.PORT || 2000;
-var app = express();
+const app = express();
 
 app.use(bodyParser.urlencoded({
     extended: true
